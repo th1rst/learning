@@ -1,0 +1,1 @@
+This is my first attempt to set up Git and document my progress of learning HTML, CSS and JavaScript.
