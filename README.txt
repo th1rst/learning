@@ -1,1 +1,3 @@
-This is my first attempt to set up Git and document the progress of learning HTML, CSS and JavaScript.
+Welcome to my small selection of training files.
+
+I'm learning to code HTML, CSS and vanilla JS and set up a chronolical order of small training exercises following the CodeCademy guidelines.
