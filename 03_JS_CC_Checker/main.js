@@ -25,7 +25,38 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // Add your functions below:
 
+const validateCred = (arr) => {
+    let checkDigit = arr[arr.length - 1]
+    let sum = 0;
 
+    for (let i = arr.length - 1; i >= 0; i--) {         //iterate through array
+     if ((i % 2) != 0) {                                //  check no. 1, 3, 5, 7 etc.
+        sum += arr[i]                                   //    -> add raw numbers to sum
+     } else if ((i % 2) == 0) {                         //  check no. 2, 4, 6, 8 etc
+          if ((arr[i] * 2) > 9) {                       //    ->check if the doubled digit is greater than nine
+            sum += ((arr[i] * 2) - 9)                   //        if yes, subtract 9 from doubled, add to sum
+        } else if ((arr[i] * 2) <= 9) {                 //          if not greater than nine
+            sum += arr[i] * 2                           //       take raw number * 2, add to sum
+        }
+      } 
+    }
+    
+     if (sum % 10 === 0) {                               //check validity of CC number
+          console.log("Valid!")
+          return true;
+        } else {
+          console.log("Invalid!")
+          return false;
+        } 
+}
+
+const findValidCards = (batchArr) => {
+  for (i = 0; i < batchArr.length; i++) {
+    validateCred(batchArr[i]);
+  }
+}
+
+findValidCards(batch)
 
 
 
