@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS + CSS Clock</title>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+
+    <style>
+      html {
+        background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+        background-size: cover;
+        font-family: "helvetica neue";
+        text-align: center;
+        font-size: 10px;
+      }
+
+      body {
+        margin: 0;
+        font-size: 2rem;
+        display: flex;
+        flex: 1;
+        min-height: 100vh;
+        align-items: center;
+      }
+
+      .clock {
+        width: 30rem;
+        height: 30rem;
+        border: 20px solid white;
+        border-radius: 50%;
+        margin: 50px auto;
+        position: relative;
+        padding: 2rem;
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+          inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .clock-face {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-3px);
+      }
+
+      .hand {
+        width: 50%;
+        height: 6px;
+        background: black;
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+      }
+    </style>
+
+    <script>
+
+      // select the hands of the clock
+      const secondsHand = document.querySelector(".second-hand");
+      const minutesHand = document.querySelector(".min-hand");
+      const hoursHand = document.querySelector(".hour-hand");
+
+
+      function updateClockface() {
+
+        // get current time: hours, minutes and seconds
+        let theTime = new Date();
+
+        let hours = Math.floor(theTime.getHours() % 12); //convert to 12-hour format since it's an analog clock
+        let minutes = theTime.getMinutes();
+        let seconds = theTime.getSeconds();
+
+        secondsHand.style.transform = "rotate(" + (seconds * 6 + 90) + "deg)";
+        minutesHand.style.transform = "rotate(" + (minutes * 6 + 90) + "deg)"; //the starting position of all hands was 9 o'clock, so every hand needs to have +90deg added to them in order to start at 12 o'clock
+        hoursHand.style.transform = "rotate(" + (hours * 30 + 90) + "deg)";
+      }
+
+      setInterval(updateClockface, 1000);
+      updateClockface();
+      
+    </script>
+  </body>
+</html>
