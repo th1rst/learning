@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS and JS</title>
+  </head>
+  <body>
+    <h2>Update CSS with <span class="hl">JS</span></h2>
+
+    <div class="controls">
+      <label for="spacing">Spacing:</label>
+      <input id="spacing" type="range" name="spacing" min="1" max="200" value="10" data-sizing="px" oninput="updateBorderThickness(this.value)"/>
+
+      <label for="blur">Blur:</label>
+      <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px" oninput="updateBlurValue(this.value)"/>
+
+      <label for="base">Base Color</label>
+      <input id="base" type="color" name="base" value="#ffc600" oninput="updateBorderColor(this.value)"/>
+    </div>
+
+    <img class="img" src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
+
+    <style>
+      .img {
+        filter: var(--blur);
+        padding: var(--padding);
+        border: var(--color);
+      }
+
+      body {
+        text-align: center;
+        background: #193549;
+        color: white;
+        font-family: "helvetica neue", sans-serif;
+        font-weight: 100;
+        font-size: 50px;
+      }
+
+      .controls {
+        margin-bottom: 50px;
+      }
+
+      input {
+        width: 100px;
+      }
+    </style>
+
+    <script>
+      //update border color of the "frame"
+      const updateBorderColor = (val) => {
+        document.querySelector(".img").style.border = `2px solid ${val}`;
+      };
+
+      updateBorderColor(document.querySelector("#base").value);               //initialize default border color on page load
+
+
+      //update the thickness of the border
+      const updateBorderThickness = (val) => {
+        let spacingVal = document.querySelector("#spacing").value;                // get the current value of the slider
+        let borderColor = document.querySelector("#base").value;                  // get the currently selected border color
+
+        document.querySelector(".img").style.border = `${spacingVal}px solid ${borderColor}`;
+      };
+
+
+      //update the blur
+      const updateBlurValue = (val) => {
+        document.querySelector(".img").style.filter = `blur(${val}px)`;
+      };
+    </script>
+  </body>
+</html>
