@@ -128,7 +128,7 @@ function isChecked(input) {
     isInBetween();
 }}
 
-function removeElement(array, elem) {
+function removeElement(array, elem) {                              // helper function to remove element from array
     let index = array.indexOf(elem);
     if (index > -1) {
         array.splice(index, 1);
@@ -138,15 +138,25 @@ function removeElement(array, elem) {
 
 
 function isInBetween() {
-  let checkedFirst = Math.min(...checkedArray)
-  let checkedLast = Math.max(...checkedArray)
+  var checkedFirst = Math.min(...checkedArray)
+  var checkedLast = Math.max(...checkedArray)
   console.log(`first checked is ${checkedFirst}`)
   console.log(`last checked is ${checkedLast}`)
+  
 
-
+  //wenn shiftkey gehalten wird, dann 2
 
 }
 
+
+
+function markAll(e) {
+  if (checkedArray != [] && e.shiftKey) {
+    console.log("Success!!")
+  }
+}
+
+items.forEach(element => element.addEventListener('click', markAll));
 
 </script>
 </body>
