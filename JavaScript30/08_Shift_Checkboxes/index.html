@@ -96,68 +96,25 @@
   </div>
 
 <script>
-const items = document.querySelectorAll('.inbox input[type="checkbox"]')
-items.forEach(element => element.addEventListener("change", isChecked));
+const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+let lastChecked;                                                    // declare lastChecked variable
 
-const howManyBoxesArray = [];                                       // check how many boxes there are so it can be modular (expanded) to X number of checkboxes
-items.forEach(element => howManyBoxesArray.push(element))          
-
-function appendIds(){                                               // give each checkbox a unique ID
-  for (let i = 0; i < howManyBoxesArray.length; i++) {            
-    howManyBoxesArray[i].setAttribute("id", `checkbox${i+1}`)       //i+1 in order to have more "human" numbers (not 0 to X but 1 to X)
+function handleCheck(e) {                         
+  let between = false;                                                  
+  if (e.shiftKey && this.checked) {                                 // check if shift key is pushed and that the checkbox is checked
+    checkboxes.forEach(checkbox => {                                // loop over checkboxes
+      if (checkbox == this || checkbox == lastChecked) {
+          between = !between;
+      }
+      if (between) {
+         checkbox.checked = true;
+      }
+    });
   }
+
+  lastChecked = this;
 }
-appendIds()
-
-
-const checkedArray = [];
-                   
-
-function isChecked(input) {
-  let str = input.target.id;                                        // get string of checkbox
-  let checkboxNumber = parseInt(str.slice(-1))                      // get last part of string (i.e. "9" of "#checkbox9") and convert to number
-  
-  if (input.target.checked) {
-    if (!checkedArray.includes(checkboxNumber)) {                  // check if checkbox no. X is already in checkedArray
-        checkedArray.push(checkboxNumber)                          // if not in checkedArray, push number of checkbox into checkedArray
-       }
-    checkedArray.sort()                                            // sort array (i.e. 1 to 9)
-    isInBetween();
-  } else if (!input.target.checked){                               // if checkbox is unchecked
-    removeElement(checkedArray, checkboxNumber)                    // call "removeElement" function to remove that checkbox number from checkedArray
-    isInBetween();
-}}
-
-function removeElement(array, elem) {                              // helper function to remove element from array
-    let index = array.indexOf(elem);
-    if (index > -1) {
-        array.splice(index, 1);
-    }
-}
-
-
-
-function isInBetween() {
-  var checkedFirst = Math.min(...checkedArray)
-  var checkedLast = Math.max(...checkedArray)
-  console.log(`first checked is ${checkedFirst}`)
-  console.log(`last checked is ${checkedLast}`)
-  
-
-  //wenn shiftkey gehalten wird, dann 2
-
-}
-
-
-
-function markAll(e) {
-  if (checkedArray != [] && e.shiftKey) {
-    console.log("Success!!")
-  }
-}
-
-items.forEach(element => element.addEventListener('click', markAll));
-
+checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
 </script>
 </body>
 </html>
