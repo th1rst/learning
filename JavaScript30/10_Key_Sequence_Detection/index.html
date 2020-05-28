@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+const pressedKeysArray = [];
+const secretWord = "th1rst";
+
+document.addEventListener("keydown", (e) => {
+  pressedKeysArray.push(e.key)                                                                            //push pressed keys into array
+  pressedKeysArray.splice(-secretWord.length - 1, pressedKeysArray.length - secretWord.length)            //make array equal to the length of the secret word
+  
+  if (pressedKeysArray.join("") === secretWord) {                                                         //check if pressed keys are the secret code ? alert some msg.
+    window.alert("You found the secret code!")
+  }
+})
+</script>
+</body>
+</html>
