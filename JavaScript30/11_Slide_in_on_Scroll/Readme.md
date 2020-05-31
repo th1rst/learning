@@ -1,0 +1,1 @@
+The HTML and CSS were done by Wes Bos of Javascript30, I did the JS with help of his video tutorial.
