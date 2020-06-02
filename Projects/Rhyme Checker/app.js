@@ -23,7 +23,8 @@ function getServerResponse() {
   let stringToSend = `${url}${input.value}`;
 
   fetch(`${stringToSend}`)
-    .then((response) => {
+    .then(
+      (response) => {
         if (response.ok) {
           return response.json();
         }
@@ -39,10 +40,11 @@ function getServerResponse() {
         output.innerHTML += element.word + "\n"; // render Response to innerHTML of textarea
       });
     });
-    cleanOutput();
+  cleanOutput();
 }
 
-function cleanOutput() {         //clean the textarea
+function cleanOutput() {
+  //clean the textarea
   if (output.innerHTML != "") {
     output.innerHTML = "";
   }
