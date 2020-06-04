@@ -1,0 +1,1 @@
+The CSS and HTML were provided by Wes Bos of Javascript 30. As there was no way for me to write something like this at this time, my Code is a write-along with Wes Bos' video Tutorial.
