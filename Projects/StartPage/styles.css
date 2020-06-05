@@ -1,0 +1,179 @@
+.background-img {
+    background-image: url("https://images.pexels.com/photos/37728/pexels-photo-37728.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    display: block;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 50%;
+  }
+  
+.flex-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+}
+
+.ddg-logo {
+  margin-right: 7px;
+}
+
+.search-button {
+  background-color: inherit;
+}
+
+.hide-border {
+  border: 0;
+}
+
+.hide-button {
+  background-color: inherit;
+}
+
+.grid-stack-item {
+  border: 3px solid lightgrey;
+  border-radius: 5px;
+}
+
+.navItems {
+  color: rgb(61, 58, 58);
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar .dropdown-menu {
+  background-color: inherit;
+  border: none;
+}
+
+.sidenav {
+  height: 100%; 
+  width: 160px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: grey;
+  overflow-x: hidden;
+  padding-top: 15px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background: rgba(77, 76, 76, 0.8);
+}
+
+.sidenav-element {
+  padding: 2px 0px;
+  border: none;
+}
+
+.sidenav i {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.sidenav p {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.button-flex-container {
+  display: none;
+  justify-content: space-evenly;
+  height: 30px;
+}
+
+.sidenav-add-button {
+  display: none;
+  position: relative;
+  justify-content: space-evenly;
+  z-index: 1;
+  background-color: inherit;
+  color: white;
+  font-size: 0.8em;
+  padding: 4px 5px;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidenav-add-button:hover {
+  color: #95cff5;
+  box-shadow: 0 0 3px #95cff5;
+  text-shadow: 0 0 3px #95cff5;
+  cursor: pointer;
+}
+
+.sidenav-remove-button {
+  display: block;
+  position: relative;
+  justify-content: space-evenly;
+  z-index: 1;
+  background-color: inherit;
+  color: white;
+  font-size: 0.8em;
+  padding: 4px 5px;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidenav-remove-button:hover {
+  color: #95cff5;
+  box-shadow: 0 0 3px #95cff5;
+  text-shadow: 0 0 3px #95cff5;
+  cursor: pointer;
+}
+
+.sidenav-settings-button {
+  display: block;
+  position: relative;
+  justify-content: space-evenly;
+  z-index: 1;
+  background-color: inherit;
+  color: white;
+  font-size: 0.8em;
+  padding: 4px 5px;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidenav-settings-button:hover {
+  color: #95cff5;
+  box-shadow: 0 0 3px #95cff5;
+  text-shadow: 0 0 3px #95cff5;
+  cursor: pointer;
+}
+
+.sidenav-element:hover {
+  color: #95cff5;
+  box-shadow: 0 0 5px #95cff5;
+  text-shadow: 0 0 5px #95cff5;
+  cursor: pointer;
+}
+
+
+.sidenav-close {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.box-shadow {
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(168,168,168,0.58);
+  -moz-box-shadow: 5px 5px 10px 0px rgba(168,168,168,0.58);
+  box-shadow: 5px 5px 10px 0px rgba(168,168,168,0.58);
+}
+
