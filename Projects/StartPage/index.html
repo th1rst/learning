@@ -54,7 +54,7 @@
       <p>Weather</p>
       <div class="button-flex-container" style="display: none;">
       <input id="addWeatherWidget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
-      <input id="settingsWeatherWidget" class="sidenav-settings-button" type="button" value="Settings" style="display: none;">
+      <input id="settingsWeatherWidget" class="sidenav-settings-button" type="button" value="Settings" data-toggle="modal" data-target="#weather-settings-modal" style="display: none;">
       <input id="removeWeatherWidget" class="sidenav-remove-button"type="button" value="Remove" style="display: none;">
     </div>
     </div>
@@ -85,6 +85,30 @@
     </div>
     <div id="sidenav-close" class="sidenav-element">
       <p>Close Sidebar</p>
+  </div>
+</div>
+
+
+
+<!-- Weather Settings Modal -->
+<div class="modal fade settings-modal" id="weather-settings-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Weather Settings</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Please visit <a href="https://openweathermap.org/find" target="_blank">the OpenWeatherMap search site</a>, search for your city, then use the digits in the URL, e.g. https://openweathermap.org/city/<u>2925533</u></p>
+        <input id="user-city-input" name="insert-city-id" type="text" placeholder="Your City ID here"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="apply-city-id" type="button" class="btn btn-primary">Apply</button>
+      </div>
+    </div>
   </div>
 </div>
 
