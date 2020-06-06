@@ -5,7 +5,7 @@ without the need to look for them. Just add them to the Startpage and the user i
 Stumbling accross Gridstack.js, I thought it would be cool if you could drag around the individual elements.
 
 The end goal is to have a customizable StartPage where you can choose what service you like to see. 
-As a bonus, I'd like to implement a feature where you can store your user data locally and set it up to(automatically?) upload them on page load so no user information is stored on any server.
+As a bonus, I'd like to implement a feature where the user settings are stored in the Browsers LocalStorage so no cookies are used.
 
 Currently implemented:
 - Customizable Grid via Gridstack.js. Default: edit mode (can be locked in settings)
@@ -22,6 +22,7 @@ What I like to implement in the future (in order):
 - Individual Resizing of Grid Items (or make Gridstack container of the static ones not resizable)
 - Some kind of Notes-App eventually
 - An alternative to Google Translate
+- saving settings (Grid Items in use and their location, Weather City ID) to LocalStorage.
 - whatever comes into mind, any input is highly appreciated
 
 
