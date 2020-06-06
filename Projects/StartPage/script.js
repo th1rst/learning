@@ -17,9 +17,15 @@ const mainWindow = document.querySelector(".main-window");
 const dropTarget = document.querySelector(".drop-target"); //unused, may be in use later
 const addRemoveItemsButton = document.getElementById("add-remove-button");
 const closeSidenavButton = document.getElementById("sidenav-close");
-const cityIdApplyButton = document.getElementById("apply-city-id")
+const cityIdApplyButton = document.getElementById("apply-city-id");
 
+const searchAddButton = document.getElementById("add-search-widget")
+const weatherAddButton = document.getElementById("add-weather-widget");
+const directionsAddButton = document.getElementById("add-directions-widget")
 
+const weatherRemoveButton = document.getElementById("remove-weather-widget");
+const removeDirectionsButton = document.getElementById("remove-directions-widget");
+const removeSearchBarButton = document.getElementById("remove-search-widget");
 
 
 
@@ -103,24 +109,54 @@ document.querySelectorAll(".sidenav-element").forEach((element) => {
   })
 })
 
-//event listener for Weather settings
 
+// ---- event listener for Weather ----
 
-cityIdApplyButton.addEventListener("click", () => {
-  let cityIdInputField = document.getElementById("user-city-input");
-  userCityId = cityIdInputField.value;
-  console.log(userCityId)
-  console.log(typeof(userCityId))
-  console.log(myWidgetParam)
-  checkWeatherForCityId(userCityId)
-  console.log(myWidgetParam)
+// --> add
+weatherAddButton.addEventListener("click", () => {
+  grid.addWidget("#weather-box", [0, 0, 3, 4])
+})
+
+// --> remove
+weatherRemoveButton.addEventListener("click", () => {
+  grid.removeWidget("#weather-box")
 })
 
 
 
+// --> settings
+cityIdApplyButton.addEventListener("click", () => checkWeatherForCityId())
+
+
+// ---- event listener for directions ----
+
+// --> remove
+removeDirectionsButton.addEventListener("click", () => {
+  grid.removeWidget("#map-box")
+})
+
+
+// ---- event listener for DDG Search Box ----
+// --> remove 
+removeSearchBarButton.addEventListener("click", () => {
+  grid.removeWidget("#search-box")
+} )
+
+
+
+
 function checkWeatherForCityId() {
+  let cityIdInputField = document.getElementById("user-city-input");
   const defaultCityId = "2950159";
-  userCityId ? getWeather(userCityId) : getWeather(defaultCityId)
+  userCityId = cityIdInputField.value;
+  
+  if (userCityId === "" || userCityId === null) {
+    console.log("defaultCityId used! (User input is EMPTY STRING or NULL)")
+    getWeather(defaultCityId)
+  } else {
+    console.log(`UserCityID used! UserCityId is ${userCityId}.`)
+    getWeather(userCityId);
+  }
 }
 
 

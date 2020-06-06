@@ -74,6 +74,7 @@
   border: none;
 }
 
+
 .sidenav i {
   display: flex;
   justify-content: center;
@@ -165,9 +166,21 @@
   cursor: pointer;
 }
 
+#sidenav-close {
+  position: absolute;
+  width: 160px;
+  bottom: 0px;
+  cursor: pointer;
+}
 
-.sidenav-close {
-  margin-bottom: 0;
+.sidenav-last-element {
+  padding: 2px 0px;
+}
+
+#sidenav-close:hover {
+  color: #95cff5;
+  box-shadow: 0 0 5px #95cff5;
+  text-shadow: 0 0 5px #95cff5;
   cursor: pointer;
 }
 

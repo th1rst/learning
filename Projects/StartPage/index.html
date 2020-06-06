@@ -44,48 +44,49 @@
     <div id="sidenav-search" class="sidenav-element">
         <i class="mt-4 mb-2 fas fa-search fa-3x"></i>
         <p>Search Bar</p>
-      <div class="button-flex-container" style="display: none;">
-        <input id="addSearchWidget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
-        <input id="removeSearchWidget" class="sidenav-remove-button"type="button" value="Remove" style="display: none;">
-      </div>
+          <div class="button-flex-container" style="display: none;">
+            <input id="add-search-widget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
+            <input id="remove-search-widget" class="sidenav-remove-button" type="button" value="Remove" style="display: none;">
+          </div>
     </div>
     <div id="sidenav-weather" class="sidenav-element">
       <i class="mt-4 mb-2 fas fa-cloud-sun fa-3x"></i>
       <p>Weather</p>
-      <div class="button-flex-container" style="display: none;">
-      <input id="addWeatherWidget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
-      <input id="settingsWeatherWidget" class="sidenav-settings-button" type="button" value="Settings" data-toggle="modal" data-target="#weather-settings-modal" style="display: none;">
-      <input id="removeWeatherWidget" class="sidenav-remove-button"type="button" value="Remove" style="display: none;">
-    </div>
+        <div class="button-flex-container" style="display: none;">
+          <input id="add-weather-widget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
+          <input id="settingsWeatherWidget" class="sidenav-settings-button" type="button" value="Settings" data-toggle="modal" data-target="#weather-settings-modal" style="display: none;">
+          <input id="remove-weather-widget" class="sidenav-remove-button" type="button" value="Remove" style="display: none;">
+        </div>
     </div>
     <div id="sidenav-directions" class="sidenav-element">
       <i class="mt-4 mb-2 fas fa-directions fa-3x"></i>
       <p>Directions</p>
-      <div class="button-flex-container" style="display: none;">
-      <input id="addDirectionsWidget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
-      <input id="removeDirectionsWidget" class="sidenav-remove-button"type="button" value="Remove" style="display: none;">
-    </div>
+        <div class="button-flex-container" style="display: none;">
+          <input id="add-directions-widget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
+          <input id="remove-directions-widget" class="sidenav-remove-button" type="button" value="Remove" style="display: none;">
+        </div>
     </div>
     <div id="sidenav-news" class="sidenav-element">
       <i class="mt-4 mb-2 fas fa-newspaper fa-3x"></i>
-      <p>News / RSS</p>
-      <div class="button-flex-container" style="display: none;">
-      <input id="addNewsWidget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
-      <input id="settingsNewsWidget" class="sidenav-settings-button" type="button" value="Settings" style="display: none;">
-      <input id="removeNewsWidget" class="sidenav-remove-button"type="button" value="Remove" style="display: none;">
-    </div>
+      <p>News</p>
+        <div class="button-flex-container" style="display: none;">
+          <input id="add-news-widget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
+          <input id="settingsNewsWidget" class="sidenav-settings-button" type="button" value="Settings" style="display: none;">
+          <input id="remove-news-widget" class="sidenav-remove-button" type="button" value="Remove" style="display: none;">
+        </div>
     </div>
     <div id="sidenav-video" class="sidenav-element">
       <i class="mt-4 mb-2 fas fa-play fa-3x"></i>
       <p>Youtube (Invidious)</p>
-      <div class="button-flex-container" style="display: none;">
-      <input id="addVideoWidget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
-      <input id="removeVideoWidget" class="sidenav-remove-button"type="button" value="Remove" style="display: none;">
-    </div>  
+        <div class="button-flex-container" style="display: none;">
+          <input id="add-video-widget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
+          <input id="remove-video-widget" class="sidenav-remove-button" type="button" value="Remove" style="display: none;">
+        </div>  
     </div>
-    <div id="sidenav-close" class="sidenav-element">
-      <p>Close Sidebar</p>
-  </div>
+    <div id="sidenav-close">
+      <i class="mt-4 mb-2 fas fa-times-circle fa-2x"></i>
+      <p>Close</p>
+    </div>
 </div>
 
 
@@ -117,6 +118,8 @@
 <div class="grid-stack float drop-target">
   
 
+
+  
 <!-- OpenWeatherMap Card -->
   <div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="4">
     <div class="grid-stack-item-content">
