@@ -129,17 +129,14 @@
 
 
   <!-- DuckDuckGo SEARCH BAR -->
-  <div id="search-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="5" data-gs-width="3" data-gs-height="1">
+  <div id="search-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="6" data-gs-width="3" data-gs-height="1">
     <div class="grid-stack-item-content">
       <div class="search-bar">
         <form target="_blank" method="get" action="http://duckduckgo.com">
-          <img class="ddg-logo" height="40px" width="40px" src="https://duckduckgo.com/assets/common/dax-logo.svg" alt="DuckDuckGo Logo">
+          <img class="logo" height="40px" width="40px" src="https://duckduckgo.com/assets/common/dax-logo.svg" alt="DuckDuckGo Logo">
           <input name="q" type="text" placeholder="Search DuckDuckGo"/>
           <button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search DuckDuckGo">
-            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-              <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-            </svg>
+            <i class="fas fa-search"></i>
           </button>
           </form>
       </div>
@@ -147,15 +144,38 @@
   </div>
 
 <!-- OpenStreetMap Routing -->
-  <div id="map-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="8" data-gs-width="5" data-gs-height="6">
+  <div id="map-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="8" data-gs-width="4" data-gs-height="6">
     <div class="grid-stack-item-content">
-       	<iframe style='width:600px;height:400px;' src="https://maps.openrouteservice.org/directions?n1=49.131408&n2=12.205811&n3=6&b=0&c=0&k1=en-US&k2=km"></iframe><br>
+       	<iframe style='width:600px;height:390px; border: 1px solid black;' src="https://maps.openrouteservice.org/directions?n1=49.131408&n2=12.205811&n3=6&b=0&c=0&k1=en-US&k2=km"></iframe><br>
           <small><a href='https://maps.openrouteservice.org/directions?n1=49.131408&n2=12.205811&n3=6&b=0&c=0&k1=en-US&k2=km' target="_blank">Fullscreen</a></small>
     </div>
+  </div>
+
+
+
+
+<!-- News Widget -->
+<div id="news-box" class="grid-stack-item mt-2" data-gs-x="10" data-gs-y="8" data-gs-width="2" data-gs-height="6">
+  <div class="grid-stack-item-content">
+    <iframe src="https://www.euronews.com/embed/timeline" scrolling="yes" style="border:1px solid black; border-radius: 5px; min-height:400px; width:95%; height:95%;"></iframe>
   </div>
 </div>
 
 
+<!-- Invidious Video Search Widget -->
+<div id="invidious-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="12" data-gs-width="3" data-gs-height="1">
+  <div class="grid-stack-item-content">
+    <div class="search-bar">
+      <form target="_blank" method="get" action="https://invidio.us/search">
+        <img class="logo" height="40px" width="40px" src="https://invidio.us/favicon-32x32.png" alt="Invidious Logo" data-toggle="tooltip" data-placement="top" title="Invidious is an alternative FrontEnd for Youtube. It gets you the raw videos without most of tracking by Google.">
+        <input name="q" type="text" placeholder="Search Invidious"/>
+        <button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search Invidious">
+          <i class="fas fa-search"></i>
+        </button>
+        </form>
+    </div>
+  </div>
+</div>
 
 
 </div> <!-- END GRIDSTACK DIV-->

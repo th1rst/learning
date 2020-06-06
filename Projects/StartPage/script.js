@@ -9,7 +9,7 @@ let userCityId // is user city ID set? default: no
 
 
 //DOM References
-const lockButton = document.getElementById("lock-button");
+const lockGridButton = document.getElementById("lock-button");
 const gridStackItems = document.querySelectorAll(".grid-stack-item");
 const sidenav = document.querySelector(".sidenav");
 const sidenavElements = document.querySelectorAll(".sidenav-element");
@@ -22,10 +22,12 @@ const cityIdApplyButton = document.getElementById("apply-city-id");
 const searchAddButton = document.getElementById("add-search-widget")
 const weatherAddButton = document.getElementById("add-weather-widget");
 const directionsAddButton = document.getElementById("add-directions-widget")
+const newsAddButton = document.getElementById("add-news-widget");
 
 const weatherRemoveButton = document.getElementById("remove-weather-widget");
-const removeDirectionsButton = document.getElementById("remove-directions-widget");
-const removeSearchBarButton = document.getElementById("remove-search-widget");
+const directionsRemoveButton = document.getElementById("remove-directions-widget");
+const searchBarRemoveButton = document.getElementById("remove-search-widget");
+const newsRemoveButton = document.getElementById("remove-news-widget");
 
 
 
@@ -33,13 +35,13 @@ const removeSearchBarButton = document.getElementById("remove-search-widget");
 /* ----- SETTINGS MENU ----- */
 
 //listen for click on the "Enable/Lock Grid Editing" Button (upper right corner in SETTINGS)
-lockButton.addEventListener("click", toggleGrid) 
+lockGridButton.addEventListener("click", toggleGrid) 
 
 function toggleGrid() {
   if (isInEditMode) {
     grid.movable(".grid-stack-item", false);              //disable dragging
     grid.resizable(".grid-stack-item", false);            //disable resizing
-    lockButton.value = "Enable Grid Editing"              //change lock button
+    lockGridButton.value = "Enable Grid Editing"              //change lock button
     
     gridStackItems.forEach(element => {                   //remove border
         element.style.border = "none";
@@ -48,7 +50,7 @@ function toggleGrid() {
   } else {
     grid.movable(".grid-stack-item", true);
     grid.resizable(".grid-stack-item", true);
-    lockButton.value = "Lock Grid Editing"
+    lockGridButton.value = "Lock Grid Editing"
     
     gridStackItems.forEach(element => {
         element.style.border = "3px solid lightgrey";
@@ -111,39 +113,45 @@ document.querySelectorAll(".sidenav-element").forEach((element) => {
 
 
 // ---- event listener for Weather ----
-
 // --> add
 weatherAddButton.addEventListener("click", () => {
-  grid.addWidget("#weather-box", [0, 0, 3, 4])
+  grid.addWidget("#weather-box")
 })
 
 // --> remove
-weatherRemoveButton.addEventListener("click", () => {
-  grid.removeWidget("#weather-box")
-})
-
-
+weatherRemoveButton.addEventListener("click", () => grid.removeWidget("#weather-box"))
 
 // --> settings
 cityIdApplyButton.addEventListener("click", () => checkWeatherForCityId())
 
 
-// ---- event listener for directions ----
 
+
+
+
+// ---- event listener for directions ----
 // --> remove
-removeDirectionsButton.addEventListener("click", () => {
-  grid.removeWidget("#map-box")
-})
+directionsRemoveButton.addEventListener("click", () => grid.removeWidget("#map-box"))
+
 
 
 // ---- event listener for DDG Search Box ----
 // --> remove 
-removeSearchBarButton.addEventListener("click", () => {
+searchBarRemoveButton.addEventListener("click", () => {
   grid.removeWidget("#search-box")
 } )
 
 
 
+
+
+
+
+// ---- event listener for News ----
+// --> remove 
+newsRemoveButton.addEventListener("click", () => {
+  grid.removeWidget("#news-box")
+} )
 
 function checkWeatherForCityId() {
   let cityIdInputField = document.getElementById("user-city-input");

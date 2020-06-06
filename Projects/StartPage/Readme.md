@@ -8,27 +8,24 @@ The end goal is to have a customizable StartPage where you can choose what servi
 As a bonus, I'd like to implement a feature where you can store your user data locally and set it up to(automatically?) upload them on page load so no user information is stored on any server.
 
 Currently implemented:
-- Customizable Grid
+- Customizable Grid via Gridstack.js. Default: edit mode (can be locked in settings)
 - DuckDuckGo Search Bar
 - Openstreetmap (Openroute) Directions
-- OpenWeatherMap API Call (currently fixed set to Berlin)
-- Sidebar (no real functions yet, just the sidebar itself)
+- OpenWeatherMap API Call (default: Berlin). Settings can be set to desired city (needs page refresh)
+- Euronews WorldNews Widget
+- Invidious Search Bar
+- Sidebar-navigation (items can be removed but not yet added)
 
 
 What I like to implement in the future (in order):
-- Sidebar usage of adding/removing items
-- News / RSS Feed + customization later on
-- Individual Resizing of Grid Items
-- Weather Widget customization (custom location)
-- YouTube search via an alternative Frontend (Invidious) but that might just end up as a search bar
-as they don't have an embed feature or an API
-- Maybe a Spotify Search
+- Sidebar (re-)adding items
+- Individual Resizing of Grid Items (or make Gridstack container of the static ones not resizable)
 - Some kind of Notes-App eventually
 - An alternative to Google Translate
 - whatever comes into mind, any input is highly appreciated
 
 
-Since this is my first own project besides Tutorial tasks, I'd like to stick to the basics.
+Since this is my first own project besides Tutorial tasks, I like to stick to the basics.
 
 Technologies used so far:
 
