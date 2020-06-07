@@ -11,15 +11,14 @@ Currently implemented:
 - Customizable Grid via Gridstack.js. Default: edit mode (can be locked in settings)
 - DuckDuckGo Search Bar
 - Openstreetmap (Openroute) Directions
-- OpenWeatherMap API Call (default: Berlin). Settings can be set to desired city (needs page refresh)
-- Euronews WorldNews Widget
+- WeatherWidget.io Weather
+- Euronews WorldNews Widget (might be replaced soon, too many trackers)
 - Invidious Search Bar
-- Sidebar-navigation (items can be removed but not yet added)
+- Sidebar-navigation including removing and adding items
+- function to update the grid items
 
 
 What I like to implement in the future (in order):
-- Sidebar (re-)adding items
-- Individual Resizing of Grid Items (or make Gridstack container of the static ones not resizable)
 - Some kind of Notes-App eventually
 - An alternative to Google Translate
 - saving settings (Grid Items in use and their location, Weather City ID) to LocalStorage.
@@ -33,6 +32,7 @@ Technologies used so far:
 - HTML
 - CSS including Flexbox Elements
 - Vanilla JavaScript
+- some jQuery
 - Bootstrap 4
 - FontAwesome
 - Gridstack.js

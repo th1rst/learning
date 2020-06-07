@@ -102,7 +102,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Please visit <a href="https://openweathermap.org/find" target="_blank">the OpenWeatherMap search site</a>, search for your city, then use the digits in the URL, e.g. https://openweathermap.org/city/<u>2925533</u></p>
+        <p>Please visit <a href="https://weatherwidget.io/" target="_blank">the WeatherWidget.io Website</a> and search for your city. Then, click on "get code" and paste the <u>underlined</u> content in here, e.g. https://forecast7.com/en<u>/50d118d68/frankfurt/</u></p>
         <input id="user-city-input" name="insert-city-id" type="text" placeholder="Your City ID here"/>
       </div>
       <div class="modal-footer">
@@ -115,22 +115,29 @@
 
 
 <!-- Begin Grid Stack Container Div-->
-<div class="grid-stack float drop-target">
-  
+<div class="grid-stack float">
 
 
-  
-<!-- OpenWeatherMap Card -->
-  <div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="4">
+  <!-- WeatherWidget.io Widget -->
+  <div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="3">
     <div class="grid-stack-item-content">
-       <div id="openweathermap-widget-15"></div>
+      <a class="weatherwidget-io" href="https://forecast7.com/en/52d5213d40/berlin/" data-label_1="BERLIN" data-label_2="WEATHER" data-theme="pure" >BERLIN WEATHER</a>
     </div>
   </div>
 
 
+
+<!-- OLD: OpenWeatherMap Card 
+  <div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="2" data-gs-height="4">
+    <div class="grid-stack-item-content">
+       <div id="openweathermap-widget-22"></div>
+    </div>
+  </div>
+-->
+
   <!-- DuckDuckGo SEARCH BAR -->
   <div id="search-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="6" data-gs-width="3" data-gs-height="1">
-    <div class="grid-stack-item-content">
+    <div class="search-box grid-stack-item-content">
       <div class="search-bar">
         <form target="_blank" method="get" action="http://duckduckgo.com">
           <img class="logo" height="40px" width="40px" src="https://duckduckgo.com/assets/common/dax-logo.svg" alt="DuckDuckGo Logo">
@@ -157,7 +164,7 @@
 <!-- News Widget -->
 <div id="news-box" class="grid-stack-item mt-2" data-gs-x="10" data-gs-y="8" data-gs-width="2" data-gs-height="6">
   <div class="grid-stack-item-content">
-    <iframe src="https://www.euronews.com/embed/timeline" scrolling="yes" style="border:1px solid black; border-radius: 5px; min-height:400px; width:95%; height:95%;"></iframe>
+    <iframe src="https://www.euronews.com/embed/timeline" scrolling="no" style="border:1px solid black; border-radius: 5px; min-height:400px; width:95%; height:95%;"></iframe>
   </div>
 </div>
 
