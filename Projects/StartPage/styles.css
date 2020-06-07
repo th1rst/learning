@@ -42,16 +42,20 @@
   border-radius: 5px;
 }
 
-.navItems {
-  color: rgb(61, 58, 58);
-  background-color: inherit;
-  border: none;
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar i {
+  color: #2f3031;
+  margin: 0 10px;
   cursor: pointer;
 }
 
-.navbar .dropdown-menu {
-  background-color: inherit;
-  border: none;
+.top-bar i:hover {
+  color: #125e85;
 }
 
 .sidenav {
@@ -184,6 +188,11 @@
   color: black;
 }
 
+.weatherwidget-io {
+  border: 1px solid lightgrey;
+  box-shadow: 5px 1px 5px grey;
+  border-radius: 5px;
+}
 
 .box-shadow {
   -webkit-box-shadow: 5px 5px 10px 0px rgba(168,168,168,0.58);

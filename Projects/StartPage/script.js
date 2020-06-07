@@ -35,7 +35,7 @@ const translateRemoveButton = document.getElementById("remove-translate-widget")
 
 //Div contents for adding Gridstack Widgets
 const ddgDiv = `<div id="search-box" class="search-box grid-stack-item mt-2" data-gs-x="5" data-gs-y="6" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content"><div class="search-bar"><form target="_blank" method="get" action="http://duckduckgo.com"><img class="logo" height="40px" width="40px" src="https://duckduckgo.com/assets/common/dax-logo.svg" alt="DuckDuckGo Logo"><input name="q" type="text" placeholder="Search DuckDuckGo"/><button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search DuckDuckGo"><i class="fas fa-search"></i></button></form></div></div></div>`
-const defaultWeatherDiv = `<div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="3"><div class="grid-stack-item-content"><a class="weatherwidget-io" href="https://forecast7.com/en/52d5213d40/berlin/" data-label_1="BERLIN" data-label_2="WEATHER" data-theme="pure" >BERLIN WEATHER</a></div></div>`;
+const defaultWeatherDiv = `<div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="3"><div class="grid-stack-item-content"><a class="weatherwidget-io" href="https://forecast7.com/en/52d5213d40/berlin/" data-label_1="BERLIN" data-label_2="WEATHER" data-theme="pure" >BERLIN WEATHER</a></div></div>`;
 const directionsDiv = `<div id="map-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="8" data-gs-width="4" data-gs-height="6"><div class="grid-stack-item-content"><iframe style='width:600px;height:390px; border: 1px solid black;' src="https://maps.openrouteservice.org/directions?n1=49.131408&n2=12.205811&n3=6&b=0&c=0&k1=en-US&k2=km"></iframe><br><small><a href='https://maps.openrouteservice.org/directions?n1=49.131408&n2=12.205811&n3=6&b=0&c=0&k1=en-US&k2=km' target="_blank">Fullscreen</a></small></div></div>`
 const newsDiv = `<div id="news-box" class="grid-stack-item mt-2" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="6"><div class="grid-stack-item-content"><iframe src="https://www.euronews.com/embed/timeline" scrolling="no" style="border:1px solid black; border-radius: 5px; min-height:400px; width:95%; height:95%;"></iframe></div></div>`
 const videosDiv = `<div id="invidious-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="13" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content"><div class="search-bar"><form target="_blank" method="get" action="https://invidio.us/search"><img class="logo" height="40px" width="40px" src="https://invidio.us/favicon-32x32.png" alt="Invidious Logo" data-toggle="tooltip" data-placement="top" title="Invidious is an alternative FrontEnd for Youtube. It gets you the raw videos without most of tracking by Google."><input name="q" type="text" placeholder="Search Invidious"/><button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search Invidious"><i class="fas fa-search"></i></button></form></div></div></div>`
@@ -55,7 +55,7 @@ function toggleGrid() {
   if (isInEditMode) {
     grid.movable(gridStackItems, false);              //disable dragging
     grid.resizable(gridStackItems, false);            //disable resizing
-    lockGridButton.value = "Enable Grid Editing"      //change text in settings menu
+    changeLockIcon()
     gridStackItems.forEach(element => {               //remove border
         element.style.border = "none";
     });
@@ -63,7 +63,7 @@ function toggleGrid() {
   } else {
     grid.movable(gridStackItems, true);
     grid.resizable(gridStackItems, true);
-    lockGridButton.value = "Lock Grid Editing"
+    changeLockIcon()
     gridStackItems.forEach(element => {
         element.style.border = "3px solid lightgrey";
     });
@@ -87,9 +87,17 @@ function toggleSidenav() {
     sidenav.style.display = "none";           
     mainWindow.style.marginLeft = "0px";      //get window back to original size
   }
+
+  /*
+  enable edit mode as soon as sidebar opens.
+  second condition: if this wouldnt get checked, 
+  locking grid while sidebar is open would immediately 
+  unlock the grid again on sidebar-close
+  */
+  if (!isInEditMode && sidenav.style.display === "block") {
+    toggleGrid()
+  }
 }
-
-
 
 // ---- Event listener for every Sidenav-Item ----
 document.querySelectorAll(".sidenav-element").forEach((element) => {      
@@ -123,7 +131,7 @@ document.querySelectorAll(".sidenav-element").forEach((element) => {
 
 
 // ---- event listener for DDG Search Box (add/remove)----
-searchAddButton.addEventListener("click", () => grid.addWidget($(ddgDiv), 1, 5, 3, 1))
+searchAddButton.addEventListener("click", () => grid.addWidget($(ddgDiv), 5, 6, 3, 1))
 searchBarRemoveButton.addEventListener("click", () => grid.removeWidget("#search-box"))
 
 
@@ -131,7 +139,7 @@ searchBarRemoveButton.addEventListener("click", () => grid.removeWidget("#search
 weatherAddButton.addEventListener("click", () => {
   reload_js('https://weatherwidget.io/js/widget.min.js');
   getWeather()
-  grid.addWidget($(defaultWeatherDiv), 0, 0, 2, 4);
+  grid.addWidget($(defaultWeatherDiv), 0, 1, 3, 3);
 })
 weatherRemoveButton.addEventListener("click", () => grid.removeWidget("#weather-box"))
 // --> settings -> Apply
@@ -168,17 +176,26 @@ function refreshGridStackItems() {
 
 function applyCityId() {
   const userCityInput = document.getElementById("user-city-input")
-  let userWeatherDiv = `<div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="3"><div class="grid-stack-item-content">${userCityInput.value}</div></div>`;
+  let userWeatherDiv = `<div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="3"><div class="grid-stack-item-content">${userCityInput.value}</div></div>`;
   grid.removeWidget("#weather-box");
   reload_js('https://weatherwidget.io/js/widget.min.js');
   getWeather()
-  grid.addWidget($(userWeatherDiv), 0, 0, 2, 4);
+  grid.addWidget($(userWeatherDiv), 0, 1, 3, 3);
 }
 
 
 function reload_js(src) {
     $('script[src="' + src + '"]').remove();
     $('<script>').attr('src', src).appendTo('head');
+}
+
+function changeLockIcon() {
+  const lockIcon = document.getElementById("lock-button")
+  if (lockIcon.classList.contains("fa-lock-open")) {
+    lockIcon.className = "mt-4 mb-2 fas fa-lock"
+  } else {
+    lockIcon.className = "mt-4 mb-2 fas fa-lock-open"
+  }
 }
 
 
@@ -192,7 +209,5 @@ function getWeather() {
       fjs.parentNode.insertBefore(js,fjs);
     }}(document,'script','weatherwidget-io-js'); 
 }
-
-
 
 getWeather()
