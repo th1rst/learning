@@ -83,6 +83,14 @@
           <input id="remove-video-widget" class="sidenav-remove-button" type="button" value="Remove" style="display: none;">
         </div>  
     </div>
+    <div id="sidenav-translate" class="sidenav-element">
+      <i class="mt-4 mb-2 fas fa-language fa-3x"></i>
+      <p>Translate</p>
+        <div class="button-flex-container" style="display: none;">
+          <input id="add-translate-widget" class="sidenav-add-button" type="button" value="Add" style="display: none;">
+          <input id="remove-translate-widget" class="sidenav-remove-button" type="button" value="Remove" style="display: none;">
+        </div>  
+    </div>
     <div id="sidenav-close">
       <i class="mt-4 mb-2 fas fa-times-circle fa-2x"></i>
       <p>Close</p>
@@ -102,8 +110,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Please visit <a href="https://weatherwidget.io/" target="_blank">the WeatherWidget.io Website</a> and search for your city. Then, click on "get code" and paste the <u>underlined</u> content in here, e.g. https://forecast7.com/en<u>/50d118d68/frankfurt/</u></p>
-        <input id="user-city-input" name="insert-city-id" type="text" placeholder="Your City ID here"/>
+        <p>Please visit <a href="https://weatherwidget.io/" target="_blank">the WeatherWidget.io Website</a> and search for your city. Then, click on "get code" and paste the code <u>BEFORE</u> the &ltSCRIPT&gt in here (usually the first 3 or 4 paragraphs).<br><br><i>Note: You can also choose different themes, units and languages.</i></p>
+        <input id="user-city-input" name="insert-city-id" type="text" placeholder="Paste Code here" size="40"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -124,16 +132,6 @@
       <a class="weatherwidget-io" href="https://forecast7.com/en/52d5213d40/berlin/" data-label_1="BERLIN" data-label_2="WEATHER" data-theme="pure" >BERLIN WEATHER</a>
     </div>
   </div>
-
-
-
-<!-- OLD: OpenWeatherMap Card 
-  <div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="2" data-gs-height="4">
-    <div class="grid-stack-item-content">
-       <div id="openweathermap-widget-22"></div>
-    </div>
-  </div>
--->
 
   <!-- DuckDuckGo SEARCH BAR -->
   <div id="search-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="6" data-gs-width="3" data-gs-height="1">
@@ -158,19 +156,15 @@
     </div>
   </div>
 
-
-
-
 <!-- News Widget -->
-<div id="news-box" class="grid-stack-item mt-2" data-gs-x="10" data-gs-y="8" data-gs-width="2" data-gs-height="6">
+<div id="news-box" class="grid-stack-item mt-2" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="6">
   <div class="grid-stack-item-content">
     <iframe src="https://www.euronews.com/embed/timeline" scrolling="no" style="border:1px solid black; border-radius: 5px; min-height:400px; width:95%; height:95%;"></iframe>
   </div>
 </div>
 
-
 <!-- Invidious Video Search Widget -->
-<div id="invidious-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="12" data-gs-width="3" data-gs-height="1">
+<div id="invidious-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="13" data-gs-width="3" data-gs-height="1">
   <div class="grid-stack-item-content">
     <div class="search-bar">
       <form target="_blank" method="get" action="https://invidio.us/search">
@@ -181,6 +175,13 @@
         </button>
         </form>
     </div>
+  </div>
+</div>
+
+<!-- DeepL Translate Box-->
+<div id="translate-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="10" data-gs-width="3" data-gs-height="2">
+  <div class="grid-stack-item-content">
+    <a href="https://www.deepl.com/translator" target="_blank"><img src="https://www.deepl.com/img/logo/DeepL_LogoAndText_darkBlue.svg" alt="DeepL Logo"></a>
   </div>
 </div>
 

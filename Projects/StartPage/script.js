@@ -24,21 +24,22 @@ const weatherAddButton = document.getElementById("add-weather-widget");
 const directionsAddButton = document.getElementById("add-directions-widget")
 const newsAddButton = document.getElementById("add-news-widget");
 const videosAddButton = document.getElementById("add-video-widget");
+const translateAddButton = document.getElementById("add-translate-widget");
 
 const weatherRemoveButton = document.getElementById("remove-weather-widget");
 const directionsRemoveButton = document.getElementById("remove-directions-widget");
 const searchBarRemoveButton = document.getElementById("remove-search-widget");
 const newsRemoveButton = document.getElementById("remove-news-widget");
 const videosRemoveButton = document.getElementById("remove-video-widget");
-
+const translateRemoveButton = document.getElementById("remove-translate-widget");
 
 //Div contents for adding Gridstack Widgets
 const ddgDiv = `<div id="search-box" class="search-box grid-stack-item mt-2" data-gs-x="5" data-gs-y="6" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content"><div class="search-bar"><form target="_blank" method="get" action="http://duckduckgo.com"><img class="logo" height="40px" width="40px" src="https://duckduckgo.com/assets/common/dax-logo.svg" alt="DuckDuckGo Logo"><input name="q" type="text" placeholder="Search DuckDuckGo"/><button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search DuckDuckGo"><i class="fas fa-search"></i></button></form></div></div></div>`
-let weatherDiv = `<div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="3"><div class="grid-stack-item-content"><a class="weatherwidget-io" href="https://forecast7.com/en/52d5213d40/berlin/" data-label_1="BERLIN" data-label_2="WEATHER" data-theme="pure" >BERLIN WEATHER</a></div></div>`;
+const defaultWeatherDiv = `<div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="3"><div class="grid-stack-item-content"><a class="weatherwidget-io" href="https://forecast7.com/en/52d5213d40/berlin/" data-label_1="BERLIN" data-label_2="WEATHER" data-theme="pure" >BERLIN WEATHER</a></div></div>`;
 const directionsDiv = `<div id="map-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="8" data-gs-width="4" data-gs-height="6"><div class="grid-stack-item-content"><iframe style='width:600px;height:390px; border: 1px solid black;' src="https://maps.openrouteservice.org/directions?n1=49.131408&n2=12.205811&n3=6&b=0&c=0&k1=en-US&k2=km"></iframe><br><small><a href='https://maps.openrouteservice.org/directions?n1=49.131408&n2=12.205811&n3=6&b=0&c=0&k1=en-US&k2=km' target="_blank">Fullscreen</a></small></div></div>`
-const newsDiv = `<div id="news-box" class="grid-stack-item mt-2" data-gs-x="10" data-gs-y="8" data-gs-width="2" data-gs-height="6"><div class="grid-stack-item-content"><iframe src="https://www.euronews.com/embed/timeline" scrolling="no" style="border:1px solid black; border-radius: 5px; min-height:400px; width:95%; height:95%;"></iframe></div></div>`
-const videosDiv = `<div id="invidious-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="12" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content"><div class="search-bar"><form target="_blank" method="get" action="https://invidio.us/search"><img class="logo" height="40px" width="40px" src="https://invidio.us/favicon-32x32.png" alt="Invidious Logo" data-toggle="tooltip" data-placement="top" title="Invidious is an alternative FrontEnd for Youtube. It gets you the raw videos without most of tracking by Google."><input name="q" type="text" placeholder="Search Invidious"/><button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search Invidious"><i class="fas fa-search"></i></button></form></div></div></div>`
-
+const newsDiv = `<div id="news-box" class="grid-stack-item mt-2" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="6"><div class="grid-stack-item-content"><iframe src="https://www.euronews.com/embed/timeline" scrolling="no" style="border:1px solid black; border-radius: 5px; min-height:400px; width:95%; height:95%;"></iframe></div></div>`
+const videosDiv = `<div id="invidious-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="13" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content"><div class="search-bar"><form target="_blank" method="get" action="https://invidio.us/search"><img class="logo" height="40px" width="40px" src="https://invidio.us/favicon-32x32.png" alt="Invidious Logo" data-toggle="tooltip" data-placement="top" title="Invidious is an alternative FrontEnd for Youtube. It gets you the raw videos without most of tracking by Google."><input name="q" type="text" placeholder="Search Invidious"/><button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search Invidious"><i class="fas fa-search"></i></button></form></div></div></div>`
+const translateDiv = `<div id="translate-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="10" data-gs-width="3" data-gs-height="2"><div class="grid-stack-item-content"><a href="https://www.deepl.com/translator" target="_blank"><img src="https://www.deepl.com/img/logo/DeepL_LogoAndText_darkBlue.svg" alt="DeepL Logo"></a></div></div>`
 
 
 
@@ -55,7 +56,6 @@ function toggleGrid() {
     grid.movable(gridStackItems, false);              //disable dragging
     grid.resizable(gridStackItems, false);            //disable resizing
     lockGridButton.value = "Enable Grid Editing"      //change text in settings menu
-    
     gridStackItems.forEach(element => {               //remove border
         element.style.border = "none";
     });
@@ -64,7 +64,6 @@ function toggleGrid() {
     grid.movable(gridStackItems, true);
     grid.resizable(gridStackItems, true);
     lockGridButton.value = "Lock Grid Editing"
-    
     gridStackItems.forEach(element => {
         element.style.border = "3px solid lightgrey";
     });
@@ -73,9 +72,6 @@ function toggleGrid() {
 }
 
   
-
-
-
 
 /* ----- SIDEBAR NAVIGATION ----- */
 
@@ -124,70 +120,67 @@ document.querySelectorAll(".sidenav-element").forEach((element) => {
   })
 })
 
-// ---- event listener for Weather ----
-// --> add
-weatherAddButton.addEventListener("click", () => {
-  reload_js('https://weatherwidget.io/js/widget.min.js');
-  getWeather()
-  grid.addWidget($(weatherDiv), 0, 0, 2, 4);
-})
-
-// --> remove
-weatherRemoveButton.addEventListener("click", () => grid.removeWidget("#weather-box"))
-
-// --> Settings
-
-// --> settings -> Apply
-cityIdApplyButton.addEventListener("click", () => checkWeatherForCityId())
 
 
-
-// ---- event listener for directions ----
-// --> add
-directionsAddButton.addEventListener("click", () => grid.addWidget($(directionsDiv), 0, 8, 4, 6))
-
-// --> remove
-directionsRemoveButton.addEventListener("click", () => grid.removeWidget("#map-box"))
-
-
-
-// ---- event listener for DDG Search Box ----
-// --> add
+// ---- event listener for DDG Search Box (add/remove)----
 searchAddButton.addEventListener("click", () => grid.addWidget($(ddgDiv), 1, 5, 3, 1))
-
-// --> remove 
 searchBarRemoveButton.addEventListener("click", () => grid.removeWidget("#search-box"))
 
 
+// ---- event listener for Weather (add/remove/settings)----
+weatherAddButton.addEventListener("click", () => {
+  reload_js('https://weatherwidget.io/js/widget.min.js');
+  getWeather()
+  grid.addWidget($(defaultWeatherDiv), 0, 0, 2, 4);
+})
+weatherRemoveButton.addEventListener("click", () => grid.removeWidget("#weather-box"))
+// --> settings -> Apply
+cityIdApplyButton.addEventListener("click", () => applyCityId())
 
-// ---- event listener for News ----
-// --> add
-newsAddButton.addEventListener("click", () => grid.addWidget($(newsDiv), 10, 8, 2, 6))
 
-// --> remove 
+// ---- event listener for directions (add/remove)----
+directionsAddButton.addEventListener("click", () => grid.addWidget($(directionsDiv), 0, 8, 4, 6))
+directionsRemoveButton.addEventListener("click", () => grid.removeWidget("#map-box"))
+
+
+// ---- event listener for News (add/remove) ----
+newsAddButton.addEventListener("click", () => grid.addWidget($(newsDiv), 10, 4, 2, 6))
 newsRemoveButton.addEventListener("click", () => grid.removeWidget("#news-box"))
 
 
-
-// ---- event listener for Invidious Search ----
-// --> add
-videosAddButton.addEventListener("click", () => grid.addWidget($(videosDiv), 5, 12, 3, 1))
-
-// --> remove 
+// ---- event listener for Invidious Search (add/remove) ----
+videosAddButton.addEventListener("click", () => grid.addWidget($(videosDiv), 5, 13, 3, 1))
 videosRemoveButton.addEventListener("click", () => grid.removeWidget("#invidious-box"))
 
 
+// ---- event listener for DeepL Translate (add/remove) ----
+translateAddButton.addEventListener("click", () => grid.addWidget($(translateDiv), 5, 10, 3, 2))
+translateRemoveButton.addEventListener("click", () => grid.removeWidget("#translate-box"))
 
 
+
+
+/* ----- GENERAL FUNCTIONS ----- */
 
 function refreshGridStackItems() {
   gridStackItems = document.querySelectorAll(".grid-stack-item");
 }
 
+function applyCityId() {
+  const userCityInput = document.getElementById("user-city-input")
+  let userWeatherDiv = `<div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="3"><div class="grid-stack-item-content">${userCityInput.value}</div></div>`;
+  grid.removeWidget("#weather-box");
+  reload_js('https://weatherwidget.io/js/widget.min.js');
+  getWeather()
+  grid.addWidget($(userWeatherDiv), 0, 0, 2, 4);
+}
+
+
 function reload_js(src) {
     $('script[src="' + src + '"]').remove();
     $('<script>').attr('src', src).appendTo('head');
 }
+
 
 function getWeather() {
   !function(d,s,id){
@@ -203,68 +196,3 @@ function getWeather() {
 
 
 getWeather()
-
-/* OLD WEATHER 
-
-let userCityId // is user city ID set? default: no
-
-
-
-
-function checkWeatherForCityId() {
-  let cityIdInputField = document.getElementById("user-city-input");
-  const defaultCityId = "2950159";
-  userCityId = cityIdInputField.value;
-  
-  if (userCityId === "" || userCityId === null) {
-    console.log("defaultCityId used! (User input is EMPTY STRING or NULL)")
-    getWeather(defaultCityId)
-  } else {
-    console.log(`UserCityID used! UserCityId is ${userCityId}.`)
-    getWeather(userCityId);
-  }
-}
-
-
-
-
-function getWeather(cityId) {
-    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-    window.myWidgetParam.push({
-        id: 22,
-        cityid: cityId,
-        appid: 'be57e605be76597fe7dfa2e9513f1392',
-        units: 'metric',
-        containerid: 'openweathermap-widget-22',
-    });
-    }
-    
-
-    (function() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.charset = "utf-8";
-        script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(script, s);
-    })();
-
- 
-
-
-
-checkWeatherForCityId()
-
-
-
-
-*/
-
-
-
-
-
-
-
-
-

@@ -11,16 +11,15 @@ Currently implemented:
 - Customizable Grid via Gridstack.js. Default: edit mode (can be locked in settings)
 - DuckDuckGo Search Bar
 - Openstreetmap (Openroute) Directions
-- WeatherWidget.io Weather
+- WeatherWidget.io Weather including settings (Widget gets updated without page refresh)
 - Euronews WorldNews Widget (might be replaced soon, too many trackers)
 - Invidious Search Bar
+- DeepL Translate Widget (just their logo as a link)
 - Sidebar-navigation including removing and adding items
-- function to update the grid items
+- function to update the grid items (refresh to get dynamically generated div's)
 
 
 What I like to implement in the future (in order):
-- Some kind of Notes-App eventually
-- An alternative to Google Translate
 - saving settings (Grid Items in use and their location, Weather City ID) to LocalStorage.
 - whatever comes into mind, any input is highly appreciated
 
