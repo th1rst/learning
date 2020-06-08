@@ -4,8 +4,8 @@ var grid = GridStack.init({float: true})
 
 
 /* ----- GLOBAL VARIABLES ---- */
-let isInEditMode = true //Can grid be edited on page load? default: true     
-
+let isInEditMode = true; //Can grid be edited on page load? default: true     
+let isGridDefault = true; // did the grid get edited?
 
 
 /* ----- DOM REFERENCES ----- */
@@ -48,6 +48,66 @@ const directionsDiv = `<div id="map-box" class="grid-stack-item mt-2" data-gs-x=
 const newsDiv = `<div id="news-box" class="grid-stack-item mt-2" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="6"><div class="grid-stack-item-content"><iframe src="https://www.euronews.com/embed/timeline" scrolling="no" style="border:1px solid black; border-radius: 5px; min-height:400px; width:95%; height:95%;"></iframe></div></div>`
 const videosDiv = `<div id="invidious-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="13" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content"><div class="search-bar"><form target="_blank" method="get" action="https://invidio.us/search"><img class="logo" height="40px" width="40px" src="https://invidio.us/favicon-32x32.png" alt="Invidious Logo" data-toggle="tooltip" data-placement="top" title="Invidious is an alternative FrontEnd for Youtube. It gets you the raw videos without most of tracking by Google."><input name="q" type="text" placeholder="Search Invidious"/><button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search Invidious"><i class="fas fa-search"></i></button></form></div></div></div>`
 const translateDiv = `<div id="translate-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="10" data-gs-width="3" data-gs-height="2"><div class="grid-stack-item-content"><a href="https://www.deepl.com/translator" target="_blank"><img src="https://www.deepl.com/img/logo/DeepL_LogoAndText_darkBlue.svg" alt="DeepL Logo"></a></div></div>`
+
+
+
+/* ----- OBJECTS ----- */
+const Widgets = [
+  Searchbox = {
+    name: "search-box",
+    x: 5,
+    y: 6,
+    width: 3,
+    height: 1,
+    isActive: true,
+  },
+  
+  Weatherbox = {
+    name: "weather-box",
+    x: 0,
+    y: 1,
+    width: 3,
+    height: 3,
+    isActive: true,
+  },
+  
+  Mapbox = {
+    name: "map-box",
+    x: 0,
+    y: 8,
+    width: 4,
+    height: 6,
+    isActive: true,
+  },
+  
+  Newsbox = {
+    name: "news-box",
+    x: 10,
+    y: 4,
+    width: 2,
+    height: 6,
+    isActive: true,
+  },
+  
+  Invidiousbox = {
+    name: "invidious-box",
+    x: 5,
+    y: 13,
+    width: 3,
+    height: 1,
+    isActive: true,
+  },
+  
+  Translatebox = {
+    name: "translate-box",
+    x: 5,
+    y: 10,
+    width: 3,
+    height: 2,
+    isActive: true,
+  }
+]
+
 
 
 
@@ -187,6 +247,14 @@ translateRemoveButton.addEventListener("click", () => grid.removeWidget("#transl
 
 
 /* ----- GENERAL FUNCTIONS ----- */
+function init() {
+  renderGrid();
+  //checkGrid();
+  checkForEditModeOnStartup(); 
+  getWeather();
+}
+
+
 
 function refreshGridStackItems() {
   gridStackItems = document.querySelectorAll(".grid-stack-item");
@@ -231,26 +299,58 @@ function getWeather() {
 
 
 
-// 1. get position (x, y)
-// 2. get size (x, y)
-// 3. write (1+2) to storage
+// DONE get position (x, y)
+// DONE get size (x, y)
+// DONE write (1+2) to storage
 // 4. on startup, check for positions
 // 5. make active widgets a class of "is-active"
 // 6. write this to storage
 // 7. check for and render only isActive on startup
 
+
+//listen for changes to Gridstack Items. When anything changes, push it to LocalStorage
 grid.on("change", (change, gridStackItems) => {
-  console.log(change, gridStackItems)
-  console.log("Name is: " + gridStackItems[0].el.id)
-  console.log("X is: " + gridStackItems[0].x)
-  console.log("Y is: " + gridStackItems[0].y)
-  console.log("Width is: " + gridStackItems[0].width)
-  console.log("Height is: " + gridStackItems[0].height)
-})
+  localStorage.setItem(
+    gridStackItems[0].el.id,
+    JSON.stringify([
+      {
+        x: gridStackItems[0].x,
+        y: gridStackItems[0].y,
+        width: gridStackItems[0].width,
+        height: gridStackItems[0].height,
+      },
+    ])
+  );
+});
+
+
+
+function renderGrid() {
+  //check for any property. Since every widget has a width property, this is sufficient
+  checkLocalStorageForEntries();
+  
+}
+
+
+//check localStorage for any entries.
+const checkLocalStorageForEntries = () => localStorage.length > 0 ? console.log("There is something in LocalStorage") : console.log("Nothing in LocalStorage")
+
+
+
+// const checkGrid = () => isGridDefault ? renderDefaultGrid() : renderCustomizedGrid();
+
+
+
+function renderDefaultGrid () {
+
+}
+
+function renderCustomizedGrid () {
+
+}
 
 
 
 
 
-checkForEditModeOnStartup(); 
-getWeather();
+init();
