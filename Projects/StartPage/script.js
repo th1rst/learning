@@ -4,21 +4,28 @@ var grid = GridStack.init({float: true})
 
 
 /* ----- GLOBAL VARIABLES ---- */
-let isInEditMode = true; //Can grid be edited on page load? default: true     
+let isInEditMode = true //Can grid be edited on page load? default: true     
 
 
 
 /* ----- DOM REFERENCES ----- */
 
+//Main Window
 let gridStackItems = document.querySelectorAll(".grid-stack-item");     //needs to be refreshed dynamically
+const mainWindow = document.querySelector(".main-window");
+
+//Navbar on top
 const lockGridButton = document.getElementById("lock-button");
+const addRemoveItemsButton = document.getElementById("add-remove-button");
+const saveSettingsButton = document.getElementById("save-button");
+
+//Sidenav
 const sidenav = document.querySelector(".sidenav");
 const sidenavElements = document.querySelectorAll(".sidenav-element");
-const mainWindow = document.querySelector(".main-window");
-const addRemoveItemsButton = document.getElementById("add-remove-button");
 const closeSidenavButton = document.getElementById("sidenav-close");
 const cityIdApplyButton = document.getElementById("apply-city-id");
 
+//Sidenav-Elements -> Add
 const searchAddButton = document.getElementById("add-search-widget")
 const weatherAddButton = document.getElementById("add-weather-widget");
 const directionsAddButton = document.getElementById("add-directions-widget")
@@ -26,6 +33,7 @@ const newsAddButton = document.getElementById("add-news-widget");
 const videosAddButton = document.getElementById("add-video-widget");
 const translateAddButton = document.getElementById("add-translate-widget");
 
+//Sidenav-Elements -> Remove
 const weatherRemoveButton = document.getElementById("remove-weather-widget");
 const directionsRemoveButton = document.getElementById("remove-directions-widget");
 const searchBarRemoveButton = document.getElementById("remove-search-widget");
@@ -43,35 +51,46 @@ const translateDiv = `<div id="translate-box" class="grid-stack-item mt-2" data-
 
 
 
-
-/* ----- SETTINGS MENU ----- */
+/* ----- NAVBAR----- */
 
 //listen for click on the "Enable/Lock Grid Editing" Button (upper right corner in SETTINGS)
-lockGridButton.addEventListener("click", toggleGrid) 
+lockGridButton.addEventListener("click", toggleEditMode) 
 
-function toggleGrid() {
-  refreshGridStackItems() //check if the items have changed since last lock/unlock
+
+function toggleEditMode() {
+  //check if the items have changed since last lock/unlock
+  refreshGridStackItems();
 
   if (isInEditMode) {
-    grid.movable(gridStackItems, false);              //disable dragging
-    grid.resizable(gridStackItems, false);            //disable resizing
-    changeLockIcon()
-    gridStackItems.forEach(element => {               //remove border
-        element.style.border = "none";
-    });
-    isInEditMode = false;                             //toggle isInEditMode (enable grid editing on/off)
+    deactivateEditMode();
+    isInEditMode = false;
   } else {
-    grid.movable(gridStackItems, true);
-    grid.resizable(gridStackItems, true);
-    changeLockIcon()
-    gridStackItems.forEach(element => {
-        element.style.border = "3px solid lightgrey";
-    });
+    activateEditMode();
     isInEditMode = true;
   }
 }
 
-  
+function deactivateEditMode() {
+  grid.movable(gridStackItems, false);
+  grid.resizable(gridStackItems, false);
+  changeLockIcon();
+  gridStackItems.forEach((element) => {
+    element.style.border = "none";
+  });
+}
+
+function activateEditMode() {
+  grid.movable(gridStackItems, true);
+  grid.resizable(gridStackItems, true);
+  changeLockIcon();
+  gridStackItems.forEach((element) => {
+    element.style.border = "3px solid lightgrey";
+  });
+}
+
+//check for Edit Mote on Startup, can be altered in global bool
+const checkForEditModeOnStartup = () => !isInEditMode ? deactivateEditMode() : false
+
 
 /* ----- SIDEBAR NAVIGATION ----- */
 
@@ -82,10 +101,10 @@ closeSidenavButton.addEventListener("click", toggleSidenav)
 function toggleSidenav() {
   if (sidenav.style.display === "none") {
     sidenav.style.display = "block";
-    mainWindow.style.marginLeft = "160px";    //push everything else to the right
+    mainWindow.style.marginLeft = "160px"; //push everything else to the right
   } else {
-    sidenav.style.display = "none";           
-    mainWindow.style.marginLeft = "0px";      //get window back to original size
+    sidenav.style.display = "none";
+    mainWindow.style.marginLeft = "0px"; //get window back to original size
   }
 
   /*
@@ -95,38 +114,37 @@ function toggleSidenav() {
   unlock the grid again on sidebar-close
   */
   if (!isInEditMode && sidenav.style.display === "block") {
-    toggleGrid()
+    toggleEditMode();
   }
 }
 
 // ---- Event listener for every Sidenav-Item ----
-document.querySelectorAll(".sidenav-element").forEach((element) => {      
-
+document.querySelectorAll(".sidenav-element").forEach((element) => {
   //loop over each sidebar item, listen for click
   element.addEventListener("mouseup", () => {
-    const buttonContainer = element.querySelector(".button-flex-container")
-    const addRemoveAndSettingsButtons = element.querySelectorAll(".sidenav-add-button, .sidenav-settings-button, .sidenav-remove-button")
+    const buttonContainer = element.querySelector(".button-flex-container");
+    const addRemoveAndSettingsButtons = element.querySelectorAll(
+      ".sidenav-add-button, .sidenav-settings-button, .sidenav-remove-button"
+    );
 
     //toggle the corresponding flexbox container div of "Add, (optional: Settings), Remove" buttons
-    toggleButtonDiv(buttonContainer)
+    toggleButtonDiv(buttonContainer);
 
     function toggleButtonDiv(element) {
       if (element.style.display == "none") {
         element.style.display = "flex";
-          //toggle add, (settings), remove buttons
-          addRemoveAndSettingsButtons.forEach(element => {
-            element.style.display = "block"
-          });
+        addRemoveAndSettingsButtons.forEach((element) => {
+          element.style.display = "block";
+        });
       } else {
         element.style.display = "none";
-        //toggle add, (settings), remove buttons
-        addRemoveAndSettingsButtons.forEach(element => {
-          element.style.display = "none"
+        addRemoveAndSettingsButtons.forEach((element) => {
+          element.style.display = "none";
         });
       }
     }
-  })
-})
+  });
+});
 
 
 
@@ -174,27 +192,27 @@ function refreshGridStackItems() {
   gridStackItems = document.querySelectorAll(".grid-stack-item");
 }
 
+
 function applyCityId() {
-  const userCityInput = document.getElementById("user-city-input")
+  const userCityInput = document.getElementById("user-city-input");
   let userWeatherDiv = `<div id="weather-box" class="grid-stack-item mt-2" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="3"><div class="grid-stack-item-content">${userCityInput.value}</div></div>`;
   grid.removeWidget("#weather-box");
-  reload_js('https://weatherwidget.io/js/widget.min.js');
-  getWeather()
+  reload_js("https://weatherwidget.io/js/widget.min.js");
+  getWeather();
   grid.addWidget($(userWeatherDiv), 0, 1, 3, 3);
 }
 
-
 function reload_js(src) {
-    $('script[src="' + src + '"]').remove();
-    $('<script>').attr('src', src).appendTo('head');
+  $('script[src="' + src + '"]').remove();
+  $("<script>").attr("src", src).appendTo("head");
 }
 
 function changeLockIcon() {
-  const lockIcon = document.getElementById("lock-button")
+  const lockIcon = document.getElementById("lock-button");
   if (lockIcon.classList.contains("fa-lock-open")) {
-    lockIcon.className = "mt-4 mb-2 fas fa-lock"
+    lockIcon.className = "mt-4 mb-2 fas fa-lock";
   } else {
-    lockIcon.className = "mt-4 mb-2 fas fa-lock-open"
+    lockIcon.className = "mt-4 mb-2 fas fa-lock-open";
   }
 }
 
@@ -210,4 +228,29 @@ function getWeather() {
     }}(document,'script','weatherwidget-io-js'); 
 }
 
-getWeather()
+
+
+
+// 1. get position (x, y)
+// 2. get size (x, y)
+// 3. write (1+2) to storage
+// 4. on startup, check for positions
+// 5. make active widgets a class of "is-active"
+// 6. write this to storage
+// 7. check for and render only isActive on startup
+
+grid.on("change", (change, gridStackItems) => {
+  console.log(change, gridStackItems)
+  console.log("Name is: " + gridStackItems[0].el.id)
+  console.log("X is: " + gridStackItems[0].x)
+  console.log("Y is: " + gridStackItems[0].y)
+  console.log("Width is: " + gridStackItems[0].width)
+  console.log("Height is: " + gridStackItems[0].height)
+})
+
+
+
+
+
+checkForEditModeOnStartup(); 
+getWeather();
