@@ -17,10 +17,11 @@ Currently implemented:
 - DeepL Translate Widget (just their logo as a link)
 - Sidebar-navigation including removing and adding items
 - function to update the grid items (refresh to get dynamically generated div's)
+- saving settings (Grid Items in use and their location) to LocalStorage.
 
 
 What I like to implement in the future (in order):
-- saving settings (Grid Items in use and their location, Weather City ID) to LocalStorage.
+- saving weather settings to localStorage
 - whatever comes into mind, any input is highly appreciated
 
 
@@ -29,9 +30,13 @@ Since this is my first own project besides Tutorial tasks, I like to stick to th
 Technologies used so far:
 
 - HTML
-- CSS including Flexbox Elements
+- CSS including Flexbox
 - Vanilla JavaScript
 - some jQuery
 - Bootstrap 4
 - FontAwesome
 - Gridstack.js
+
+
+Encounters so far:
+Saving settings to localStorage and reading them out was by far the hardest part and took up probably 50% of the time. Tough one!

@@ -18,7 +18,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid blue;
 }
 
 .logo {
@@ -156,13 +155,6 @@
   border-radius: 5px;
 }
 
-.sidenav-settings-button:hover {
-  color: #95cff5;
-  box-shadow: 0 0 3px #95cff5;
-  text-shadow: 0 0 3px #95cff5;
-  cursor: pointer;
-}
-
 .sidenav-element:hover {
   color: #95cff5;
   box-shadow: 0 0 5px #95cff5;
@@ -170,33 +162,23 @@
   cursor: pointer;
 }
 
-#sidenav-close {
+.sidenav-settings-container {
   position: absolute;
   width: 160px;
   bottom: 0px;
-  cursor: pointer;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
 }
 
-#sidenav-close:hover {
+.sidenav-settings:hover {
   color: #95cff5;
   box-shadow: 0 0 5px #95cff5;
   text-shadow: 0 0 5px #95cff5;
   cursor: pointer;
 }
 
-#reset-grid-button {
-  position: absolute;
-  width: 160px;
-  bottom: 0px;
-  cursor: pointer;
-}
 
-#reset-grid-button:hover {
-  color: #95cff5;
-  box-shadow: 0 0 5px #95cff5;
-  text-shadow: 0 0 5px #95cff5;
-  cursor: pointer;
-}
 
 .settings-modal {
   color: black;

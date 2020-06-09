@@ -27,7 +27,6 @@ const resetGridButton = document.getElementById("reset-grid-button")
 //Navbar on top
 const lockGridButton = document.getElementById("lock-button");
 const addRemoveItemsButton = document.getElementById("add-remove-button");
-const saveSettingsButton = document.getElementById("save-button");
 
 //Sidenav
 const sidenav = document.querySelector(".sidenav");
