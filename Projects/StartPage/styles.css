@@ -184,6 +184,20 @@
   cursor: pointer;
 }
 
+#reset-grid-button {
+  position: absolute;
+  width: 160px;
+  bottom: 0px;
+  cursor: pointer;
+}
+
+#reset-grid-button:hover {
+  color: #95cff5;
+  box-shadow: 0 0 5px #95cff5;
+  text-shadow: 0 0 5px #95cff5;
+  cursor: pointer;
+}
+
 .settings-modal {
   color: black;
 }
