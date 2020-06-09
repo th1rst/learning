@@ -4,7 +4,7 @@ var grid = GridStack.init({float: true})
 
 
 /* ----- GLOBAL VARIABLES ---- */
-let isInEditMode = true; //Can grid be edited on page load? default: true     
+let isInEditMode; //Can grid be edited on page load? default: true     
 
 const storageEntries = 
     {
@@ -68,22 +68,19 @@ lockGridButton.addEventListener("click", toggleEditMode)
 function toggleEditMode() {
   //check if the items have changed since last lock/unlock
   refreshGridStackItems();
-
-  if (isInEditMode) {
+  
+  if (isInEditMode || isInEditMode === undefined) {   //undefined is a special case where user hasn't made any input yet (first time visitor)
     deactivateEditMode();
-    isInEditMode = false;
-    
   } else {
     activateEditMode();
-    isInEditMode = true;
-    
   }
+  adjustLockIcon()
 }
 
 function deactivateEditMode() {
   isInEditMode = false;
   grid.disable() //native Gridstack.js function
-  changeLockIcon();
+  adjustLockIcon();
   localStorage.setItem("edit-mode", isInEditMode)
   gridStackItems.forEach((element) => {
     element.style.border = "none";
@@ -93,7 +90,7 @@ function deactivateEditMode() {
 function activateEditMode() {
   isInEditMode = true;
   grid.enable() //native Gridstack.js function
-  changeLockIcon();
+  adjustLockIcon();
   localStorage.setItem("edit-mode", isInEditMode)
   gridStackItems.forEach((element) => {
     element.style.border = "3px solid lightgrey";
@@ -270,9 +267,9 @@ function reload_js(src) {
   $("<script>").attr("src", src).appendTo("head");
 }
 
-function changeLockIcon() {
+function adjustLockIcon() {
   const lockIcon = document.getElementById("lock-button");
-  if (lockIcon.classList.contains("fa-lock-open")) {
+  if (!isInEditMode) {
     lockIcon.className = "mt-4 mb-2 fas fa-lock";
   } else {
     lockIcon.className = "mt-4 mb-2 fas fa-lock-open";
@@ -321,12 +318,11 @@ function writeLayoutToLocalStorage() {
 
 function checkForLocalStorageEntries() {
   //check if there is anything in localStorage, if not: render default settings
-  if (localStorage.length > 0) {
-
-    renderCustomizedGrid()
+  if (localStorage.length > 1) {  // 1 instead of 0 because user could have set the grid to "locked" without changing anything else
+    renderCustomizedGrid()        // there can only be 0, 1 and
   } else {
     renderDefaultGrid()
-  } 
+  }
 }
 
 
@@ -337,6 +333,14 @@ function renderDefaultGrid() {
   grid.addWidget($(newsDefaultDiv), 10, 4, 2, 6);
   grid.addWidget($(videosDefaultDiv), 5, 13, 3, 1);
   grid.addWidget($(translateDefaultDiv), 5, 10, 3, 2);
+  if (localStorage.length === 1) {  //check if user has ONLY changed grid to locked and nothing else
+    if (localStorage.getItem("edit-mode") === "false") {
+      refreshGridStackItems()
+      deactivateEditMode();
+    } else {
+      isInEditMode = true;
+  } 
+  }
 }
 
 function renderCustomizedGrid() {
@@ -373,14 +377,13 @@ function renderCustomizedGrid() {
           break;
       }
     }
+    if (localStorage.getItem("edit-mode") === "false") {
+      refreshGridStackItems();
+      deactivateEditMode();
+    } else if (localStorage.getItem("edit-mode") === "true") {
+      isInEditMode = true;
+    }
   }
-  //check if user has enabled/disabled edit mode
-  if (localStorage.getItem("edit-mode") === "false") { // type coersion because JSON.stringify
-    console.log("ASJDNASJDAPSDASDASD")
-    deactivateEditMode()
-    writeLayoutToLocalStorage()
-  } 
-
 }
 
 function resetGrid() {
