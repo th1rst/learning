@@ -5,7 +5,7 @@ var grid = GridStack.init({float: true})
 
 /* ----- GLOBAL VARIABLES ---- */
 let isInEditMode = true; //Can grid be edited on page load? default: true     
-let isGridDefault = true; // did the grid get edited?
+
 const storageEntries = 
     {
     searchBoxStorageEntry: JSON.parse(localStorage.getItem("search-box")),
@@ -60,72 +60,10 @@ const videosDefaultDiv = `<div id="invidious-box" class="grid-stack-item mt-2" d
 const translateDefaultDiv = `<div id="translate-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="10" data-gs-width="3" data-gs-height="2"><div class="grid-stack-item-content"><a href="https://www.deepl.com/translator" target="_blank"><img src="https://www.deepl.com/img/logo/DeepL_LogoAndText_darkBlue.svg" alt="DeepL Logo"></a></div></div>`
 
 
-
-/* ----- OBJECTS ----- */
-const Widgets = [
-  Searchbox = {
-    name: "search-box",
-    x: 5,
-    y: 6,
-    width: 3,
-    height: 1,
-    isActive: true,
-  },
-  
-  Weatherbox = {
-    name: "weather-box",
-    x: 0,
-    y: 1,
-    width: 3,
-    height: 3,
-    isActive: true,
-  },
-  
-  Mapbox = {
-    name: "map-box",
-    x: 0,
-    y: 8,
-    width: 4,
-    height: 6,
-    isActive: true,
-  },
-  
-  Newsbox = {
-    name: "news-box",
-    x: 10,
-    y: 4,
-    width: 2,
-    height: 6,
-    isActive: true,
-  },
-  
-  Invidiousbox = {
-    name: "invidious-box",
-    x: 5,
-    y: 13,
-    width: 3,
-    height: 1,
-    isActive: true,
-  },
-  
-  Translatebox = {
-    name: "translate-box",
-    x: 5,
-    y: 10,
-    width: 3,
-    height: 2,
-    isActive: true,
-  }
-]
-
-
-
-
 /* ----- NAVBAR----- */
 
-//listen for click on the "Enable/Lock Grid Editing" Button (upper right corner in SETTINGS)
+//listen for click on the "Enable/Lock Grid Editing" Button (Lock Icon)
 lockGridButton.addEventListener("click", toggleEditMode) 
-
 
 function toggleEditMode() {
   //check if the items have changed since last lock/unlock
@@ -134,25 +72,29 @@ function toggleEditMode() {
   if (isInEditMode) {
     deactivateEditMode();
     isInEditMode = false;
+    
   } else {
     activateEditMode();
     isInEditMode = true;
+    
   }
 }
 
 function deactivateEditMode() {
-  grid.movable(gridStackItems, false);
-  grid.resizable(gridStackItems, false);
+  isInEditMode = false;
+  grid.disable() //native Gridstack.js function
   changeLockIcon();
+  localStorage.setItem("edit-mode", isInEditMode)
   gridStackItems.forEach((element) => {
     element.style.border = "none";
   });
 }
 
 function activateEditMode() {
-  grid.movable(gridStackItems, true);
-  grid.resizable(gridStackItems, true);
+  isInEditMode = true;
+  grid.enable() //native Gridstack.js function
   changeLockIcon();
+  localStorage.setItem("edit-mode", isInEditMode)
   gridStackItems.forEach((element) => {
     element.style.border = "3px solid lightgrey";
   });
@@ -217,39 +159,82 @@ document.querySelectorAll(".sidenav-element").forEach((element) => {
 
 
 // ---- event listener for DDG Search Box (add/remove)----
-searchAddButton.addEventListener("click", () => grid.addWidget($(ddgDefaultDiv), 5, 6, 3, 1))
-searchBarRemoveButton.addEventListener("click", () => grid.removeWidget("#search-box"))
+searchAddButton.addEventListener("click", function () {
+  grid.addWidget($(ddgDefaultDiv), 5, 6, 3, 1)
+  makeWidgetActiveInLocalStorage("search-box", 5, 6, 3, 1)
+})
+
+searchBarRemoveButton.addEventListener("click", function() {
+  grid.removeWidget("#search-box");
+  makeWidgetInactiveInLocalStorage("search-box")
+}) 
+
 
 
 // ---- event listener for Weather (add/remove/settings)----
 weatherAddButton.addEventListener("click", () => {
   reload_js('https://weatherwidget.io/js/widget.min.js');
   getWeather()
-  grid.addWidget($(weatherDefaultDiv), 0, 1, 3, 3);
+  grid.addWidget($(weatherDefaultDiv), 0, 1, 3, 3)
+  makeWidgetActiveInLocalStorage("weather-box", 0, 1, 3, 3);
 })
-weatherRemoveButton.addEventListener("click", () => grid.removeWidget("#weather-box"))
+
+weatherRemoveButton.addEventListener("click", function() {
+  grid.removeWidget("#weather-box")
+  makeWidgetInactiveInLocalStorage("weather-box")
+})
 // --> settings -> Apply
 cityIdApplyButton.addEventListener("click", () => applyCityId())
 
 
 // ---- event listener for directions (add/remove)----
-directionsAddButton.addEventListener("click", () => grid.addWidget($(directionsDefaultDiv), 0, 8, 4, 6))
-directionsRemoveButton.addEventListener("click", () => grid.removeWidget("#map-box"))
+directionsAddButton.addEventListener("click", function() {
+  grid.addWidget($(directionsDefaultDiv), 0, 8, 4, 6)
+  makeWidgetActiveInLocalStorage("map-box", 0, 8, 4, 6)
+})
+
+directionsRemoveButton.addEventListener("click", function() {
+  grid.removeWidget("#map-box")
+  makeWidgetInactiveInLocalStorage("map-box")
+})
+
 
 
 // ---- event listener for News (add/remove) ----
-newsAddButton.addEventListener("click", () => grid.addWidget($(newsDefaultDiv), 10, 4, 2, 6))
-newsRemoveButton.addEventListener("click", () => grid.removeWidget("#news-box"))
+newsAddButton.addEventListener("click", function() {
+  grid.addWidget($(newsDefaultDiv), 10, 4, 2, 6)
+  makeWidgetActiveInLocalStorage("news-box", 10, 4, 2, 6)
+})
+
+newsRemoveButton.addEventListener("click", function() {
+  grid.removeWidget("#news-box")
+  makeWidgetInactiveInLocalStorage("news-box")
+})
 
 
 // ---- event listener for Invidious Search (add/remove) ----
-videosAddButton.addEventListener("click", () => grid.addWidget($(videosDefaultDiv), 5, 13, 3, 1))
-videosRemoveButton.addEventListener("click", () => grid.removeWidget("#invidious-box"))
+videosAddButton.addEventListener("click", function() {
+  grid.addWidget($(videosDefaultDiv), 5, 13, 3, 1)
+  makeWidgetActiveInLocalStorage("invidious-box", 5, 13, 3, 1)
+})
+
+videosRemoveButton.addEventListener("click", function() {
+  grid.removeWidget("#invidious-box")
+  makeWidgetInactiveInLocalStorage("invidious-box")
+})
+
 
 
 // ---- event listener for DeepL Translate (add/remove) ----
-translateAddButton.addEventListener("click", () => grid.addWidget($(translateDefaultDiv), 5, 10, 3, 2))
-translateRemoveButton.addEventListener("click", () => grid.removeWidget("#translate-box"))
+translateAddButton.addEventListener("click", function() {
+  grid.addWidget($(translateDefaultDiv), 5, 10, 3, 2)
+  makeWidgetActiveInLocalStorage("translate-box", 5, 10, 3, 2)
+})
+
+translateRemoveButton.addEventListener("click", function() {
+  grid.removeWidget("#translate-box")
+  makeWidgetInactiveInLocalStorage("translate-box")
+})
 
 // ---- event listener for resetting the grid layout ----
 resetGridButton.addEventListener("click", resetGrid)
@@ -258,13 +243,12 @@ resetGridButton.addEventListener("click", resetGrid)
 /* ----- GENERAL FUNCTIONS ----- */
 function init() {
   checkForLocalStorageEntries();
-  checkForEditModeOnStartup(); 
   getWeather();
 }
 
 
 
-const checkForEditModeOnStartup = () => !isInEditMode ? deactivateEditMode() : false
+
 
 
 function refreshGridStackItems() {
@@ -308,39 +292,41 @@ function getWeather() {
 }
 
 
+//listen for changes to Gridstack Items. When ANYTHING on any item changes, write the whole layout to LocalStorage
+grid.on("change", writeLayoutToLocalStorage);
+
+function writeLayoutToLocalStorage() {
+  let gridStackItems = document.querySelectorAll(".grid-stack-item");
+  //loop over every gridstack item
+  gridStackItems.forEach((element) => {
+    //write key:value pairs to localStorage (Key: element-name | Value: X:n, Y:n, Width:n, Height: n)
+    localStorage.setItem(
+      element.id,
+      JSON.stringify([
+        {
+          x: document.getElementById(`${element.id}`).getAttribute("data-gs-x"),
+          y: document.getElementById(`${element.id}`).getAttribute("data-gs-y"),
+          width: document.getElementById(`${element.id}`).getAttribute("data-gs-width"),
+          height: document.getElementById(`${element.id}`).getAttribute("data-gs-height"),
+          isActive: true,
+        },
+      ])
+    );
+  });
+}
 
 
-// DONE get position (x, y)
-// DONE get size (x, y)
-// DONE write (1+2) to storage
-// DONE on startup, check for positions
-// 5. make active widgets a class of "is-active"
-// 6. write this to storage
-// 7. check for and render only isActive on startup
-
-
-//listen for changes to Gridstack Items. When anything changes, push it to LocalStorage
-grid.on("change", (change, gridStackItems) => {
-  localStorage.setItem(
-    gridStackItems[0].el.id,  //name
-    JSON.stringify([          //key-value-pairs
-      {
-        x: gridStackItems[0].x,
-        y: gridStackItems[0].y,
-        width: gridStackItems[0].width,
-        height: gridStackItems[0].height,
-        isActive: true,
-      },
-    ])
-  );
-});
 
 
 
 function checkForLocalStorageEntries() {
-  //check localStorage for any entries.  --> CHANGE TO              ? renderCustomizedGrid           : renderDefaultGrid
-  localStorage.length > 0 ? renderCustomizedGrid() : renderDefaultGrid()
-  
+  //check if there is anything in localStorage, if not: render default settings
+  if (localStorage.length > 0) {
+
+    renderCustomizedGrid()
+  } else {
+    renderDefaultGrid()
+  } 
 }
 
 
@@ -358,10 +344,8 @@ function renderCustomizedGrid() {
   for (let key in storageEntries) {
     let item = storageEntries[key];
     //check if they are not "Null" or "undefined" && if they have the attribute "isActive" / if user removed them
+    //in other words: check which Widgets the user had in his window on last visit
     if (item && item[0].isActive) {
-      console.log(key);
-      console.log(item);
-      console.log(item[0]);
       switch (key) {
         case "searchBoxStorageEntry":
           const ddgCustomDiv = `<div id="search-box" class="search-box grid-stack-item mt-2" data-gs-x="${storageEntries.searchBoxStorageEntry[0].x}" data-gs-y="${storageEntries.searchBoxStorageEntry[0].y}" data-gs-width="${storageEntries.searchBoxStorageEntry[0].width}" data-gs-height="${storageEntries.searchBoxStorageEntry[0].height}"><div class="grid-stack-item-content"><div class="search-bar"><form target="_blank" method="get" action="http://duckduckgo.com"><img class="logo" height="40px" width="40px" src="https://duckduckgo.com/assets/common/dax-logo.svg" alt="DuckDuckGo Logo"><input name="q" type="text" placeholder="Search DuckDuckGo"/><button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search DuckDuckGo"><i class="fas fa-search"></i></button></form></div></div></div>`;
@@ -390,11 +374,45 @@ function renderCustomizedGrid() {
       }
     }
   }
+  //check if user has enabled/disabled edit mode
+  if (localStorage.getItem("edit-mode") === "false") { // type coersion because JSON.stringify
+    console.log("ASJDNASJDAPSDASDASD")
+    deactivateEditMode()
+    writeLayoutToLocalStorage()
+  } 
+
 }
 
 function resetGrid() {
   localStorage.clear();
   location.reload();
+}
+
+function makeWidgetActiveInLocalStorage(element, x, y, width, height) {
+  localStorage.setItem(
+    element,
+    JSON.stringify([
+      {
+        x: x,
+        y: y,
+        width: width,
+        height: height,
+        isActive: true,
+      },
+    ])
+  );
+}
+
+
+function makeWidgetInactiveInLocalStorage(element) {
+  localStorage.setItem(
+    element,
+    JSON.stringify([
+      {
+        isActive: false,
+      },
+    ])
+  );
 }
 
 
