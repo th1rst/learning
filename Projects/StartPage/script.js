@@ -4,7 +4,7 @@ var grid = GridStack.init({float: true})
 
 
 /* ----- GLOBAL VARIABLES ---- */
-let isInEditMode; //Can grid be edited on page load? default: true     
+let isInEditMode; //Can grid be edited on page load? default: true (can be adjusted)    
 
 const storageEntries = 
     {
@@ -24,6 +24,7 @@ const storageEntries =
 let gridStackItems = document.querySelectorAll(".grid-stack-item");     //needs to be refreshed dynamically
 const mainWindow = document.querySelector(".main-window");
 const resetGridButton = document.getElementById("reset-grid-button")
+
 //Navbar on top
 const lockGridButton = document.getElementById("lock-button");
 const addRemoveItemsButton = document.getElementById("add-remove-button");
@@ -57,6 +58,7 @@ const directionsDefaultDiv = `<div id="map-box" class="grid-stack-item mt-2" dat
 const newsDefaultDiv = `<div id="news-box" class="grid-stack-item mt-2" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="6"><div class="grid-stack-item-content"><iframe src="https://www.euronews.com/embed/timeline" scrolling="no" style="border:1px solid black; border-radius: 5px; min-height:400px; width:95%; height:95%;"></iframe></div></div>`
 const videosDefaultDiv = `<div id="invidious-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="13" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content"><div class="search-bar"><form target="_blank" method="get" action="https://invidio.us/search"><img class="logo" height="40px" width="40px" src="https://invidio.us/favicon-32x32.png" alt="Invidious Logo" data-toggle="tooltip" data-placement="top" title="Invidious is an alternative FrontEnd for Youtube. It gets you the raw videos without most of tracking by Google."><input name="q" type="text" placeholder="Search Invidious"/><button class="search-button hide-border" type="submit" data-toggle="tooltip" data-placement="top" title="Search Invidious"><i class="fas fa-search"></i></button></form></div></div></div>`
 const translateDefaultDiv = `<div id="translate-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="10" data-gs-width="3" data-gs-height="2"><div class="grid-stack-item-content"><a href="https://www.deepl.com/translator" target="_blank"><img src="https://www.deepl.com/img/logo/DeepL_LogoAndText_darkBlue.svg" alt="DeepL Logo"></a></div></div>`
+
 
 
           /* ----- NAVBAR----- */
@@ -120,7 +122,7 @@ function toggleSidenav() {
   unlock the grid again on sidebar-close
   */
   if (!isInEditMode && sidenav.style.display === "block") {
-    toggleEditMode();
+    activateEditMode();
   }
 }
 
@@ -157,11 +159,13 @@ document.querySelectorAll(".sidenav-element").forEach((element) => {
 // ---- event listener for DDG Search Box (add/remove)----
 searchAddButton.addEventListener("click", function () {
   grid.addWidget($(ddgDefaultDiv), 5, 6, 3, 1)
+  writeLayoutToLocalStorage()
   makeWidgetActiveInLocalStorage("search-box", 5, 6, 3, 1)
 })
 
 searchBarRemoveButton.addEventListener("click", function() {
   grid.removeWidget("#search-box");
+  writeLayoutToLocalStorage()
   makeWidgetInactiveInLocalStorage("search-box")
 }) 
 
@@ -171,11 +175,13 @@ weatherAddButton.addEventListener("click", () => {
   reload_js('https://weatherwidget.io/js/widget.min.js');
   getWeather()
   grid.addWidget($(weatherDefaultDiv), 0, 1, 3, 3)
+  writeLayoutToLocalStorage()
   makeWidgetActiveInLocalStorage("weather-box", 0, 1, 3, 3);
 })
 
 weatherRemoveButton.addEventListener("click", function() {
   grid.removeWidget("#weather-box")
+  writeLayoutToLocalStorage()
   makeWidgetInactiveInLocalStorage("weather-box")
 })
 
@@ -183,11 +189,13 @@ weatherRemoveButton.addEventListener("click", function() {
 // ---- event listener for directions (add/remove)----
 directionsAddButton.addEventListener("click", function() {
   grid.addWidget($(directionsDefaultDiv), 0, 8, 4, 6)
+  writeLayoutToLocalStorage()
   makeWidgetActiveInLocalStorage("map-box", 0, 8, 4, 6)
 })
 
 directionsRemoveButton.addEventListener("click", function() {
   grid.removeWidget("#map-box")
+  writeLayoutToLocalStorage()
   makeWidgetInactiveInLocalStorage("map-box")
 })
 
@@ -195,11 +203,13 @@ directionsRemoveButton.addEventListener("click", function() {
 // ---- event listener for News (add/remove) ----
 newsAddButton.addEventListener("click", function() {
   grid.addWidget($(newsDefaultDiv), 10, 4, 2, 6)
+  writeLayoutToLocalStorage()
   makeWidgetActiveInLocalStorage("news-box", 10, 4, 2, 6)
 })
 
 newsRemoveButton.addEventListener("click", function() {
   grid.removeWidget("#news-box")
+  writeLayoutToLocalStorage()
   makeWidgetInactiveInLocalStorage("news-box")
 })
 
@@ -207,11 +217,13 @@ newsRemoveButton.addEventListener("click", function() {
 // ---- event listener for Invidious Search (add/remove) ----
 videosAddButton.addEventListener("click", function() {
   grid.addWidget($(videosDefaultDiv), 5, 13, 3, 1)
+  writeLayoutToLocalStorage()
   makeWidgetActiveInLocalStorage("invidious-box", 5, 13, 3, 1)
 })
 
 videosRemoveButton.addEventListener("click", function() {
   grid.removeWidget("#invidious-box")
+  writeLayoutToLocalStorage()
   makeWidgetInactiveInLocalStorage("invidious-box")
 })
 
@@ -219,11 +231,13 @@ videosRemoveButton.addEventListener("click", function() {
 // ---- event listener for DeepL Translate (add/remove) ----
 translateAddButton.addEventListener("click", function() {
   grid.addWidget($(translateDefaultDiv), 5, 10, 3, 2)
+  writeLayoutToLocalStorage()
   makeWidgetActiveInLocalStorage("translate-box", 5, 10, 3, 2)
 })
 
 translateRemoveButton.addEventListener("click", function() {
   grid.removeWidget("#translate-box")
+  writeLayoutToLocalStorage()
   makeWidgetInactiveInLocalStorage("translate-box")
 })
 
@@ -233,6 +247,7 @@ resetGridButton.addEventListener("click", resetGrid)
 
 
           /* ----- GENERAL FUNCTIONS ----- */
+
 function init() {
   checkForLocalStorageEntries();
   getWeather();
