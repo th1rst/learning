@@ -59,7 +59,7 @@ const videosDefaultDiv = `<div id="invidious-box" class="grid-stack-item mt-2" d
 const translateDefaultDiv = `<div id="translate-box" class="grid-stack-item mt-2" data-gs-x="5" data-gs-y="10" data-gs-width="3" data-gs-height="2"><div class="grid-stack-item-content"><a href="https://www.deepl.com/translator" target="_blank"><img src="https://www.deepl.com/img/logo/DeepL_LogoAndText_darkBlue.svg" alt="DeepL Logo"></a></div></div>`
 
 
-/* ----- NAVBAR----- */
+          /* ----- NAVBAR----- */
 
 //listen for click on the "Enable/Lock Grid Editing" Button (Lock Icon)
 lockGridButton.addEventListener("click", toggleEditMode) 
@@ -98,7 +98,7 @@ function activateEditMode() {
 
 
 
-/* ----- SIDEBAR NAVIGATION ----- */
+          /* ----- SIDEBAR NAVIGATION ----- */
 
 //listen for click on the "Add/Remove Items" Button (upper right corner SETTINGS dropdown)
 addRemoveItemsButton.addEventListener("click", toggleSidenav) 
@@ -166,7 +166,6 @@ searchBarRemoveButton.addEventListener("click", function() {
 }) 
 
 
-
 // ---- event listener for Weather (add/remove/settings)----
 weatherAddButton.addEventListener("click", () => {
   reload_js('https://weatherwidget.io/js/widget.min.js');
@@ -179,8 +178,6 @@ weatherRemoveButton.addEventListener("click", function() {
   grid.removeWidget("#weather-box")
   makeWidgetInactiveInLocalStorage("weather-box")
 })
-// --> settings -> Apply
-cityIdApplyButton.addEventListener("click", () => applyCityId())
 
 
 // ---- event listener for directions (add/remove)----
@@ -193,7 +190,6 @@ directionsRemoveButton.addEventListener("click", function() {
   grid.removeWidget("#map-box")
   makeWidgetInactiveInLocalStorage("map-box")
 })
-
 
 
 // ---- event listener for News (add/remove) ----
@@ -220,7 +216,6 @@ videosRemoveButton.addEventListener("click", function() {
 })
 
 
-
 // ---- event listener for DeepL Translate (add/remove) ----
 translateAddButton.addEventListener("click", function() {
   grid.addWidget($(translateDefaultDiv), 5, 10, 3, 2)
@@ -236,15 +231,12 @@ translateRemoveButton.addEventListener("click", function() {
 resetGridButton.addEventListener("click", resetGrid)
 
 
-/* ----- GENERAL FUNCTIONS ----- */
+
+          /* ----- GENERAL FUNCTIONS ----- */
 function init() {
   checkForLocalStorageEntries();
   getWeather();
 }
-
-
-
-
 
 
 function refreshGridStackItems() {
@@ -261,10 +253,12 @@ function applyCityId() {
   grid.addWidget($(userWeatherDiv), 0, 1, 3, 3);
 }
 
+
 function reload_js(src) {
   $('script[src="' + src + '"]').remove();
   $("<script>").attr("src", src).appendTo("head");
 }
+
 
 function adjustLockIcon() {
   const lockIcon = document.getElementById("lock-button");
@@ -312,13 +306,10 @@ function writeLayoutToLocalStorage() {
 }
 
 
-
-
-
 function checkForLocalStorageEntries() {
   //check if there is anything in localStorage, if not: render default settings
   if (localStorage.length > 1) {  // 1 instead of 0 because user could have set the grid to "locked" without changing anything else
-    renderCustomizedGrid()        // there can only be 0, 1 and
+    renderCustomizedGrid()
   } else {
     renderDefaultGrid()
   }
@@ -332,15 +323,17 @@ function renderDefaultGrid() {
   grid.addWidget($(newsDefaultDiv), 10, 4, 2, 6);
   grid.addWidget($(videosDefaultDiv), 5, 13, 3, 1);
   grid.addWidget($(translateDefaultDiv), 5, 10, 3, 2);
-  if (localStorage.length === 1) {  //check if user has ONLY changed grid to locked and nothing else
+  if (localStorage.length === 1) {
+    //check if user has ONLY changed grid to locked and nothing else
     if (localStorage.getItem("edit-mode") === "false") {
-      refreshGridStackItems()
+      refreshGridStackItems();
       deactivateEditMode();
     } else {
       isInEditMode = true;
-  } 
+    }
   }
 }
+
 
 function renderCustomizedGrid() {
   //loop through entries in localStorage
@@ -385,10 +378,12 @@ function renderCustomizedGrid() {
   }
 }
 
+
 function resetGrid() {
   localStorage.clear();
   location.reload();
 }
+
 
 function makeWidgetActiveInLocalStorage(element, x, y, width, height) {
   localStorage.setItem(

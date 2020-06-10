@@ -12,7 +12,7 @@ Currently implemented:
 - DuckDuckGo Search Bar
 - Openstreetmap (Openroute) Directions
 - WeatherWidget.io Weather including settings (Widget gets updated without page refresh)
-- Euronews WorldNews Widget (might be replaced soon, too many trackers)
+- Euronews WorldNews Widget (might be replaced soon, too many trackers and console errors/warnings)
 - Invidious Search Bar
 - DeepL Translate Widget (just their logo as a link)
 - Sidebar-navigation including removing and adding items
@@ -20,12 +20,8 @@ Currently implemented:
 - saving settings (Grid Items in use and their location) to LocalStorage.
 
 
-What I like to implement in the future (in order):
-- saving weather settings to localStorage
-- whatever comes into mind, any input is highly appreciated
-
-
-Since this is my first own project besides Tutorial tasks, I like to stick to the basics.
+Since this is my first own project besides Tutorial tasks, I like to stick to the basics. 
+I purposefully made the Site non-responsive as I think a Startpage like this is pointless on mobile devices.
 
 Technologies used so far:
 
@@ -38,5 +34,7 @@ Technologies used so far:
 - Gridstack.js
 
 
-Encounters so far:
+Conclusion:
 Saving settings to localStorage and reading them out was by far the hardest part and took up probably 50% of the time. Tough one!
+Otherwise, I can VERY clearly see now where a Library like React can come in handy. Updating dynamically changing elements in the DOM is a complete mess when having to write countless event handlers and DOM references.
+But it works nonetheless and I tried my best to format and document everything as good as I can. Very happy!
