@@ -9,17 +9,11 @@ import Heading from './components/Headings/h1'
 
 
 function App() {
-  const AppStyles = {
-
-  }
-
-
   return (
-    <div className="App" styles={AppStyles}>
+    <div className="App">
       <BootstrapNavbar />
       <Heading />
       <Gifbox />
-      
     </div>
   );
 }

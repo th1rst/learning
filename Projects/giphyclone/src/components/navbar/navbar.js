@@ -16,7 +16,6 @@ class BootstrapNavbar extends Component {
               <Form inline>
                 <FormControl style={{width: "40vw"}} type="text" placeholder="Search for GIF's" className="mr-sm-3 mr-4" aria-label="large" />
                 <Button className="search-button" variant="outline-info">Search</Button>
-                <Button className="test-button" variant="outline-info">TEST!</Button>
               </Form>
           </Navbar>
         )
@@ -24,8 +23,3 @@ class BootstrapNavbar extends Component {
 }
 
 export default BootstrapNavbar
-
-
-/* 
-BG COLOR für CSS: #282c34 
-*/

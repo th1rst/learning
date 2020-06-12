@@ -3,7 +3,6 @@ import "typeface-roboto"
 
 class Heading extends React.Component{
      render() {
-
         const HeadingStyles = {
             display: "flex",
             justifyContent: "center",
@@ -12,16 +11,15 @@ class Heading extends React.Component{
             fontFamily: "Roboto",
             fontWeight: "bold",
             fontSize: "3em",
+            letterSpacing: "-2px"
         }
         
-
         return (
             <div className="heading">   
             <h1 style={HeadingStyles}>#TRENDING</h1>
             </div>
         )
     }
-
 }
 
 export default Heading
