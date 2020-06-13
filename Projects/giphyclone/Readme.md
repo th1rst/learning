@@ -22,9 +22,9 @@ This is my first tinkering with React.
 
 
 Technologies used:
-HTML, CSS and JS
-React (create-react-app)
-React-Bootstrap
-API calls
+- HTML, CSS and JS
+- React (create-react-app)
+- React-Bootstrap
+- API calls
 
 The very simple project can be seen [here](https://giphyclone.netlify.app/)
