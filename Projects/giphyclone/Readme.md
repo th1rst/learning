@@ -18,7 +18,7 @@ This is my first tinkering with React.
 - had to store the data from the API in state
 - getting the (value of) user input is a whole lot different than with Vanilla JS and took me almost a full day to figure out
 - the user input is asynchronous (had to use async/await or else the last character would be missing)
-- **.**this is crazy!
+- .this is crazy!
 
 
 Technologies used:
@@ -26,3 +26,5 @@ HTML, CSS and JS
 React (create-react-app)
 React-Bootstrap
 API calls
+
+The very simple project can be seen [here](https://giphyclone.netlify.app/)
