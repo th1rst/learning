@@ -9,7 +9,7 @@ This is my first tinkering with React.
 - style the gifs to match the corresponding flexbox items in width/height
 - create a loop to fill out all elements with gifs and use their corresponding titles, alts and href's.
 - style the appearance of the boxes to make it look not-so-ugly
-- get the user input of the form (Navbar)
+- get the user input of the form (Navbar) for the search
 - display search results dynamically onChange
 
 
@@ -23,6 +23,7 @@ This is my first tinkering with React.
 
 Technologies used:
 - HTML, CSS and JS
+- Responsive Flexbox Layout
 - React (create-react-app)
 - React-Bootstrap
 - API calls
