@@ -1,6 +1,5 @@
 import React from "react";
-import "./App.css";
-import { Navbar, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Form, FormControl } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "typeface-roboto";
 
@@ -14,11 +13,10 @@ class Main extends React.Component {
     };
   }
 
-  handleTextChange = async function() {
+  handleTextChange = async function () {
     let userInput = this.textInput.current.value;
-    await this.setState({userQuery: userInput})
-    //console.log(this.state.userQuery); 
-  }
+    await this.setState({ userQuery: userInput });
+  };
 
   createGifBoxes() {
     const GifboxStyle = {
@@ -37,9 +35,9 @@ class Main extends React.Component {
       width: "100%",
       height: "100%",
     };
-    
+
     let finalDiv = [];
-    
+
     for (let i = 0; i < this.state.data.data.length; i++) {
       finalDiv.push(
         <div style={GifboxStyle} key={`gifboxOuterDiv${i}`}>
@@ -57,7 +55,7 @@ class Main extends React.Component {
             />
           </a>
         </div>
-      )
+      );
     }
     return finalDiv;
   }
@@ -67,11 +65,11 @@ class Main extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-      if (prevState.userQuery !== this.state.userQuery) {
-          this.loadSearchResults(this.state.userQuery)
-      } else if (this.state.userQuery === "") { //if user has made an input and then deleted it, make it go back to "Trending"
-        this.loadTrendingData()
-      }
+    if (prevState.userQuery !== this.state.userQuery) {
+      this.loadSearchResults(this.state.userQuery);
+    } else if (this.state.userQuery === "") { //if user has made an input and then deleted it, make it go back to "Trending"
+      this.loadTrendingData();
+    }
   }
 
   loadTrendingData() {
@@ -143,7 +141,11 @@ class Main extends React.Component {
         </Navbar>
 
         <div className="heading">
-          <h1 style={HeadingStyles}>{this.state.userQuery ? `Your search results for ${this.state.userQuery}:` : "#TRENDING"}</h1>
+          <h1 style={HeadingStyles}>
+            {this.state.userQuery
+              ? `Your search results for ${this.state.userQuery}:`
+              : "#TRENDING"}
+          </h1>
         </div>
 
         <div id="gifContainerDiv" style={GifOuterContainerStyle}>
