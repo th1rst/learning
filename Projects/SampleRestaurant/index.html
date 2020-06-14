@@ -1,143 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles.css">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Shadows+Into+Light&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./styles.css" />
     <script src="https://kit.fontawesome.com/7e25638a03.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joeys Pizza Place</title>
-</head>
-<body>
+  </head>
+  <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
-          </ul>
-        </div>
-      </nav>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-custom">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="#about-us">About us</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <div class="parallax1">
       <div class="intro-banner">
         <div class="title-subtitle-box">
-            <h1 class="title1-font">Joey's</h1>
-            <h1 class="title2-font">Pizza Place</h1>
-            <h2 class="subtitle-font">And Pasta. Of course there's Pasta.</h2>
+          <h1 class="title1-font">Joey's</h1>
+          <h1 class="title2-font">Pizza Place</h1>
+          <h2 class="subtitle-font">And Pasta. Of course there's Pasta.</h2>
         </div>
       </div>
     </div>
- 
 
     <!-- About Us -->
     <div class="about-us-container">
-      <h1 class="section-heading">About us</h1>
+      <h1 id="about-us" class="section-heading">About us</h1>
       <div class="card-deck">
         <div class="card mt-3">
-          <img class="card-img-top" src="https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Fine Dining">
+          <img
+            class="card-img-top"
+            src="https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Fine Dining"
+          />
           <div class="card-body">
             <h5 class="card-title">Fine Dining.</h5>
-            <p class="card-text">You can impress your date or book us for your Gradma's 90th birthday. Together, we'll come up with a plan for every occasion.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text">
+              You can impress your date or book us for your Gradma's 90th
+              birthday. Together, we'll come up with a plan for every occasion.
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
           </div>
         </div>
         <div class="card mt-3">
-          <img class="card-img-top" src="https://images.pexels.com/photos/7522/pexels-photo.jpg?cs=srgb&dl=flag-italy-7522.jpg&fm=jpg" alt="friendly staff">
+          <img
+            class="card-img-top"
+            src="https://images.pexels.com/photos/7522/pexels-photo.jpg?cs=srgb&dl=flag-italy-7522.jpg&fm=jpg"
+            alt="friendly staff"
+          />
           <div class="card-body">
             <h5 class="card-title">The spirit of Italy.</h5>
-            <p class="card-text">Original italian recipes combined with a southern atmosphere. And yes, we also make <i>the</i> hand gesture.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text">
+              Original italian recipes combined with a southern atmosphere. And
+              yes, we also make <i>the</i> italian hand gesture.
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
           </div>
         </div>
         <div class="card mt-3">
-          <img class="card-img-top" src="https://images.pexels.com/photos/196643/pexels-photo-196643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Fresh Ingredients">
+          <img
+            class="card-img-top"
+            src="https://images.pexels.com/photos/196643/pexels-photo-196643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Fresh Ingredients"
+          />
           <div class="card-body">
             <h5 class="card-title">We. Cook. Fresh.</h5>
-            <p class="card-text">When you see vegetables on a plate with water sprinkled all over them, then you know that the ingredients we use will be the freshest on the planet.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text">
+              When you see vegetables on a plate with water sprinkled all over
+              them, then you know that the ingredients we use will be the
+              freshest on the planet.
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
           </div>
         </div>
       </div>
       <div class="card-deck">
-      <div class="card card-double mt-4">
-        <img class="card-img-top" src="https://images.pexels.com/photos/1049626/pexels-photo-1049626.jpeg?cs=srgb&dl=person-holding-pepperoni-pizza-on-tray-1049626.jpg&fm=jpg" alt="Best Pizza">
-        <div class="card-body">
-          <h5 class="card-title">Best Pizza in Town. We swear.</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div class="card card-double mt-4">
+          <img
+            class="card-img-top"
+            src="https://images.pexels.com/photos/1049626/pexels-photo-1049626.jpeg?cs=srgb&dl=person-holding-pepperoni-pizza-on-tray-1049626.jpg&fm=jpg"
+            alt="Best Pizza"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Best Pizza in Town. We swear.</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat.
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
+          </div>
+        </div>
+        <div class="card card-double mt-4">
+          <img
+            class="card-img-top"
+            src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Fine Dining"
+          />
+          <div class="card-body">
+            <h5 class="card-title">And Pasta. The best. We swear.</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum.
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
+          </div>
         </div>
       </div>
-      <div class="card card-double mt-4">
-        <img class="card-img-top" src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Fine Dining">
-        <div class="card-body">
-          <h5 class="card-title">And Pasta. The best. We swear.</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
     </div>
 
-    <div class="parallax2"><div class="text-over-image-container"><h1 class="text-over-image">Goodness.</h1><h1 class="text-over-image-subtext">With only the best ingredients, we strive to provide the best italian cuisine in all of Town. Our Recipes have been passed onto us by our Grandmothers and Grandfathers for generations now.</h1></div></div>
-      
+    <div class="parallax2">
+      <div class="text-over-image-container">
+        <h1 class="text-over-image">Goodness.</h1>
+        <h1 class="text-over-image-subtext">
+          With only the best ingredients, we strive to provide the best italian
+          cuisine in all of Town. Our Recipes have been passed onto us by our
+          Grandmothers and Grandfathers for generations now.
+        </h1>
+      </div>
+    </div>
 
     <!--- OUR SERVICES -->
 
-    <h1 class="section-heading">Services</h1>
+    <h1 id="services" class="section-heading">Services</h1>
     <div class="card-deck">
       <div class="card mt-3">
-        <img class="card-img-top" src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="The best waiters">
+        <img
+          class="card-img-top"
+          src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="The best waiters"
+        />
         <div class="card-body">
-          <h5 class="card-title">The best waiters.<br>The best.<br>They're Amazing.</h5>
-          <p class="card-text">They're so amazing. They bring you food. And drinks. Of course they'll bring you a bill, too - but at least they smile when they do.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h5 class="card-title">
+            The best waiters.<br />The best.<br />They're Amazing.
+          </h5>
+          <p class="card-text">
+            They're so amazing. They bring you food. And drinks. Of course
+            they'll bring you a bill, too - but at least they smile when they
+            do.
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
         </div>
       </div>
       <div class="card mt-3">
-        <img class="card-img-top" src="https://images.pexels.com/photos/3217157/pexels-photo-3217157.jpeg?cs=srgb&dl=man-pouring-wine-on-glasses-3217157.jpg&fm=jpg" alt="closed societies">
+        <img
+          class="card-img-top"
+          src="https://images.pexels.com/photos/3217157/pexels-photo-3217157.jpeg?cs=srgb&dl=man-pouring-wine-on-glasses-3217157.jpg&fm=jpg"
+          alt="closed societies"
+        />
         <div class="card-body">
           <h5 class="card-title">Closed Societies.</h5>
-          <p class="card-text">They're so private, not even the NSA will know about them. They're just so private.<br><br> - Edward Snowden.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text">
+            They're so private, not even the NSA will know about them. They're
+            just so private.<br /><br />
+            - Edward Snowden.
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
         </div>
       </div>
       <div class="card mt-3">
-        <img class="card-img-top" src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Event cooking nights">
+        <img
+          class="card-img-top"
+          src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+          alt="Event cooking nights"
+        />
         <div class="card-body">
           <h5 class="card-title">Event cooking nights.</h5>
-          <p class="card-text">Yes, our chefs serve the food on pieces of wood. They're <i>that</i> good. Real professionals.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text">
+            Yes, our chefs serve the food on pieces of wood. They're
+            <i>that</i> good. Real professionals.
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
         </div>
       </div>
       <div class="card mt-3">
-        <img class="card-img-top" src="https://images.pexels.com/photos/784633/pexels-photo-784633.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="Pizza Courses">
+        <img
+          class="card-img-top"
+          src="https://images.pexels.com/photos/784633/pexels-photo-784633.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+          alt="Pizza Courses"
+        />
         <div class="card-body">
           <h5 class="card-title">Pizza courses.</h5>
-          <p class="card-text">Nothing half-baked in this sweet little course, believe us.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text">
+            Nothing half-baked in this sweet little course, believe us.
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
         </div>
-      </div>      
+      </div>
     </div>
 
-    
-
+    <!-- SLIDESHOW -->
     <h5 class="subsection-heading">If you're not in the mood for dinner</h5>
     <div id="carouselIndicators" class="carousel slide mt-5" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -147,21 +248,26 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="https://images.pexels.com/photos/302902/pexels-photo-302902.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="coffee">
+          <img class="d-block w-100" src="https://images.pexels.com/photos/302902/pexels-photo-302902.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="coffee"/>
           <div class="carousel-caption d-none d-md-block">
             <h2>We make amazing coffee, too.</h2>
-            <p>Visit us to get an overview ouf our variety of cafes and lattes.</p>
+            <p>
+              Visit us to get an overview ouf our variety of cafes and lattes.
+            </p>
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="https://images.pexels.com/photos/7390/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="croissant">
+          <img class="d-block w-100" src="https://images.pexels.com/photos/7390/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="croissant"/>
           <div class="carousel-caption d-none d-md-block">
             <h2>We not only bake pizzas.</h2>
-            <p>This croissant is french, but <i>oui</i> think you'll still love it.</p>
+            <p>
+              This croissant is french, but <i>oui</i> think you'll still love
+              it.
+            </p>
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="https://images.pexels.com/photos/205961/pexels-photo-205961.jpeg?cs=srgb&dl=donuts-and-bagel-display-205961.jpg&fm=jpg" alt="bakeries">
+          <img class="d-block w-100" src="https://images.pexels.com/photos/205961/pexels-photo-205961.jpeg?cs=srgb&dl=donuts-and-bagel-display-205961.jpg&fm=jpg" alt="bakeries"/>
           <div class="carousel-caption d-none d-md-block">
             <h2>Bakeries.</h2>
             <p>Lots of them.</p>
@@ -178,54 +284,56 @@
       </a>
     </div>
 
-    <div class="parallax3"><div class="text-over-image-container"><h1 class="text-over-image">Perfection. Detail. Buzzwords.</h1></div></div>
-    
-    
-     <!--- Contact Us -->
-     <h1 class="section-heading">Contact Us.</h1>
-     <h2 class="section-description-heading">Just fill out the form below and we'll get back to you as soon as possible.</h2>
-    
-
-
-     <div class="parallax4">
-
-   <div class="form-outer-div">
-      <form>
-        <div class="form-group">
-          <textarea class="form-control" id="textarea1" rows="3" readonly>We always try to perform our best. If you have any tips on how we can improve the quality of our dishes, or have any criticism, just fill out the form and we will do our best to make sure that your needs are met with the utmost care.</textarea>
-        </div>        
-        <div class="form-group">
-          <div class="form-group">
-            <div class="form-row">
-              <input type="text" class="form-control mt-3" id="name" placeholder="Name">
-            </div>
-            <div class="form-row">
-              <input type="email" class="form-control mt-3" id="email" placeholder="Email">
-            </div>
-            <div class="form-row">
-              <input type="text" class="form-control mt-3" id="subject" placeholder="Subject">
-            </div>
-          </div>
-          <textarea class="form-control" id="textarea2" rows="3">Your message here...</textarea>
-        </div>
-        <button type="submit" class="btn btn-secondary">Submit</button>
-      </form>
+    <div class="parallax3">
+      <div class="text-over-image-container">
+        <h1 class="text-over-image">Perfection. Detail. Buzzwords.</h1>
+      </div>
     </div>
-     </div>
-     
+
+
+    <!-- CONTACT FORM -->
+    <h1 id="contact" class="section-heading">Contact Us.</h1>
+    <h2 class="section-description-heading">
+      Just fill out the form below and we'll get back to you as soon as
+      possible.
+    </h2>
+
+    <div class="parallax4">
+      <div class="outer-form-div">
+        <div class="row-1-div">
+          <textarea class="form-control" id="textarea1" rows="3" readonly>
+            We always try to perform our best. If you have any tips on how we can improve the quality of our dishes, 
+            or have any criticism, just fill out the form and we will do our best to make sure that your needs are met with the utmost care.
+          </textarea>
+        </div>
+        <div class="row-2-div">
+          <div class="row-2-inner-div-1">
+            <div class="form-row">
+              <input type="text" class="form-control mb-3" id="name" placeholder="Name"/>
+            </div>
+            <div class="form-row">
+              <input type="email" class="form-control mb-3" id="email" placeholder="Your Email"/>
+            </div>
+            <div class="form-row">
+              <input type="text" class="form-control mb-3" id="subject" placeholder="Subject"/>
+            </div>
+            <button type="submit" class="btn btn-secondary mt-2">Submit</button>
+          </div>
+          <div class="row-2-inner-div-2">
+            <textarea class="form-control" id="textarea2" rows="3">
+            Your message here...
+            </textarea>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
-     <h1 class="section-heading"><a href="#home">Back to top</a></h1>
+    <h1 class="section-heading"><a href="#">Back to top</a></h1>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
-
-
-
-
-
-
