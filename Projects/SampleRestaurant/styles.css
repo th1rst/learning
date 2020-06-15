@@ -7,7 +7,16 @@ a {
   color: inherit;
 }
 
+h5, h2 {
+  font-size: 2vw;
+}
+
+p {
+  font-size: 1.2vw;
+}
+
 .navbar-dark {
+  height: 6.2vh;
   z-index: 10;
   position: fixed;
   width: 100%;
@@ -15,7 +24,13 @@ a {
 }
 
 .nav-item {
+  font-size: 1.5vw;
   padding: 0 20px 0 20px;
+  background-color: rgb(24, 22, 22);
+}
+
+.nav-link a{
+  font-size: 20vw;
 }
 
 .nav-item:hover {
@@ -27,7 +42,7 @@ a {
 .parallax1 {
   background-image: url("https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   z-index: 1;
-  height: 600px;
+  height: 50vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -38,7 +53,7 @@ a {
   background-image: url("https://images.pexels.com/photos/1435907/pexels-photo-1435907.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
   z-index: 1;
   margin-top: 20vh;
-  height: 600px;
+  height: 50vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,7 +67,7 @@ a {
   background-image: url("https://images.pexels.com/photos/6461/food-plate-rucola-salad.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   z-index: 1;
   margin-top: 30vh;
-  height: 600px;
+  height: 50vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -65,7 +80,7 @@ a {
 .parallax4 {
   background-image: url("https://images.pexels.com/photos/2532006/pexels-photo-2532006.jpeg?cs=srgb&dl=sliced-tomatoes-on-bread-2532006.jpg&fm=jpg");
   z-index: 1;
-  height: 600px;
+  height: 50vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -88,14 +103,14 @@ a {
 .text-over-image {
   position: relative;
   font-family: "Roboto", cursive;
-  font-size: 7rem;
+  font-size: 7vw;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .text-over-image-subtext {
   font-family: "Roboto", cursive;
-  font-size: 1.8rem;
+  font-size: 3vw;
   font-weight: bold;
   margin-left: 3rem;
   color: rgba(255, 255, 255, 0.8);
@@ -116,8 +131,9 @@ a {
 
 .title-subtitle-box {
   z-index: 5;
-  width: 55%;
-  height: 40%;
+  margin-top: 10vh;
+  width: 35vw;
+  height: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,7 +149,7 @@ a {
 /* "Joey's" */
 .title1-font {
   position: relative;
-  font-size: 6rem;
+  font-size: 6vh;
   font-family: "Shadows Into Light", cursive;
   color: rgba(243, 164, 17, 0.95);
   text-shadow: 3px 4px 6px #000000, 0px 0px 10px rgba(255, 255, 255, 0.3),
@@ -145,7 +161,7 @@ a {
 .title2-font {
   z-index: 1000;
   position: relative;
-  font-size: 5rem;
+  font-size: 4vh;
   font-family: "Shadows Into Light", cursive;
   color: rgba(243, 164, 17, 0.95);
   text-shadow: 3px 4px 6px #000000, 0px 0px 10px rgba(255, 255, 255, 0.3),
@@ -155,7 +171,7 @@ a {
 
 .subtitle-font {
   position: relative;
-  font-size: 2vw;
+  font-size: 2vh;
   font-family: "Roboto", cursive;
   color: rgba(241, 239, 236, 0.8);
   text-shadow: 3px 4px 6px #000000;
@@ -206,7 +222,7 @@ a {
   top: 200px;
   display: flex;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 3vw;
   font-family: "Shadows Into Light", cursive;
 }
 
@@ -214,7 +230,7 @@ a {
   position: relative;
   padding: 100px 0;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2vw;
   font-family: "Shadows Into Light", cursive;
 }
 
@@ -275,25 +291,35 @@ a {
 textarea[readonly] {
   color: rgba(43, 39, 39, 0.7);
   height: 15vh;
-  font-size: 1.1rem;
+  font-size: 1.3vw;
   text-align: center;
   resize: none;
 }
 
 /* RESPONSIVE */
 @media only screen and (max-width: 550px) {
+  h5 {
+    font-size: 6vw;
+  }
+  
+  p {
+    font-size: 4.4vw;
+  }
+  
   .title-subtitle-box {
     width: 60vw;
-    height: 25vh;
+    height: 20vh;
+    margin-top: 1vh;
   }
+  
 
   .subtitle-font {
-    font-size: 0.9rem;
+    font-size: 1vw;
   }
 
   .text-over-image-container1 {
-    width: 65%;
-    height: 30%;
+    width: 55vw;
+    height: 35vh;
   }
 
   .text-over-image {
@@ -309,27 +335,27 @@ textarea[readonly] {
   }
 
   .subsection-heading {
-    font-size: 1.8rem;
+    font-size: 8vw;
   }
 
   .section-description-heading {
-    font-size: 1.5rem;
+    font-size: 8vw;
   }
 }
 
 @media only screen and (max-width: 960px) {
   /* "Joey's" */
   .title1-font {
-    font-size: 5rem;
+    font-size: 10vw;
   }
 
   /* "Pizza Place" */
   .title2-font {
-    font-size: 3rem;
+    font-size: 7vw;
   }
 
   .subtitle-font {
-    font-size: 0.9rem;
+    display: none;
   }
 
   .text-over-image-subtext {
