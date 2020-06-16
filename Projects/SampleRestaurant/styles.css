@@ -12,7 +12,7 @@ h5, h2 {
 }
 
 p {
-  font-size: 1.2vw;
+  font-size: 1.4vw;
 }
 
 .navbar-dark {
@@ -42,7 +42,7 @@ p {
 .parallax1 {
   background-image: url("https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   z-index: 1;
-  height: 50vh;
+  height: 60vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -53,7 +53,7 @@ p {
   background-image: url("https://images.pexels.com/photos/1435907/pexels-photo-1435907.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
   z-index: 1;
   margin-top: 20vh;
-  height: 50vh;
+  height: 60vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -67,7 +67,7 @@ p {
   background-image: url("https://images.pexels.com/photos/6461/food-plate-rucola-salad.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   z-index: 1;
   margin-top: 30vh;
-  height: 50vh;
+  height: 60vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -80,7 +80,7 @@ p {
 .parallax4 {
   background-image: url("https://images.pexels.com/photos/2532006/pexels-photo-2532006.jpeg?cs=srgb&dl=sliced-tomatoes-on-bread-2532006.jpg&fm=jpg");
   z-index: 1;
-  height: 50vh;
+  height: 60vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -139,6 +139,7 @@ p {
   align-items: center;
   flex-direction: column;
   position: relative;
+  margin-top: 1vh;
   background-color: rgba(15, 15, 15, 0.4);
   overflow-y: hidden;
   border: 4px double rgba(231, 9, 9, 0.7);
@@ -230,7 +231,7 @@ p {
   position: relative;
   padding: 100px 0;
   text-align: center;
-  font-size: 2vw;
+  font-size: 4vw;
   font-family: "Shadows Into Light", cursive;
 }
 
@@ -291,7 +292,7 @@ p {
 textarea[readonly] {
   color: rgba(43, 39, 39, 0.7);
   height: 15vh;
-  font-size: 1.3vw;
+  font-size: 2vw;
   text-align: center;
   resize: none;
 }
@@ -309,7 +310,6 @@ textarea[readonly] {
   .title-subtitle-box {
     width: 60vw;
     height: 20vh;
-    margin-top: 1vh;
   }
   
 
@@ -335,11 +335,11 @@ textarea[readonly] {
   }
 
   .subsection-heading {
-    font-size: 8vw;
+    font-size: 7vw;
   }
 
   .section-description-heading {
-    font-size: 8vw;
+    font-size: 6vw;
   }
 }
 
