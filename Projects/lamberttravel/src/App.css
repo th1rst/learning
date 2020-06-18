@@ -1,0 +1,60 @@
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    height: 7vh;
+    width: 100vw;
+    border: 1px solid green;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-inner-container-left {
+    width: 20vw;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-inner-container-center {
+    border: 1px solid pink;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-link-container {
+    height: 80%;
+    width: 70%;
+    border: 2px solid green;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar-inner-container-right {
+    width: 20vw;
+    border: 1px solid red;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1vw;
+}
+
+
+.nav-toggle-btn-active {
+    color: rgb(88, 73, 56);
+    height: 7vh;
+    width: auto;
+    cursor: pointer;
+}
+
+.nav-toggle-btn-active:hover {
+    color: rgb(156, 138, 118);
+}
+
+.company-logo {
+    display: flex;
+    height: 7vh;
+    width: auto;
+}
+
