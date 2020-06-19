@@ -6,6 +6,7 @@ import Rooms from './pages/Rooms'
 import SingleRoom from './pages/SingleRoom'
 import Error404 from './pages/Error404'
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import "typeface-roboto"
 
 
 function App() {
