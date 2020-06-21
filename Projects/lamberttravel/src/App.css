@@ -380,6 +380,7 @@ li {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     letter-spacing: 0.05vw;
+    text-transform: capitalize;
 }
 
 .room-card-pricetag {

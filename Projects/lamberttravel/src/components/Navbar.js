@@ -46,7 +46,7 @@ class Navbar extends React.Component {
             />
           </div>
         </nav>
-        <div className={this.state.isOpen ? "phone-nav-container" : false}>
+        <div className={this.state.isOpen ? "phone-nav-container" : undefined}>
           <li>
             <Link to="/" className="phone-nav nav-link">
               Home
