@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
   state = {
-    isOpen: true,
+    isOpen: false,
   };
 
   handleToggle = () => {
@@ -39,8 +39,6 @@ class Navbar extends React.Component {
               </li>
             </div>
           </div>
-       
-
           <div className="navbar-inner-container-right">
             <FaAlignRight
               className="nav-toggle-btn-active"
@@ -49,7 +47,7 @@ class Navbar extends React.Component {
           </div>
         </nav>
         <div className={this.state.isOpen ? "phone-nav-container" : false}>
-        <li>
+          <li>
             <Link to="/" className="phone-nav nav-link">
               Home
             </Link>
@@ -60,7 +58,7 @@ class Navbar extends React.Component {
               Rooms
             </Link>
           </li>
-          </div>
+        </div>
       </div>
     );
   }

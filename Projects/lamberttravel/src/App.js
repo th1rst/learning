@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/navbar'
 import Home from './pages/Home'
 import Rooms from './pages/Rooms'
 import SingleRoom from './pages/SingleRoom'
 import Error404 from './pages/Error404'
-import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import "typeface-roboto"
 
 

@@ -135,6 +135,10 @@ li {
     align-items: center;
 }
 
+.home-background-small {
+    height: 40vh;
+}
+ 
 .floating-box {
     z-index: 5;
     min-width: 300px;
@@ -148,6 +152,12 @@ li {
     align-items: center;
     border: 1px solid rgba(156, 138, 118, 0.6);
     box-shadow: 10px 10px 21px -7px rgba(0,0,0,0.6);
+}
+
+.floating-box-small {
+    min-width: 250px;
+    width: 35vw;
+    height: 30vh;
 }
 
 .floating-box-inner-row-1 {
