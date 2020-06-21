@@ -77,6 +77,12 @@ export default function Home() {
 
       <div className="room-card-container">
         <div className="room-card">
+          <div className="image-overlay">
+            <div className="image-overlay-linkbox">
+              <h1>FEATURES</h1>
+            </div>
+          </div>
+
           <img
             className="room-card-image"
             src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
@@ -90,6 +96,11 @@ export default function Home() {
           </div>
         </div>
         <div className="room-card">
+          <div className="image-overlay">
+            <div className="image-overlay-linkbox">
+              <h1>FEATURES</h1>
+            </div>
+          </div>
           <img
             className="room-card-image"
             src="https://images.unsplash.com/photo-1568495248636-6432b97bd949?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
@@ -103,6 +114,11 @@ export default function Home() {
           </div>
         </div>
         <div className="room-card">
+          <div className="image-overlay">
+            <div className="image-overlay-linkbox">
+              <h1>FEATURES</h1>
+            </div>
+          </div>
           <div className="room-card-pricetag">
             <h4>$345</h4>
             <h5>per night</h5>

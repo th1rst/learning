@@ -39,18 +39,28 @@ class Navbar extends React.Component {
               </li>
             </div>
           </div>
+       
 
           <div className="navbar-inner-container-right">
-            {this.state.isOpen === true ? (
-              <FaAlignRight
-                className="nav-toggle-btn-active"
-                onClick={this.handleToggle}
-              />
-            ) : (
-              false
-            )}
+            <FaAlignRight
+              className="nav-toggle-btn-active"
+              onClick={this.handleToggle}
+            />
           </div>
         </nav>
+        <div className={this.state.isOpen ? "phone-nav-container" : false}>
+        <li>
+            <Link to="/" className="phone-nav nav-link">
+              Home
+            </Link>
+          </li>
+          <div className="divider"></div>
+          <li>
+            <Link to="/rooms" className="phone-nav nav-link">
+              Rooms
+            </Link>
+          </li>
+          </div>
       </div>
     );
   }
