@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import HeroSmall from "../components/HeroSmall"
 import AllRooms from "../components/AllRooms";
+import SearchField from "../components/SearchField";
+
 const Rooms = () => {
   return (
     
@@ -15,7 +17,9 @@ const Rooms = () => {
         />
         <div className="section-heading">
         <h1>SEARCH ROOMS</h1>
+        <div className="divider-small"></div>
       </div>
+      <SearchField />
       <AllRooms />
     </div>
   );

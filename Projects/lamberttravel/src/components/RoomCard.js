@@ -20,14 +20,14 @@ export default class RoomCard extends Component {
       extras: [],
     };
   }
-  
+
   render() {
     return (
       <div>
         <div className="room-card">
           <div className="image-overlay">
             <Link
-              to={`/rooms/:${this.props.slug}`}
+              to={`/rooms/${this.props.slug}`}
               target="_blank"
               rel="noopener noreferrer"
               key={this.state.key}
@@ -56,3 +56,4 @@ export default class RoomCard extends Component {
     );
   }
 }
+

@@ -15,14 +15,19 @@ export default class AllRooms extends Component {
   }
 
   fetchRoomsData() {
+    const contentful = require("contentful");
     const API_KEY = process.env.REACT_APP_CONTENTFUL_RESORT_API_KEY;
-    fetch(`https://cdn.contentful.com/spaces/9eq7letzz02f/environments/master/entries?access_token=${API_KEY}&content_type=resortRoom`)
-      .then((data) => data.json())
-      .then((data) => {
-        this.setState({ data: data, fetched: true });
-        //console.log(this.state.data.includes.Asset[0].fields.file.url)
-        //console.log(this.state.data.items[0])
-      });
+
+    const client = contentful.createClient({
+      space: "9eq7letzz02f",
+      accessToken: `${API_KEY}`,
+    });
+    client
+      .getEntries({ content_type: "resortRoom" })
+      .then((entry) => {
+        this.setState({ data: entry, fetched: true });
+      })
+      .catch((err) => console.log(err));
   }
 
   generateAllRooms() {
@@ -31,7 +36,7 @@ export default class AllRooms extends Component {
       finalDiv.push(
         <Roomcard
           price={"$" + this.state.data.items[i].fields.price}
-          image={`https:${this.state.data.includes.Asset[i].fields.file.url}`}
+          image={`https:${this.state.data.items[i].fields.images[0].fields.file.url}`}
           name={this.state.data.items[i].fields.name.toUpperCase()}
           slug={this.state.data.items[i].fields.slug}
           capacity={this.state.data.items[i].fields.capacity}
@@ -43,7 +48,7 @@ export default class AllRooms extends Component {
           description={this.state.data.items[i].fields.description}
           extras={this.state.data.items[i].fields.extras}
           key={i}
-          />
+        />
       );
     }
     return finalDiv;
@@ -53,9 +58,7 @@ export default class AllRooms extends Component {
     return (
       <>
         {this.state.data ? (
-            <div className="room-card-container">
-              {this.generateAllRooms()}
-            </div>
+          <div className="room-card-container">{this.generateAllRooms()}</div>
         ) : undefined}
       </>
     );

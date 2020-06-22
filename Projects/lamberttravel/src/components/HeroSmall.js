@@ -23,12 +23,19 @@ export default class HeroSmall extends Component {
             <div className="floating-box-inner-row-3">
               <h1>{this.props.subtitle}</h1>
             </div>
-            <Link to="/rooms" className="rooms-link-box">
-              {this.props.linkText}
-            </Link>
+           
+
           </div>
         </div>
       </div>
     );
   }
 }
+
+/* 
+
+ <Link to="/rooms" className="rooms-link-box">
+              {this.props.linkText}
+            </Link>
+
+*/

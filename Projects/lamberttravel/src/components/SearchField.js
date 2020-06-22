@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function SearchField() {
-    return (
-        <div>
-            
-        </div>
-    )
+export default class SearchField extends Component {
+    render() {
+        return (
+            <div>
+                <div className="search-field-outer-box">
+
+                    
+                </div>
+            </div>
+        )
+    }
 }
