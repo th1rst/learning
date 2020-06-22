@@ -7,7 +7,7 @@ export default function Error404() {
         <div>
       <Navbar />
 
-      <div className="home-background">
+      <div className="home-background home-background-fullscreen">
         <div className="floating-box">
           <div className="floating-box-inner-row-1">
             <h1>ERROR 404</h1>

@@ -8,11 +8,14 @@ const Rooms = () => {
     <div>
       <Navbar />
       <HeroSmall 
-        title="Small Hero"
-        subtitle="Subtitle Bla"
-        linkText="Link to Room"
+        title="Browse our Rooms"
+        subtitle="Luxurious Vacation Homes"
+        linkText="Search"
         image="https://images.unsplash.com/photo-1572177215152-32f247303126?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1482&q=80"
         />
+        <div className="section-heading">
+        <h1>SEARCH ROOMS</h1>
+      </div>
       <AllRooms />
     </div>
   );

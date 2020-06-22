@@ -21,6 +21,7 @@ li {
     position: fixed;
     top: 0;
     height: 7vh;
+    min-height: 65px;
     width: 100vw;
     background-color: white;
     display: flex;
@@ -95,9 +96,10 @@ li {
 
 
 .nav-toggle-btn-active {
+    margin-right: 2vw;
     display: none;
     color: rgb(88, 73, 56);
-    height: 70%;
+    height: 2em;
     width: auto;
     cursor: pointer;
 }
@@ -133,6 +135,10 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.home-background-fullscreen {
+    height: 100vh;
 }
 
 .home-background-small {
@@ -307,7 +313,6 @@ li {
 }
 
 .room-card:hover {
-    cursor: pointer;
     transition-duration: 0.25s;
     transform: translateY(-0.5vh);
     box-shadow: 10px 16px 26px -14px rgba(0,0,0,0.7);
@@ -339,8 +344,10 @@ li {
 .image-overlay-linkbox {
     display: flex;
     position: absolute;
-    width: 45%;
-    height: 25%;
+    top: 35%;   /* React Router Link killed Flexbox */
+    left: 25%;  /* relations, so manual adjustment */
+    width: 50%;
+    height: 30%;
     background-color: rgba(167, 123, 66, 0.7);
     justify-content: center;
     align-items: center;
@@ -408,7 +415,22 @@ li {
     font-size: 0.7em;
     color: white;
 }
+/*END HOME*/
 
+
+
+/* ROOMS */
+.section-heading {
+    margin-top: 2vh;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 1em;
+}
 
 /* RESPONSIVENESS */
 @media only screen and (max-width: 550px) {
