@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import SingleRoom from "../pages/SingleRoom";
+
 
 export default class RoomCard extends Component {
   constructor(props) {
@@ -9,16 +11,16 @@ export default class RoomCard extends Component {
       price: [],
       image: [],
       slug: [],
-      key: [],
       capacity: [],
       type: [],
       size: [],
-      pets: [],
-      breakfast: [],
+      pets: null,
+      breakfast: null,
       featured: [],
       description: [],
       extras: [],
     };
+
   }
 
   render() {
@@ -27,8 +29,23 @@ export default class RoomCard extends Component {
         <div className="room-card">
           <div className="image-overlay">
             <Link
-              to={`/rooms/${this.props.slug}`}
-              target="_blank"
+              to={{
+                pathname: `/rooms/:${this.props.slug}`,
+                state: {
+                  name: this.props.name,
+                  price: this.props.price,
+                  image: this.props.image,
+                  slug: this.props.slug,
+                  capacity: this.props.capacity,
+                  type: this.props.type,
+                  size: this.props.size,
+                  pets: this.props.pets,
+                  breakfast: this.props.breakfast,
+                  featured: this.props.featured,
+                  description: this.props.description,
+                  extras: this.props.extras,
+                },
+              }}
               rel="noopener noreferrer"
               key={this.state.key}
             >
@@ -56,4 +73,3 @@ export default class RoomCard extends Component {
     );
   }
 }
-
