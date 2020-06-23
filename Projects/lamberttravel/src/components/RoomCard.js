@@ -7,7 +7,8 @@ export default class RoomCard extends Component {
     this.state = {
       name: [],
       price: [],
-      image: [],
+      titleImage: [],
+      allImages: [],
       slug: [],
       capacity: [],
       type: [],
@@ -31,7 +32,8 @@ export default class RoomCard extends Component {
                 state: {
                   name: this.props.name,
                   price: this.props.price,
-                  image: this.props.image,
+                  titleImage: this.props.titleImage,
+                  allImages: this.props.allImages,
                   slug: this.props.slug,
                   capacity: this.props.capacity,
                   type: this.props.type,
@@ -53,7 +55,7 @@ export default class RoomCard extends Component {
           </div>
           <img
             className="room-card-image"
-            src={this.props.image}
+            src={this.props.titleImage}
             alt="room"
           ></img>
           <div className="room-card-pricetag">

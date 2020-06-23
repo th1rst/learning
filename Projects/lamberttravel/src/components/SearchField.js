@@ -5,8 +5,7 @@ export default class SearchField extends Component {
         return (
             <div>
                 <div className="search-field-outer-box">
-
-                    
+          
                 </div>
             </div>
         )

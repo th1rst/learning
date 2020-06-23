@@ -180,7 +180,7 @@ li {
 
 .rooms-link-box:hover {
     background-color: black;
-    color: #a77b42;
+    color:  rgb(167, 123, 66);
 }
 
 /* END HERO */
@@ -450,7 +450,6 @@ li {
 
 /* SINGLE ROOM */
 .gallery-container {
-    border: 2px solid red;
     margin: 3vh auto;
     width: 80vw;
     height: auto;
@@ -462,12 +461,19 @@ li {
 
 .gallery-item {
     margin: 2vh 2vw;
-    border: 2px solid cyan;
+    border: 1px solid rgb(167, 123, 66);
     height: 15vh;
-    min-height: 100px;
+    min-height: 150px;
     width: 20vw;
     min-width: 200px;
     display: flex;
+    box-shadow: 5px 8px 13px -7px rgba(0,0,0,0.5);
+}
+
+.gallery-item:hover {
+    transition-duration: 0.15s;
+    transform: scaleX(1.07) scaleY(1.07);
+    box-shadow: 10px 16px 26px -14px rgba(0,0,0,0.7);
 }
 
 .gallery-picture {
@@ -585,7 +591,7 @@ li {
 }
 
 .quotation-box {
-    margin-top: 1vh;
+    margin: 3vh 0;
     border: 3px dotted rgb(54, 40, 21);
     border-radius: 3px 3px 3px 25px;
     width: 80%;
@@ -599,6 +605,36 @@ li {
 .quotation-box p {
     width: 95%;
     height: 80%;
+}
+
+.book-now-box {
+    margin: 2vh auto;
+    width: 15vw;
+    height: 5vh;
+    background-color: rgb(167, 123, 66);
+    opacity: 0.8;
+    border-radius: 0.2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.book-now-box a {
+    font-family: "Roboto", sans-serif;
+    font-size: calc(1vw + 0.7vh);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.book-now-box:hover {
+    background-color: black;
+}
+
+.book-now-box:hover a {
+    color: rgb(167, 123, 66);
 }
 
 /* RESPONSIVENESS */

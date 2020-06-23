@@ -32,25 +32,28 @@ export default class AllRooms extends Component {
 
   generateAllRooms() {
     let finalDiv = [];
-    for (let i = 0; i < this.state.data.items.length; i++) {
+    
+
+    this.state.data.items.map((room) =>
       finalDiv.push(
         <Roomcard
-          price={"$" + this.state.data.items[i].fields.price}
-          image={`https:${this.state.data.items[i].fields.images[0].fields.file.url}`}
-          name={this.state.data.items[i].fields.name.toUpperCase()}
-          slug={this.state.data.items[i].fields.slug}
-          capacity={this.state.data.items[i].fields.capacity}
-          type={this.state.data.items[i].fields.type}
-          size={this.state.data.items[i].fields.size}
-          pets={this.state.data.items[i].fields.pets}
-          breakfast={this.state.data.items[i].fields.breakfast}
-          featured={this.state.data.items[i].fields.featured}
-          description={this.state.data.items[i].fields.description}
-          extras={this.state.data.items[i].fields.extras}
-          key={i}
+          price={"$" + room.fields.price}
+          titleImage={`https:${room.fields.images[0].fields.file.url}`}
+          allImages={room.fields.images.map((image) => image.fields.file.url)}
+          name={room.fields.name.toUpperCase()}
+          slug={room.fields.slug}
+          capacity={room.fields.capacity}
+          type={room.fields.type}
+          size={room.fields.size}
+          pets={room.fields.pets}
+          breakfast={room.fields.breakfast}
+          featured={room.fields.featured}
+          description={room.fields.description}
+          extras={room.fields.extras}
+          key={Math.random() * 1000}
         />
-      );
-    }
+      )
+    );
     return finalDiv;
   }
 

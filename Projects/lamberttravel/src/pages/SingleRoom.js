@@ -14,7 +14,8 @@ export default class SingleRoom extends Component {
     this.state = {
       name: null,
       price: [],
-      image: [],
+      titleImage: [],
+      allImages: [],
       slug: [],
       key: [],
       capacity: [],
@@ -26,17 +27,18 @@ export default class SingleRoom extends Component {
       description: [],
       extras: [],
     };
-    console.log(this.props.location.state.extras);
   }
 
   render() {
+    const EMAIL = process.env.REACT_APP_MAIL_ADDRESS;
+    console.log(EMAIL);
     return (
       <div>
         <Navbar />
         <HeroSmall
           title={this.props.location.state.name}
           subtitle={`Only ${this.props.location.state.price} for ${this.props.location.state.size}ft`}
-          image={this.props.location.state.image}
+          image={this.props.location.state.titleImage}
         />
 
         <div className="section-heading">
@@ -45,27 +47,13 @@ export default class SingleRoom extends Component {
         </div>
 
         <div className="gallery-container">
-          <div className="gallery-item">
-            <img
-              className="gallery-picture"
-              src={this.props.location.state.image}
-              alt="room"
-            ></img>
-          </div>
-          <div className="gallery-item">
-            <img
-              className="gallery-picture"
-              src={this.props.location.state.image}
-              alt="room"
-            ></img>
-          </div>
-          <div className="gallery-item">
-            <img
-              className="gallery-picture"
-              src={this.props.location.state.image}
-              alt="room"
-            ></img>
-          </div>
+          {this.props.location.state.allImages.map((image) => (
+            <div className="gallery-item">
+              <a href={`https:${image}`}>
+                <img className="gallery-picture" src={image} alt="room"></img>
+              </a>
+            </div>
+          ))}
         </div>
 
         <div>
@@ -96,7 +84,9 @@ export default class SingleRoom extends Component {
                 CAPACITY:
                 <br />
                 <br />
-                {`${this.props.location.state.capacity} PEOPLE`}
+                {this.props.location.state.capacity > 1
+                  ? `${this.props.location.state.capacity} PEOPLE`
+                  : `${this.props.location.state.capacity} PERSON`}
               </h2>
             </div>
             <div className="info-subsection-box">
@@ -124,9 +114,7 @@ export default class SingleRoom extends Component {
               <div className="extras-list-row-2">
                 {this.props.location.state.extras.map((item) => (
                   <div className="extras-list-item">
-                    <IoMdCheckmarkCircleOutline
-                      className="extras-checkmark"
-                    />
+                    <IoMdCheckmarkCircleOutline className="extras-checkmark" />
                     {item}
                   </div>
                 ))}
@@ -134,25 +122,25 @@ export default class SingleRoom extends Component {
             </div>
           </div>
 
-
           <div className="section-heading">
             <h1>DETAILS</h1>
             <div className="divider-small"></div>
           </div>
           <div className="description-box">
-          <FaQuoteRight className="quotation-symbol"/>
-                <div className="quotation-box">
-                  <p>{this.props.location.state.description}</p>
-                </div>
+            <FaQuoteRight className="quotation-symbol" />
+            <div className="quotation-box">
+              <p>{this.props.location.state.description}</p>
+            </div>
+          </div>
+          <div className="book-now-box">
+            <a
+              href={`mailto:${EMAIL}?subject=Hey,%20I%20like%20your%20page,%20let's%20get%20in%20touch!`}
+            >
+              BOOK NOW
+            </a>
           </div>
         </div>
       </div>
     );
   }
 }
-
-//<div>{this.props.location.state.extras.map((item) => <div>- {item}, </div>)}</div>
-
-/* 
-
-*/
