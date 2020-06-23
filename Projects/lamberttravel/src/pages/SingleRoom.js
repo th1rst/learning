@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
-import Carousel from 'react-bootstrap/Carousel';
+import HeroSmall from "../components/HeroSmall";
+import { GiPriceTag } from "react-icons/gi";
+import { BsPeopleFill } from "react-icons/bs";
+import { FaDog, FaQuoteRight } from "react-icons/fa";
+import { GiKnifeFork } from "react-icons/gi";
+import { RiRulerLine } from "react-icons/ri";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 export default class SingleRoom extends Component {
   constructor(props) {
@@ -20,25 +26,133 @@ export default class SingleRoom extends Component {
       description: [],
       extras: [],
     };
-    console.log(this.props.location.state.price)
+    console.log(this.props.location.state.extras);
   }
-  
- 
-
 
   render() {
-
     return (
       <div>
         <Navbar />
-    <p>Price: {this.props.location.state.price}</p>
-    <p>Name: {this.props.location.state.name}</p>
-    <p>Size: {this.props.location.state.size}ft</p>
-    <p>Extras: {this.props.location.state.extras}</p>
-    <p>Capacity: {this.props.location.state.capacity}</p>
-    <p>Description: <br />{this.props.location.state.description}</p>
+        <HeroSmall
+          title={this.props.location.state.name}
+          subtitle={`Only ${this.props.location.state.price} for ${this.props.location.state.size}ft`}
+          image={this.props.location.state.image}
+        />
 
+        <div className="section-heading">
+          <h1>GALLERY</h1>
+          <div className="divider-small"></div>
+        </div>
+
+        <div className="gallery-container">
+          <div className="gallery-item">
+            <img
+              className="gallery-picture"
+              src={this.props.location.state.image}
+              alt="room"
+            ></img>
+          </div>
+          <div className="gallery-item">
+            <img
+              className="gallery-picture"
+              src={this.props.location.state.image}
+              alt="room"
+            ></img>
+          </div>
+          <div className="gallery-item">
+            <img
+              className="gallery-picture"
+              src={this.props.location.state.image}
+              alt="room"
+            ></img>
+          </div>
+        </div>
+
+        <div>
+          <div className="info-section-heading">
+            <h1>INFO</h1>
+            <div className="divider-small"></div>
+          </div>
+          <div className="info-section">
+            <div className="info-subsection-box">
+              <GiPriceTag className="services-icon" />
+              <h2>
+                PRICE:
+                <br />
+                <br /> {this.props.location.state.price} per night
+              </h2>
+            </div>
+            <div className="info-subsection-box">
+              <RiRulerLine className="services-icon" />
+              <h2>
+                SIZE:
+                <br />
+                <br /> {this.props.location.state.size} sqft.
+              </h2>
+            </div>
+            <div className="info-subsection-box">
+              <BsPeopleFill className="services-icon" />
+              <h2>
+                CAPACITY:
+                <br />
+                <br />
+                {`${this.props.location.state.capacity} PEOPLE`}
+              </h2>
+            </div>
+            <div className="info-subsection-box">
+              <GiKnifeFork className="services-icon" />
+              <h2>
+                BREAKFAST:
+                <br />
+                <br />
+                {this.props.location.state.breakfast === true ? "YES" : "NO"}
+              </h2>
+            </div>
+            <div className="info-subsection-box">
+              <FaDog className="services-icon" />
+              <h2>
+                PETS ALLOWED:
+                <br />
+                <br /> {this.props.location.state.pets === true ? "YES" : "NO"}
+              </h2>
+            </div>
+            <div className="info-extras-box">
+              <div className="extras-list-row-1">
+                <h2>EXTRAS:</h2>
+                <br />
+              </div>
+              <div className="extras-list-row-2">
+                {this.props.location.state.extras.map((item) => (
+                  <div className="extras-list-item">
+                    <IoMdCheckmarkCircleOutline
+                      className="extras-checkmark"
+                    />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+
+          <div className="section-heading">
+            <h1>DETAILS</h1>
+            <div className="divider-small"></div>
+          </div>
+          <div className="description-box">
+          <FaQuoteRight className="quotation-symbol"/>
+                <div className="quotation-box">
+                  <p>{this.props.location.state.description}</p>
+                </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+//<div>{this.props.location.state.extras.map((item) => <div>- {item}, </div>)}</div>
+
+/* 
+
+*/

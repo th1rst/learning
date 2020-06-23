@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import SingleRoom from "../pages/SingleRoom";
-
 
 export default class RoomCard extends Component {
   constructor(props) {
@@ -20,7 +18,6 @@ export default class RoomCard extends Component {
       description: [],
       extras: [],
     };
-
   }
 
   render() {
