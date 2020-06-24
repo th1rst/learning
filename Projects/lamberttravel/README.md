@@ -32,4 +32,8 @@ Secondly, I didn't retrieve the corresponding images of the individual rooms' li
 from there every room in the database gets displayed (no need for a limit as my mockup Database is small) and has certain props.
 When clicking on a room, the Link to the individual page has to pass on every one of the rooms' props. That was a tough one and took me several hours including making use of the React Developer Browser Extension to fix.
 
+4. React Router saved my current window position (scrolling) and kept that position when opening a new Link, so I had to import a ScrollToTop component someone on Stack Overflow made.
+
+5. After countless hours searching for a solution on how to pass props around to a new tab (single page application worked flawlessly, only encounter problems when opening room X in a new tab via MiddleMouse) and finding out that it wasn't possible, I decided to just disable the middle mouse entirely via "React One Tab Enforcer".
+
 Other than that, I learned a ton and it was an AMAZING journey. Very happy!

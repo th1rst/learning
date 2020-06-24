@@ -30,8 +30,7 @@ export default class SingleRoom extends Component {
   }
 
   render() {
-    const EMAIL = process.env.REACT_APP_MAIL_ADDRESS;
-    console.log(EMAIL);
+    const EMAIL = process.env.REACT_APP_MAIL_ADDRESS;    
     return (
       <div>
         <Navbar />
@@ -133,9 +132,7 @@ export default class SingleRoom extends Component {
             </div>
           </div>
           <div className="book-now-box">
-            <a
-              href={`mailto:${EMAIL}?subject=Hey,%20I%20like%20your%20page,%20let's%20get%20in%20touch!`}
-            >
+            <a href={`mailto:${EMAIL}?subject=Hey,%20I%20like%20your%20page,%20let's%20get%20in%20touch!`}>
               BOOK NOW
             </a>
           </div>

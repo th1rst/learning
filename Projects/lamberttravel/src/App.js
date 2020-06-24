@@ -6,6 +6,7 @@ import SingleRoom from './pages/SingleRoom'
 import Error404 from './pages/Error404'
 import { Switch, Route } from 'react-router-dom';
 import "typeface-roboto"
+import { withOneTabEnforcer } from "react-one-tab-enforcer"
 
 
 function App() {
@@ -22,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default withOneTabEnforcer()(App);

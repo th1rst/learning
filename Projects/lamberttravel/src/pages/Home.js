@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import HeroLarge from '../components/HeroLarge'
 import Services from '../components/Services'
 import Roomcard from '../components/RoomCard'
+import FeaturedRooms from "../components/FeaturedRooms";
 
 
 export default function Home() {
@@ -16,7 +17,16 @@ export default function Home() {
 
 
       <div className="room-card-container">
-        <Roomcard 
+       <FeaturedRooms />
+      </div>
+    </div>
+  );
+}
+
+
+/* 
+
+ <Roomcard 
           price="123"
           titleImage="https://images.unsplash.com/photo-1568495248636-6432b97bd949?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
           name={`Double Economy`.toUpperCase()}
@@ -31,7 +41,5 @@ export default function Home() {
           titleImage="https://images.unsplash.com/flagged/photo-1556438758-8d49568ce18e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
           name={`Beachfront Luxurious`.toUpperCase()}
         />
-      </div>
-    </div>
-  );
-}
+
+*/

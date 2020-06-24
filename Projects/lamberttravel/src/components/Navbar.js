@@ -48,13 +48,13 @@ class Navbar extends React.Component {
         </nav>
         <div className={this.state.isOpen ? "phone-nav-container" : undefined}>
           <li>
-            <Link to="/" className="phone-nav nav-link">
+            <Link to="/" className="phone-nav phone-nav-link">
               Home
             </Link>
           </li>
           <div className="divider"></div>
           <li>
-            <Link to="/rooms" className="phone-nav nav-link">
+            <Link to="/rooms" className="phone-nav phone-nav-link">
               Rooms
             </Link>
           </li>

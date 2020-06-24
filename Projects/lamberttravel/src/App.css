@@ -7,7 +7,7 @@ body, html {
 }
 
 h1 {
-    font-size: calc(1em + 1.4vw);
+    font-size: calc(1em + 1.2vw);
     font-family: "Roboto", sans-serif;
 }
 
@@ -20,7 +20,7 @@ li {
     z-index: 10;
     position: fixed;
     top: 0;
-    height: 7vh;
+    height: 5vh;
     min-height: 65px;
     width: 100vw;
     background-color: white;
@@ -63,6 +63,11 @@ li {
     text-shadow: 0.2vw 0.2vw 0.2vw rgba(150, 150, 150, 1);
 }
 
+.nav-link:hover {
+    text-decoration: underline;
+    color: rgb(156, 138, 118);
+}
+
 .phone-nav-container {
     position: fixed;
     z-index: 1;
@@ -82,10 +87,16 @@ li {
     width: 100%;
 }
 
-.nav-link:hover {
-    text-decoration: underline;
-    color: rgb(156, 138, 118);
+.phone-nav-link {
+    display: none;
+    font-size: calc(1rem + 0.8vw);
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 0.3vw;
+    text-shadow: 0.2vw 0.2vw 0.2vw rgba(150, 150, 150, 1);
 }
+
 
 .navbar-inner-container-right {
     width: 20vw;
@@ -122,8 +133,9 @@ li {
 .floating-box {
     z-index: 5;
     min-width: 300px;
-    width: 40vw;
-    height: 35vh;
+    width: 35vw;
+    max-width: 600px;
+    height: 25vh;
     background-color: rgba(0,0,0,0.6);
     border-radius: 1.5vw;
     display: flex;
@@ -150,6 +162,10 @@ li {
     text-align: center;
 }
 
+.floating-box-inner-row-1 h1 {
+    font-size: calc(1em + 0.5vw);
+}
+
 .floating-box-inner-row-3 {
     width: 80%;
     height: 30%;
@@ -158,6 +174,10 @@ li {
     align-items: center;
     color:rgb(240, 234, 228);
     text-align: center;
+}
+
+.floating-box-inner-row-3 h1 {
+    font-size: calc(1em + 0.5vw);
 }
 
 .rooms-link-box {
@@ -171,7 +191,7 @@ li {
     align-items: center;
     cursor: pointer;
     font-family: "Roboto", sans-serif;
-    font-size: calc(1vw + 0.7vh);
+    font-size: 1.1em;
     color: black;
     text-decoration: none;
     font-weight: bold;
@@ -207,12 +227,13 @@ li {
 }
 
 .home-background-small {
-    height: 40vh;
+    height: 55vh;
 }
  
 .divider {
     background-color: rgb(167, 123, 66);
     width: 25vw;
+    max-width: 60%;
     height: 0.3vh;
 }
 
@@ -248,7 +269,7 @@ li {
 }
 
 .services-subsection-box {
-    margin: 5vh 2vw;
+    margin: 5vh 1vw 1vh 1vw;
     min-width: 300px;
     min-height: 200px;
     width: calc(300px + 2vw);
@@ -328,8 +349,9 @@ li {
 }
 
 .room-card-image {
-    max-width:100%;
-    max-height:100%;
+    width:100%;
+    height:100%;
+    object-fit: cover;
 }
 
 .image-overlay {
@@ -443,6 +465,10 @@ li {
     justify-content: space-around;
     align-items: center;
 }
+
+.range-slider .range-slider-primary {
+    color: rgb(167, 123, 66);
+}
 /* END SEARCH FIELD */
 
 
@@ -465,7 +491,8 @@ li {
     height: 15vh;
     min-height: 150px;
     width: 20vw;
-    min-width: 200px;
+    min-width: 250px;
+    max-width: 350px;
     display: flex;
     box-shadow: 5px 8px 13px -7px rgba(0,0,0,0.5);
 }
@@ -477,8 +504,8 @@ li {
 }
 
 .gallery-picture {
-    width:100%;
-    max-height:100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -505,7 +532,7 @@ li {
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .info-subsection-box {
@@ -521,8 +548,18 @@ li {
     text-align: center;
 }
 
+.info-subsection-box h2{
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+}
+
+.info-subsection-box p {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.8em;
+}
+
 .info-extras-box {
-    margin: 1vh 0.2vw;
+    margin: 0.5vh 0.2vw 4vh;
     width: 80vw;
     height: auto;
     display: flex;
@@ -551,7 +588,7 @@ li {
 }
 
 .extras-list-item {
-    margin: 1vh 2vw;
+    margin: 2vh 2vw;
     height: 4vh;
     width: 20vw;
     min-width: 150px;
@@ -563,16 +600,6 @@ li {
 .extras-checkmark {
     color: rgb(167, 123, 66);
     margin-right: 1.5vw;
-}
-
-.info-subsection-box h2{
-    font-family: "Roboto", sans-serif;
-    font-size: 1em;
-}
-
-.info-subsection-box p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.8em;
 }
 
 .description-box {
@@ -617,16 +644,17 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 .book-now-box a {
+    width: 100%;
     font-family: "Roboto", sans-serif;
-    font-size: calc(1vw + 0.7vh);
+    font-size: 1.5em;
     color: black;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
+    cursor: pointer;
 }
 
 .book-now-box:hover {
@@ -656,8 +684,33 @@ li {
         height: 15vh;
     }
 
+    .phone-nav-link {
+        display: block;
+    }
+
     .floating-box {
         width: 60vw;
         height: 45vw;
+    }
+
+    .services-section-heading h1{
+        font-size: 1.5em;
+     }
+
+    .services-subsection-box p{
+        font-size: 0.9em;
+    }
+
+    .rooms-link-box {
+        font-size: 3vw;
+    }
+
+    .book-now-box {
+        width: 25vw;
+        height: 5vh;
+    }
+    
+    .book-now-box a {
+        font-size: 1em;
     }
 }
