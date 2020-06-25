@@ -1,8 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import HeroSmall from "../components/HeroSmall"
-import AllRooms from "../components/AllRooms";
-import SearchField from "../components/SearchField";
+import DisplayRooms from "../components/DisplayRooms";
 
 const Rooms = () => {
   return (
@@ -19,7 +18,8 @@ const Rooms = () => {
         <h1>SEARCH ROOMS</h1>
         <div className="divider-small"></div>
       </div>
-      <AllRooms />
+      <DisplayRooms
+     />
     </div>
   );
 };

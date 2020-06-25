@@ -59,7 +59,7 @@ export default class RoomCard extends Component {
             alt="room"
           ></img>
           <div className="room-card-pricetag">
-            <h4>{this.props.price}</h4>
+            <h4>${this.props.price}</h4>
             <h5>per night</h5>
           </div>
           <div className="room-image-subtitle-bar">

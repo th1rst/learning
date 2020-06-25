@@ -3,7 +3,6 @@ import "typeface-roboto";
 import Navbar from "../components/Navbar";
 import HeroLarge from '../components/HeroLarge'
 import Services from '../components/Services'
-import Roomcard from '../components/RoomCard'
 import FeaturedRooms from "../components/FeaturedRooms";
 
 
@@ -22,24 +21,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-/* 
-
- <Roomcard 
-          price="123"
-          titleImage="https://images.unsplash.com/photo-1568495248636-6432b97bd949?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
-          name={`Double Economy`.toUpperCase()}
-        />
-        <Roomcard 
-          price="234"
-          titleImage="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-          name={`Double standard`.toUpperCase()}
-        />
-        <Roomcard 
-          price="345"
-          titleImage="https://images.unsplash.com/flagged/photo-1556438758-8d49568ce18e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
-          name={`Beachfront Luxurious`.toUpperCase()}
-        />
-
-*/
