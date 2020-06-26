@@ -37,7 +37,7 @@ export default class FeaturedRooms extends Component {
       room.fields.featured === true ? (
         finalDiv.push(
           <Roomcard
-            price={"$" + room.fields.price}
+            price={room.fields.price}
             titleImage={`https:${room.fields.images[0].fields.file.url}`}
             allImages={room.fields.images.map((image) => image.fields.file.url)}
             name={room.fields.name.toUpperCase()}

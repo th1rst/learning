@@ -10,10 +10,11 @@ export default class AllRooms extends Component {
       roomsToDisplay: [],
       hasFilter: {
         price: 300,
-        capacity: false,
-        pets: false,
+        capacity: 3,
+        pets: true,
         breakfast: false,
       },
+      filterList: [],
     };
   }
 
@@ -21,8 +22,82 @@ export default class AllRooms extends Component {
     this.fetchRoomsData();
   }
 
-  handleClick() {
-    this.generateFilteredRooms();
+  handleClick1() {
+    this.filterByPrice();
+  }
+
+  handleClick2() {
+    this.filterByPets();
+  }
+
+  handleClick3() {
+    this.filterByCapacity();
+  }
+
+  handleClick4() {
+    this.filterByBreakfast();
+  }
+
+  handleClick5() {
+    this.generateAllRooms();
+  }
+
+  filterByPrice() {
+    let tempArr = [];
+    this.state.roomsToDisplay.map((room) =>
+      room.props.price < this.state.hasFilter.price ? tempArr.push(room) : null
+    );
+    if (tempArr.length > 0) {
+      this.setState({ roomsToDisplay: tempArr });
+    } else {
+      this.setState({
+        roomsToDisplay: <h1>There are no matching results.</h1>,
+      });
+    }
+  }
+
+  filterByPets() {
+    let tempArr = [];
+    this.state.roomsToDisplay.map((room) =>
+      room.props.pets ? tempArr.push(room) : null
+    );
+    if (tempArr.length > 0) {
+      this.setState({ roomsToDisplay: tempArr });
+    } else {
+      this.setState({
+        roomsToDisplay: <h1>There are no matching results.</h1>,
+      });
+    }
+  }
+
+  filterByBreakfast() {
+    let tempArr = [];
+    this.state.roomsToDisplay.map((room) =>
+      room.props.breakfast ? tempArr.push(room) : null
+    );
+    if (tempArr.length > 0) {
+      this.setState({ roomsToDisplay: tempArr });
+    } else {
+      this.setState({
+        roomsToDisplay: <h1>There are no matching results.</h1>,
+      });
+    }
+  }
+
+  filterByCapacity() {
+    let tempArr = [];
+    this.state.roomsToDisplay.map((room) =>
+      room.props.capacity > this.state.hasFilter.capacity
+        ? tempArr.push(room)
+        : null
+    );
+    if (tempArr.length > 0) {
+      this.setState({ roomsToDisplay: tempArr });
+    } else {
+      this.setState({
+        roomsToDisplay: <h1>There are no matching results.</h1>,
+      });
+    }
   }
 
   fetchRoomsData() {
@@ -65,64 +140,51 @@ export default class AllRooms extends Component {
         />
       )
     );
-    this.setState({ roomsToDisplay: finalDiv });
-  }
-
-  generateFilteredRooms() {
-    let finalDiv = [];
-    this.state.data.items.map((room) =>
-      room.fields.price < this.state.hasFilter.price
-        ? finalDiv.push(
-            <Roomcard
-              price={room.fields.price}
-              titleImage={`https:${room.fields.images[0].fields.file.url}`}
-              allImages={room.fields.images.map(
-                (image) => image.fields.file.url
-              )}
-              name={room.fields.name.toUpperCase()}
-              slug={room.fields.slug}
-              capacity={room.fields.capacity}
-              type={room.fields.type}
-              size={room.fields.size}
-              pets={room.fields.pets}
-              breakfast={room.fields.breakfast}
-              featured={room.fields.featured}
-              description={room.fields.description}
-              extras={room.fields.extras}
-              key={Math.random() * 1000}
-            />
-          )
-        : undefined
-    );
-    this.setState({ roomsToDisplay: finalDiv });
+    this.setState({ allRooms: finalDiv, roomsToDisplay: finalDiv });
   }
 
   render() {
     return (
       <>
         <div className="search-field-outer-box">
-          <div className="form">
-            <label htmlFor="capacity">Guests: </label>
-            <select
-              name="capacity"
-              id="capacity"
-              className="select-box"
-            >
-              <option>1</option>
-              <option>1</option>
-              <option>1</option>
-              <option>1</option>
-              <option>1</option>
-            </select>
+          <div className="search-field-column">
+            <div className="search-field-row">
+              <h1>Minimum Guests</h1>
+              <input className="input-form" type="text" name="name" />
+            </div>
+            <div className="search-field-row">
+              <h1>Maximum price/night</h1>
+              <input className="input-form" type="text" name="name" />
+            </div>
+            <div className="search-field-row">
+              <button onClick={() => this.handleClick5()}> Search </button>
+            </div>
           </div>
 
-          <div className="form">
-            <label htmlFor="price">Max price: </label>
-            <input name="price" id="price" type="range" min="0" max="999" />
+          <div className="search-field-column">
+            <div className="search-field-row">
+              <div className="search-field-row-inner">
+                <input name="pets" id="pets" type="checkbox"></input>
+                <label htmlFor="pets">
+                  <h1>Pets allowed</h1>
+                </label>
+              </div>
+            </div>
+            <div className="search-field-row">
+              <div className="search-field-row-inner">
+                <input name="breakfast" id="breakfast" type="checkbox"></input>
+                <label htmlFor="breakfast">
+                  <h1>Breakfast included</h1>
+                </label>
+              </div>
+            </div>
+            <div className="search-field-row">
+              <button onClick={() => this.handleClick5()}>
+                {" "}
+                Reset Filter{" "}
+              </button>
+            </div>
           </div>
-
-          <button onClick={() => this.handleClick()}> Filter By Price </button>
-
         </div>
 
         {this.state.data ? (
