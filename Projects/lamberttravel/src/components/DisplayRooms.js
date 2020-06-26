@@ -146,40 +146,49 @@ export default class AllRooms extends Component {
   render() {
     return (
       <>
-        <div className="search-field-outer-box">
-          <div className="search-field-column">
-            <div className="search-field-row">
+          <div className="search-field-outer-box">
+          <div className="search-field-row-1">
+            <div className="search-field-row-inner">
               <h1>Minimum Guests</h1>
               <input className="input-form" type="text" name="name" />
             </div>
-            <div className="search-field-row">
+            <div className="search-field-row-inner">
               <h1>Maximum price/night</h1>
               <input className="input-form" type="text" name="name" />
             </div>
-            <div className="search-field-row">
-              <button onClick={() => this.handleClick5()}> Search </button>
-            </div>
-          </div>
-
-          <div className="search-field-column">
-            <div className="search-field-row">
-              <div className="search-field-row-inner">
+            <div className="search-field-row-inner">
+              <div className="search-field-row-inner-container">
                 <input name="pets" id="pets" type="checkbox"></input>
                 <label htmlFor="pets">
                   <h1>Pets allowed</h1>
                 </label>
               </div>
             </div>
-            <div className="search-field-row">
-              <div className="search-field-row-inner">
+            <div className="search-field-row-inner">
+              <div className="search-field-row-inner-container">
                 <input name="breakfast" id="breakfast" type="checkbox"></input>
                 <label htmlFor="breakfast">
                   <h1>Breakfast included</h1>
                 </label>
               </div>
             </div>
-            <div className="search-field-row">
-              <button onClick={() => this.handleClick5()}>
+          </div>
+          <div className="search-field-row-2">
+            <div className="search-field-row-inner">
+              <button
+                className="search-field-button"
+                onClick={() => this.handleClick5()}
+              >
+                {" "}
+                Search{" "}
+              </button>
+            </div>
+
+            <div className="search-field-row-inner">
+              <button
+                className="search-field-button"
+                onClick={() => this.handleClick5()}
+              >
                 {" "}
                 Reset Filter{" "}
               </button>
@@ -194,3 +203,75 @@ export default class AllRooms extends Component {
     );
   }
 }
+
+/*
+filterByPrice() {
+let tempArr = [];
+this.state.roomsToDisplay.map((room) =>
+room.props.price < this.state.hasFilter.price ? tempArr.push(room) : null);
+if (tempArr.length > 0) {
+this.setState({ roomsToDisplay: tempArr });
+} else {
+this.setState({ roomsToDisplay: (<h1>There are no matching results.</h1>) })
+}
+}
+
+filterByPets() {
+let tempArr = [];
+this.state.roomsToDisplay.map((room) =>
+room.props.pets ? tempArr.push(room) : null);
+if (tempArr.length > 0) {
+this.setState({ roomsToDisplay: tempArr });
+} else {
+this.setState({ roomsToDisplay: (<h1>There are no matching results.</h1>) })
+}
+}
+
+filterByBreakfast() {
+let tempArr = [];
+this.state.roomsToDisplay.map((room) =>
+room.props.breakfast ? tempArr.push(room) : null);
+if (tempArr.length > 0) {
+this.setState({ roomsToDisplay: tempArr });
+} else {
+this.setState({ roomsToDisplay: (<h1>There are no matching results.</h1>) })
+}
+}
+
+filterByCapacity() {
+let tempArr = [];
+this.state.roomsToDisplay.map((room) =>
+room.props.capacity > this.state.hasFilter.capacity ? tempArr.push(room) : null);
+if (tempArr.length > 0) {
+this.setState({ roomsToDisplay: tempArr });
+} else {
+this.setState({ roomsToDisplay: (<h1>There are no matching results.</h1>) })
+}
+}
+*/
+
+/* INNER FOR SEARCH FORM
+
+<div className="form">
+<label htmlFor="capacity">Guests: </label>
+<select name="capacity" id="capacity" className="select-box">
+<option>1</option>
+<option>1</option>
+<option>1</option>
+<option>1</option>
+<option>1</option>
+</select>
+</div>
+
+<div className="form">
+<label htmlFor="price">Max price: </label>
+<input name="price" id="price" type="range" min="0" max="999" />
+</div>
+<button onClick={() => this.handleClick1()}> Filter By Price </button>
+<button onClick={() => this.handleClick2()}> Filter By Pets </button>
+<button onClick={() => this.handleClick3()}> Filter By capacity </button>
+<button onClick={() => this.handleClick4()}> Filter By breakfast </button>
+<button onClick={() => this.handleClick5()}> Reset Filter </button>
+
+
+*/

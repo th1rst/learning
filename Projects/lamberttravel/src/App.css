@@ -73,7 +73,7 @@ li {
     z-index: 1;
     width: 100%;
     height: 0;
-    margin-top: 5vh;
+    margin-top: 8vh;
     background-color: white;
     display: none;
     flex-direction: column;
@@ -457,61 +457,95 @@ li {
 
 /* SEARCH FIELD */
 .search-field-outer-box {
-    border: 2px solid red;
+    border: 1px solid black;
     margin: 3vh 0 0 10%;
     width: 80vw;
     height: auto;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-field-row-1 {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
-}
-
-.search-field-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2vh 0;
-    width: 35vw;
+    margin: 1vh 0;
+    width: 100%;
     min-width: 250px;
-    height: 20vh;
-    border: 2px solid cyan;
-    font-size: 0.3em;
+    height: auto;
 }
 
-.search-field-row {
-    width: 80%;
-    height: 30vh;
-    border: 2px solid green;
+.search-field-row-1 h1{
+    font-size: 1rem;
+}
+
+.search-field-row-2 {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
-}
-
-.input-form {
-    width: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    min-width: 250px;
+    height: auto;
+    font-size: 1em;
 }
 
 .search-field-row-inner {
-    width: 100%;
-    height: 50%;
-    border: 2px solid blue;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    font-size: 0.2em;
+    align-items: center;
+    width: 20%;
+    min-width: 200px;
+    height: 100%;
+    margin: 1vh 0;
+    font-size: 0.3em;
 }
+
+.search-field-row-inner-container {
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.input-form {
+    width: 30%;
+}
+
+
 
 .search-field-row-inner h1{
-margin: 0 0.3vw;
+    margin: 0 0.3vw;
 }
 
-.range-slider .range-slider-primary {
-    color: rgb(167, 123, 66);
+.search-field-button {
+    background-color: rgb(167, 123, 66);
+    border: 1px solid rgb(167, 123, 66);
+    border-radius: 0.2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-size: 3.5em;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
 }
+
+.search-field-button:hover {
+    background-color: black;
+    color:  rgb(167, 123, 66);
+}
+
+
 /* END SEARCH FIELD */
 
 
