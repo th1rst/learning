@@ -457,7 +457,8 @@ li {
 
 /* SEARCH FIELD */
 .search-field-outer-box {
-    border: 1px solid black;
+    border: 2px groove rgb(163, 159, 159);
+    border-radius: 1vw;
     margin: 3vh 0 0 10%;
     width: 80vw;
     height: auto;
@@ -500,25 +501,37 @@ li {
     justify-content: center;
     align-items: center;
     width: 20%;
-    min-width: 200px;
-    height: 100%;
-    margin: 1vh 0;
+    min-width: 170px;
+    height: 10vh;
     font-size: 0.3em;
 }
 
 .search-field-row-inner-container {
-
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.search-field-row-inner-container label {
+    position: absolute;
+   top: 0px;
+}
+
 
 .input-form {
+    margin-top: 0.5vh;
     width: 30%;
+    border: 1px solid rgb(167, 123, 66);
+    border-radius: 5px;
 }
 
-
+.input-form:focus {
+    padding: 2px 0px 2px 2px;
+    border: 2px solid rgba(167, 123, 66, 0.8);
+}
 
 .search-field-row-inner h1{
     margin: 0 0.3vw;
@@ -527,7 +540,11 @@ li {
 .search-field-button {
     background-color: rgb(167, 123, 66);
     border: 1px solid rgb(167, 123, 66);
-    border-radius: 0.2vw;
+    box-shadow: 5px 8px 13px -7px rgba(0,0,0,0.5);
+    height: 2.5vh;
+    width: auto;
+    opacity: 0.9;
+    border-radius: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -543,6 +560,54 @@ li {
 .search-field-button:hover {
     background-color: black;
     color:  rgb(167, 123, 66);
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    width: 30px;
+    height: 15px;
+    border-radius: 15px;
+    border: 2px solid #ddd;
+    background-color: #EEE;
+    display: inline-block;
+    margin-right: 5px;
+    transition: background-color 0.5s linear;
+    margin-top: 1.5vh;
+}
+
+input[type="checkbox"] + label:hover {
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    display: block;
+    content: "";
+    float: left;
+
+    transition: margin 0.1s linear;
+    box-shadow: 0px 0px 5px #aaa;
+}
+
+input[type="checkbox"]:checked+label{
+    background-color: rgb(167, 123, 66);
+}
+
+input[type="checkbox"]:checked+label::before {
+    margin: 0 0 0 15px;
+}
+
+.checkbox-text {
+    position: absolute;
+    top: -1vh;
+    left: calc(27px + 1vw);
 }
 
 

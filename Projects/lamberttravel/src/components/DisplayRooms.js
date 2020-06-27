@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Roomcard from "./RoomCard.js";
+import {FaSearch} from "react-icons/fa"
+import {FiXCircle} from "react-icons/fi"
 
 export default class AllRooms extends Component {
   constructor() {
@@ -160,7 +162,7 @@ export default class AllRooms extends Component {
               <div className="search-field-row-inner-container">
                 <input name="pets" id="pets" type="checkbox"></input>
                 <label htmlFor="pets">
-                  <h1>Pets allowed</h1>
+                  <h1 className="checkbox-text">Pets allowed</h1>
                 </label>
               </div>
             </div>
@@ -168,7 +170,7 @@ export default class AllRooms extends Component {
               <div className="search-field-row-inner-container">
                 <input name="breakfast" id="breakfast" type="checkbox"></input>
                 <label htmlFor="breakfast">
-                  <h1>Breakfast included</h1>
+                  <h1 className="checkbox-text">Breakfast included</h1>
                 </label>
               </div>
             </div>
@@ -178,7 +180,7 @@ export default class AllRooms extends Component {
               <button
                 className="search-field-button"
                 onClick={() => this.handleClick5()}
-              >
+              ><FaSearch style={{marginRight:"0.5vw"}}/>
                 {" "}
                 Search{" "}
               </button>
@@ -188,9 +190,9 @@ export default class AllRooms extends Component {
               <button
                 className="search-field-button"
                 onClick={() => this.handleClick5()}
-              >
-                {" "}
-                Reset Filter{" "}
+              ><FiXCircle style={{marginRight:"0.5vw"}}/>
+                
+                Reset Filter
               </button>
             </div>
           </div>
