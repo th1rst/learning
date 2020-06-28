@@ -457,7 +457,7 @@ li {
 
 /* SEARCH FIELD */
 .search-field-outer-box {
-    border: 2px groove rgb(163, 159, 159);
+    border: 1px solid rgb(163, 159, 159);
     border-radius: 1vw;
     margin: 3vh 0 0 10%;
     width: 80vw;

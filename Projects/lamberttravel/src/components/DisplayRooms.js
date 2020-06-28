@@ -1,22 +1,25 @@
 import React, { Component } from "react";
 import Roomcard from "./RoomCard.js";
-import {FaSearch} from "react-icons/fa"
-import {FiXCircle} from "react-icons/fi"
+import { FaSearch } from "react-icons/fa";
+import { FiXCircle } from "react-icons/fi";
 
 export default class AllRooms extends Component {
   constructor() {
     super();
+    this.priceFilterInput = React.createRef();
+    this.guestFilterInput = React.createRef();
     this.state = {
       data: undefined,
       fetched: false,
       roomsToDisplay: [],
-      hasFilter: {
-        price: 300,
-        capacity: 3,
-        pets: true,
-        breakfast: false,
-      },
-      filterList: [],
+
+      hasPriceFilter: false,
+      hasCapacityFilter: false,
+      hasPetsFilter: false,
+      hasBreakfastFilter: false,
+
+      breakfastCheckboxChecked: false,
+      petCheckboxChecked: false,
     };
   }
 
@@ -24,83 +27,33 @@ export default class AllRooms extends Component {
     this.fetchRoomsData();
   }
 
-  handleClick1() {
-    this.filterByPrice();
-  }
+  toggleBreakfastFilter = async function () {
+    await this.setState({
+      hasBreakfastFilter: !this.state.hasBreakfastFilter,
+      breakfastCheckboxChecked: !this.state.breakfastCheckboxChecked,
+    });
+    console.log(this.state.hasBreakfastFilter);
+  };
 
-  handleClick2() {
-    this.filterByPets();
-  }
+  togglePetFilter = async function () {
+    await this.setState({
+      hasPetsFilter: !this.state.hasPetsFilter,
+      petCheckboxChecked: !this.state.petCheckboxChecked,
+    });
+    console.log(this.state.hasPetsFilter);
+  };
 
-  handleClick3() {
-    this.filterByCapacity();
-  }
+  handlePriceFilterInput = async function () {
+    let userInput = this.priceFilterInput.current.value;
+    await this.setState({ hasPriceFilter: userInput });
+    console.log(this.state.hasPriceFilter);
+  };
 
-  handleClick4() {
-    this.filterByBreakfast();
-  }
-
-  handleClick5() {
-    this.generateAllRooms();
-  }
-
-  filterByPrice() {
-    let tempArr = [];
-    this.state.roomsToDisplay.map((room) =>
-      room.props.price < this.state.hasFilter.price ? tempArr.push(room) : null
-    );
-    if (tempArr.length > 0) {
-      this.setState({ roomsToDisplay: tempArr });
-    } else {
-      this.setState({
-        roomsToDisplay: <h1>There are no matching results.</h1>,
-      });
-    }
-  }
-
-  filterByPets() {
-    let tempArr = [];
-    this.state.roomsToDisplay.map((room) =>
-      room.props.pets ? tempArr.push(room) : null
-    );
-    if (tempArr.length > 0) {
-      this.setState({ roomsToDisplay: tempArr });
-    } else {
-      this.setState({
-        roomsToDisplay: <h1>There are no matching results.</h1>,
-      });
-    }
-  }
-
-  filterByBreakfast() {
-    let tempArr = [];
-    this.state.roomsToDisplay.map((room) =>
-      room.props.breakfast ? tempArr.push(room) : null
-    );
-    if (tempArr.length > 0) {
-      this.setState({ roomsToDisplay: tempArr });
-    } else {
-      this.setState({
-        roomsToDisplay: <h1>There are no matching results.</h1>,
-      });
-    }
-  }
-
-  filterByCapacity() {
-    let tempArr = [];
-    this.state.roomsToDisplay.map((room) =>
-      room.props.capacity > this.state.hasFilter.capacity
-        ? tempArr.push(room)
-        : null
-    );
-    if (tempArr.length > 0) {
-      this.setState({ roomsToDisplay: tempArr });
-    } else {
-      this.setState({
-        roomsToDisplay: <h1>There are no matching results.</h1>,
-      });
-    }
-  }
+  handleGuestFilterInput = async function () {
+    let userInput = this.guestFilterInput.current.value;
+    await this.setState({ hasCapacityFilter: userInput });
+    console.log(this.state.hasCapacityFilter);
+  };
 
   fetchRoomsData() {
     const contentful = require("contentful");
@@ -142,25 +95,350 @@ export default class AllRooms extends Component {
         />
       )
     );
-    this.setState({ allRooms: finalDiv, roomsToDisplay: finalDiv });
+    this.setState({ roomsToDisplay: finalDiv });
+  }
+
+  handleSearchButton = async function () {
+    let tempArr = [];
+
+    console.log(
+      `price filter is: ${this.state.hasPriceFilter}, capacity filter is: ${this.state.hasCapacityFilter}, pet filter is ${this.state.hasPetsFilter}, breakfast filter is ${this.state.hasBreakfastFilter}`
+    );
+
+    // 4 filters
+    if (
+      this.state.hasPriceFilter &&
+      this.state.hasCapacityFilter &&
+      this.state.hasBreakfastFilter &&
+      this.state.hasPetsFilter
+    ) {
+      //clear tempArray before every new search
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.price <= this.state.hasPriceFilter &&
+        room.props.capacity >= this.state.hasCapacityFilter &&
+        room.props.pets &&
+        room.props.breakfast
+          ? tempArr.push(room)
+          : null
+      );
+      console.log(tempArr);
+      console.log("4 filters applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    }
+
+    //3 filters
+    else if (
+      this.state.hasPriceFilter &&
+      this.state.hasCapacityFilter &&
+      this.state.hasBreakfastFilter
+    ) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.price <= this.state.hasPriceFilter &&
+        room.props.capacity >= this.state.hasCapacityFilter &&
+        room.props.breakfast
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("3 filters applied(price, capacity, breakfast");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (
+      this.state.hasPriceFilter &&
+      this.state.hasCapacityFilter &&
+      this.state.hasPetsFilter
+    ) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.price <= this.state.hasPriceFilter &&
+        room.props.capacity >= this.state.hasCapacityFilter &&
+        room.props.pets
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("3 filters applied (price, capacity, pets)");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (
+      this.state.hasPriceFilter &&
+      this.state.hasPetsFilter &&
+      this.state.hasBreakfastFilter
+    ) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.price <= this.state.hasPriceFilter &&
+        room.props.pets &&
+        room.props.breakfast
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("3 filters applied (price, pets, breakfast)");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (this.state.hasPetsFilter && this.state.hasBreakfastFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.pets &&
+        room.props.breakfast &&
+        room.props.capacity >= this.state.hasCapacityFilter
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("3 filters applied (pets, breakfast, capacity)");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (
+      this.state.hasCapacityFilter &&
+      this.state.hasPetsFilter &&
+      this.state.hasBreakfastFilter
+    ) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.capacity >= this.state.hasCapacityFilter &&
+        room.props.pets &&
+        room.props.breakfast
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("3 filters applied (capacity, pets, breakfast)");
+      if (tempArr.length >= 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    }
+
+    // 2 filters
+    else if (this.state.hasPriceFilter && this.state.hasCapacityFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.price <= this.state.hasPriceFilter &&
+        room.props.capacity >= this.state.hasCapacityFilter
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("Price and Capacity filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (this.state.hasPriceFilter && this.state.hasPetsFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.price <= this.state.hasPriceFilter && room.props.pets
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("Price and Pet filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (this.state.hasPriceFilter && this.state.hasBreakfastFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.price <= this.state.hasPriceFilter && room.props.breakfast
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("Price and Breakfast filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (this.state.hasCapacityFilter && this.state.hasPetsFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.capacity >= this.state.hasCapacityFilter && room.props.pets
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("Pets and Capacity filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (this.state.hasCapacityFilter && this.state.hasBreakfastFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.capacity >= this.state.hasCapacityFilter &&
+        room.props.breakfast
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("Breakfast and Capacity filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (this.state.hasPetsFilter && this.state.hasBreakfastFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.pets && room.props.breakfast ? tempArr.push(room) : null
+      );
+      console.log("Pets and Breakfast filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    }
+
+    // 1 Filter
+    else if (this.state.hasPriceFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.price <= this.state.hasPriceFilter
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("1 Filter Applied: Price filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (this.state.hasCapacityFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.capacity >= this.state.hasCapacityFilter
+          ? tempArr.push(room)
+          : null
+      );
+      console.log("1 Filter Applied: Capacity filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (this.state.hasPetsFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.pets ? tempArr.push(room) : null
+      );
+      console.log("1 Filter Applied: Pet filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    } else if (this.state.hasBreakfastFilter) {
+      tempArr = [];
+      this.state.roomsToDisplay.map((room) =>
+        room.props.breakfast ? tempArr.push(room) : null
+      );
+      console.log("1 Filter Applied: Breakfast filter applied");
+      if (tempArr.length > 0) {
+        this.setState({ roomsToDisplay: tempArr });
+      } else {
+        this.setState({
+          roomsToDisplay: <h1>There are no matching results.</h1>,
+        });
+      }
+    }
+  };
+
+  handleResetButton() {
+    this.setState({
+      hasPriceFilter: undefined,
+      hasCapacityFilter: undefined,
+      hasPetsFilter: false,
+      hasBreakfastFilter: false,
+      breakfastCheckboxChecked: false,
+      petCheckboxChecked: false,
+    });
+    this.priceFilterInput.current.value = "";
+    this.guestFilterInput.current.value = "";
+    this.generateAllRooms();
   }
 
   render() {
     return (
       <>
-          <div className="search-field-outer-box">
+        <div className="search-field-outer-box">
           <div className="search-field-row-1">
             <div className="search-field-row-inner">
               <h1>Minimum Guests</h1>
-              <input className="input-form" type="text" name="name" />
+              <input
+                className="input-form"
+                type="text"
+                name="capacity"
+                ref={this.guestFilterInput}
+                onChange={() => this.handleGuestFilterInput()}
+              />
             </div>
             <div className="search-field-row-inner">
               <h1>Maximum price/night</h1>
-              <input className="input-form" type="text" name="name" />
+              <input
+                className="input-form"
+                type="text"
+                name="price"
+                ref={this.priceFilterInput}
+                onChange={() => this.handlePriceFilterInput()}
+              />
             </div>
             <div className="search-field-row-inner">
               <div className="search-field-row-inner-container">
-                <input name="pets" id="pets" type="checkbox"></input>
+                <input
+                  name="pets"
+                  id="pets"
+                  type="checkbox"
+                  value={this.state.hasPetsFilter}
+                  checked={this.state.petCheckboxChecked}
+                  onChange={this.togglePetFilter.bind(this)}
+                />
                 <label htmlFor="pets">
                   <h1 className="checkbox-text">Pets allowed</h1>
                 </label>
@@ -168,7 +446,14 @@ export default class AllRooms extends Component {
             </div>
             <div className="search-field-row-inner">
               <div className="search-field-row-inner-container">
-                <input name="breakfast" id="breakfast" type="checkbox"></input>
+                <input
+                  name="breakfast"
+                  id="breakfast"
+                  type="checkbox"
+                  value={this.state.hasBreakfastFilter}
+                  checked={this.state.breakfastCheckboxChecked}
+                  onChange={this.toggleBreakfastFilter.bind(this)}
+                />
                 <label htmlFor="breakfast">
                   <h1 className="checkbox-text">Breakfast included</h1>
                 </label>
@@ -179,101 +464,28 @@ export default class AllRooms extends Component {
             <div className="search-field-row-inner">
               <button
                 className="search-field-button"
-                onClick={() => this.handleClick5()}
-              ><FaSearch style={{marginRight:"0.5vw"}}/>
-                {" "}
-                Search{" "}
+                onClick={() => this.handleSearchButton()}
+              >
+                <FaSearch style={{ marginRight: "0.5vw" }} /> Search{" "}
               </button>
             </div>
 
             <div className="search-field-row-inner">
               <button
                 className="search-field-button"
-                onClick={() => this.handleClick5()}
-              ><FiXCircle style={{marginRight:"0.5vw"}}/>
-                
+                onClick={() => this.handleResetButton()}
+              >
+                <FiXCircle style={{ marginRight: "0.5vw" }} />
                 Reset Filter
               </button>
             </div>
           </div>
         </div>
 
-        {this.state.data ? (
+        {this.state.fetched ? (
           <div className="room-card-container">{this.state.roomsToDisplay}</div>
         ) : undefined}
       </>
     );
   }
 }
-
-/*
-filterByPrice() {
-let tempArr = [];
-this.state.roomsToDisplay.map((room) =>
-room.props.price < this.state.hasFilter.price ? tempArr.push(room) : null);
-if (tempArr.length > 0) {
-this.setState({ roomsToDisplay: tempArr });
-} else {
-this.setState({ roomsToDisplay: (<h1>There are no matching results.</h1>) })
-}
-}
-
-filterByPets() {
-let tempArr = [];
-this.state.roomsToDisplay.map((room) =>
-room.props.pets ? tempArr.push(room) : null);
-if (tempArr.length > 0) {
-this.setState({ roomsToDisplay: tempArr });
-} else {
-this.setState({ roomsToDisplay: (<h1>There are no matching results.</h1>) })
-}
-}
-
-filterByBreakfast() {
-let tempArr = [];
-this.state.roomsToDisplay.map((room) =>
-room.props.breakfast ? tempArr.push(room) : null);
-if (tempArr.length > 0) {
-this.setState({ roomsToDisplay: tempArr });
-} else {
-this.setState({ roomsToDisplay: (<h1>There are no matching results.</h1>) })
-}
-}
-
-filterByCapacity() {
-let tempArr = [];
-this.state.roomsToDisplay.map((room) =>
-room.props.capacity > this.state.hasFilter.capacity ? tempArr.push(room) : null);
-if (tempArr.length > 0) {
-this.setState({ roomsToDisplay: tempArr });
-} else {
-this.setState({ roomsToDisplay: (<h1>There are no matching results.</h1>) })
-}
-}
-*/
-
-/* INNER FOR SEARCH FORM
-
-<div className="form">
-<label htmlFor="capacity">Guests: </label>
-<select name="capacity" id="capacity" className="select-box">
-<option>1</option>
-<option>1</option>
-<option>1</option>
-<option>1</option>
-<option>1</option>
-</select>
-</div>
-
-<div className="form">
-<label htmlFor="price">Max price: </label>
-<input name="price" id="price" type="range" min="0" max="999" />
-</div>
-<button onClick={() => this.handleClick1()}> Filter By Price </button>
-<button onClick={() => this.handleClick2()}> Filter By Pets </button>
-<button onClick={() => this.handleClick3()}> Filter By capacity </button>
-<button onClick={() => this.handleClick4()}> Filter By breakfast </button>
-<button onClick={() => this.handleClick5()}> Reset Filter </button>
-
-
-*/
