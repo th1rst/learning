@@ -36,4 +36,6 @@ When clicking on a room, the Link to the individual page has to pass on every on
 
 5. After countless hours searching for a solution on how to pass props around to a new tab (single page application worked flawlessly, only encounter problems when opening room X in a new tab via MiddleMouse) and finding out that it wasn't possible, I decided to just disable the middle mouse entirely via "React One Tab Enforcer".
 
-Other than that, I learned a ton and it was an AMAZING journey. Very happy!
+6. The Search function. Filtering rooms by X properties was not a problem. While having to filter for multiple properties, this became the toughest issue of them all. After two days and almost going crazy, I went for a "it works" solution of multiple if/else if's. Not the most elegant, but it gets the job done. Even asking a question on Stack Overflow was not helpful.
+
+Other than that, I learned a ton and it was an AMAZING journey. Very happy with the result!

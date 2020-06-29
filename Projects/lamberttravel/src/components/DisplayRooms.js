@@ -12,12 +12,10 @@ export default class AllRooms extends Component {
       data: undefined,
       fetched: false,
       roomsToDisplay: [],
-
       hasPriceFilter: false,
       hasCapacityFilter: false,
       hasPetsFilter: false,
       hasBreakfastFilter: false,
-
       breakfastCheckboxChecked: false,
       petCheckboxChecked: false,
     };
@@ -32,7 +30,6 @@ export default class AllRooms extends Component {
       hasBreakfastFilter: !this.state.hasBreakfastFilter,
       breakfastCheckboxChecked: !this.state.breakfastCheckboxChecked,
     });
-    console.log(this.state.hasBreakfastFilter);
   };
 
   togglePetFilter = async function () {
@@ -40,25 +37,21 @@ export default class AllRooms extends Component {
       hasPetsFilter: !this.state.hasPetsFilter,
       petCheckboxChecked: !this.state.petCheckboxChecked,
     });
-    console.log(this.state.hasPetsFilter);
   };
 
   handlePriceFilterInput = async function () {
     let userInput = this.priceFilterInput.current.value;
     await this.setState({ hasPriceFilter: userInput });
-    console.log(this.state.hasPriceFilter);
   };
 
   handleGuestFilterInput = async function () {
     let userInput = this.guestFilterInput.current.value;
     await this.setState({ hasCapacityFilter: userInput });
-    console.log(this.state.hasCapacityFilter);
   };
 
   fetchRoomsData() {
     const contentful = require("contentful");
     const API_KEY = process.env.REACT_APP_CONTENTFUL_RESORT_API_KEY;
-
     const client = contentful.createClient({
       space: "9eq7letzz02f",
       accessToken: `${API_KEY}`,
@@ -101,10 +94,6 @@ export default class AllRooms extends Component {
   handleSearchButton = async function () {
     let tempArr = [];
 
-    console.log(
-      `price filter is: ${this.state.hasPriceFilter}, capacity filter is: ${this.state.hasCapacityFilter}, pet filter is ${this.state.hasPetsFilter}, breakfast filter is ${this.state.hasBreakfastFilter}`
-    );
-
     // 4 filters
     if (
       this.state.hasPriceFilter &&
@@ -122,8 +111,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log(tempArr);
-      console.log("4 filters applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -147,7 +134,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("3 filters applied(price, capacity, breakfast");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -168,7 +154,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("3 filters applied (price, capacity, pets)");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -189,7 +174,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("3 filters applied (price, pets, breakfast)");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -227,7 +211,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("3 filters applied (capacity, pets, breakfast)");
       if (tempArr.length >= 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -246,7 +229,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("Price and Capacity filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -261,7 +243,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("Price and Pet filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -276,7 +257,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("Price and Breakfast filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -291,7 +271,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("Pets and Capacity filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -307,7 +286,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("Breakfast and Capacity filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -320,7 +298,6 @@ export default class AllRooms extends Component {
       this.state.roomsToDisplay.map((room) =>
         room.props.pets && room.props.breakfast ? tempArr.push(room) : null
       );
-      console.log("Pets and Breakfast filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -338,7 +315,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("1 Filter Applied: Price filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -353,7 +329,6 @@ export default class AllRooms extends Component {
           ? tempArr.push(room)
           : null
       );
-      console.log("1 Filter Applied: Capacity filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -366,7 +341,6 @@ export default class AllRooms extends Component {
       this.state.roomsToDisplay.map((room) =>
         room.props.pets ? tempArr.push(room) : null
       );
-      console.log("1 Filter Applied: Pet filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -379,7 +353,6 @@ export default class AllRooms extends Component {
       this.state.roomsToDisplay.map((room) =>
         room.props.breakfast ? tempArr.push(room) : null
       );
-      console.log("1 Filter Applied: Breakfast filter applied");
       if (tempArr.length > 0) {
         this.setState({ roomsToDisplay: tempArr });
       } else {
@@ -481,7 +454,6 @@ export default class AllRooms extends Component {
             </div>
           </div>
         </div>
-
         {this.state.fetched ? (
           <div className="room-card-container">{this.state.roomsToDisplay}</div>
         ) : undefined}

@@ -24,7 +24,6 @@ class Navbar extends React.Component {
               />
             </Link>
           </div>
-
           <div className="navbar-inner-container-center">
             <div className="navbar-link-container">
               <li>

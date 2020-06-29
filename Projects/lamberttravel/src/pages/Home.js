@@ -1,22 +1,22 @@
 import React from "react";
 import "typeface-roboto";
 import Navbar from "../components/Navbar";
-import HeroLarge from '../components/HeroLarge'
-import Services from '../components/Services'
+import HeroLarge from "../components/HeroLarge";
+import Services from "../components/Services";
 import FeaturedRooms from "../components/FeaturedRooms";
-
 
 export default function Home() {
   return (
     <div>
       <Navbar />
-      <HeroLarge title="Luxurious Vacation Rooms" subtitle="Rooms starting at $155" linkText="OUR ROOMS" />
+      <HeroLarge
+        title="Welcome to Lambert Travel Agency"
+        subtitle="Luxurious Travel since 1994"
+        linkText="OUR ROOMS"
+      />
       <Services />
-      
-
-
       <div className="room-card-container">
-       <FeaturedRooms />
+        <FeaturedRooms />
       </div>
     </div>
   );

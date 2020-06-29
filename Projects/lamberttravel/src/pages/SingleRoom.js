@@ -30,13 +30,13 @@ export default class SingleRoom extends Component {
   }
 
   render() {
-    const EMAIL = process.env.REACT_APP_MAIL_ADDRESS;    
+    const EMAIL = process.env.REACT_APP_MAIL_ADDRESS;
     return (
       <div>
         <Navbar />
         <HeroSmall
           title={this.props.location.state.name}
-          subtitle={`Only ${this.props.location.state.price} for ${this.props.location.state.size}ft`}
+          subtitle={`Only $${this.props.location.state.price} a night for ${this.props.location.state.size} square feet`}
           image={this.props.location.state.titleImage}
         />
 
@@ -54,7 +54,6 @@ export default class SingleRoom extends Component {
             </div>
           ))}
         </div>
-
         <div>
           <div className="info-section-heading">
             <h1>INFO</h1>
@@ -120,7 +119,6 @@ export default class SingleRoom extends Component {
               </div>
             </div>
           </div>
-
           <div className="section-heading">
             <h1>DETAILS</h1>
             <div className="divider-small"></div>
@@ -132,7 +130,9 @@ export default class SingleRoom extends Component {
             </div>
           </div>
           <div className="book-now-box">
-            <a href={`mailto:${EMAIL}?subject=Hey,%20I%20like%20your%20page,%20let's%20get%20in%20touch!`}>
+            <a
+              href={`mailto:${EMAIL}?subject=Hey,%20I%20like%20your%20page,%20let's%20get%20in%20touch!`}
+            >
               BOOK NOW
             </a>
           </div>
