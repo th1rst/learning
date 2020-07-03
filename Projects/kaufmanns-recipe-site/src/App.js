@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Recipe from "./pages/Recipe"
 import Home from "./pages/Home"
 import Error404 from "./pages/Error404"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
