@@ -4,7 +4,7 @@ const RecipesContext = React.createContext();
 
 export default class RecipesProvider extends Component {
   state = {
-    apiData: [],
+    recipes: [],
     fetched: false,
   };
 
@@ -16,17 +16,27 @@ export default class RecipesProvider extends Component {
       accessToken: `${API_KEY}`,
     });
     client
-      .getEntries({ content_type: "recipe" })
+      .getEntries({ limit: 200, content_type: "recipe" })
       .then((entry) => {
-        this.setState({ apiData: entry, fetched: true });
+        this.setState({ recipes: this.formatData(entry), fetched: true, });
       })
       .catch((err) => console.log(err));
+  }
+
+  formatData(entry) {
+    let tempItems = entry.items.map(item => {
+      let id = item.sys.id
+      let images = item.fields.images.map(image => image.fields.file.url)
+      let recipe = {...item.fields, images, id}
+      return recipe
+    })
+    return tempItems
   }
 
   render() {
     return (
       <RecipesContext.Provider value={{ ...this.state }}>
-        {console.log(this.state.apiData)}
+        {/*console.log(this.state.recipes)*/}
         {this.props.children}
       </RecipesContext.Provider>
     );

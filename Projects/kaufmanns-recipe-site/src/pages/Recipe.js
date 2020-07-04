@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { RecipesContext } from "../context"
 
 export default class Recipe extends Component {
-    static contextType = RecipesContext;
+    static contextType = RecipesContext;  
     render() {
-        const {fetched} = this.context
+        const {recipes, fetched} = this.context
       
         return (
             <div>
-                hello {fetched} from recipe.js!
+                hello {console.log(recipes, fetched)} from recipe.js!
             </div>
         )
     }
