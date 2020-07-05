@@ -4,7 +4,7 @@ import BackgroundImage from "../../components/BackgroundImage";
 import Navigation from "../../components/Navigation";
 import RecipeSmall from "../../components/Recipes/RecipeSmall";
 
-export default class Suppen extends Component {
+export default class FleischFischGefluegel extends Component {
   static contextType = RecipesContext;
   render() {
     const { recipes } = this.context;
@@ -16,12 +16,12 @@ export default class Suppen extends Component {
         <div className="recipe-list-container">
           <div className="recipe-list-heading-row">
             <p className="recipe-list-heading">
-              Alle Rezepte der Kategorie "Suppen":
+              Alle Rezepte der Kategorie "Fleisch, Fisch und Geflügel":
             </p>
           </div>
           <div className="divider-small"></div>
           {recipes.map((recipe) => {
-            if (recipe.dish_category === "Suppen") {
+            if (recipe.dish_category === "Fleisch, Fisch, Geflügel") {
               return (
                 <div className="recipe-list-entry">
                   <RecipeSmall

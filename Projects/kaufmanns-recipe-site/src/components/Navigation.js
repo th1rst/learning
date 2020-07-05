@@ -43,33 +43,39 @@ export default class Navigation extends Component {
           </div>
           <div className="navbar-item">
             <NavDropdown title="Kategorien" id="nav-dropdown-kategorien">
-              <NavDropdown.Item as={Link} to={"/category/:brot"}>
+              <NavDropdown.Item as={Link} to={"/category/brot"}>
                 Brot
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item as={Link} to={"/category/besonderes-und-beilagen"}>
                 Besonderes und Beilagen
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Eintöpfe</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
+              <NavDropdown.Item as={Link} to={"/category/eintoepfe"}>
+                Eintöpfe
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={"/category/fleisch-fisch-gefluegel"}>
                 Fleisch, Fisch, Geflügel
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
+              <NavDropdown.Item as={Link} to={"/category/grillen-und-bbq"}>
                 Grillen & BBQ
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
+              <NavDropdown.Item as={Link} to={"/category/kuchen-suesses-torten"}>
                 Kuchen, Süßes, Torten
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
+              <NavDropdown.Item as={Link} to={"/category/likoere-spezialitaeten"}>
                 Liköre, Spezialitäten
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Salate</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
+              <NavDropdown.Item as={Link} to={"/category/salate"}>
+                Salate
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={"/category/saucen-und-dips"}>
                 Saucen, Dips
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
+              <NavDropdown.Item as={Link} to={"/category/slow-cooking"}>
                 Slow Cooking
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Suppen</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={"/category/suppen"}>
+                Suppen
+                </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to={"/category/alle-rezepte"}>
                 Alle Rezepte

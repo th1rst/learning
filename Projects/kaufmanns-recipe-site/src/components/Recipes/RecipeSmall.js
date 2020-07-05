@@ -16,6 +16,16 @@ export default class RecipeSmall extends Component {
     };
   }
 
+  getDuration(minutes) {
+    if (minutes < 60) {
+      return `${minutes} Minuten`
+    } else if (Math.floor(minutes / 60) === 1) {
+      return "1 Stunde"
+    } else {
+      return `${Math.floor(minutes / 60)} Stunden`
+    }
+  }
+
   render() {
     return (
       <div className="recipe-small-container">
@@ -39,9 +49,7 @@ export default class RecipeSmall extends Component {
               <BsClockHistory className="recipe-icon-small" />
               <p className="recipe-subheading-small">Zeit: </p>
               <p className="recipe-subheading-small">
-                {this.state.timeNeeded < 60 ? `${this.state.timeNeeded} Minuten` : `${Math.floor(this.state.timeNeeded / 60)} Stunden`}
-                
-
+                {this.getDuration(this.state.timeNeeded)}
               </p>
             </div>
             <div className="row-inner-container">
