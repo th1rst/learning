@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { BsClockHistory } from "react-icons/bs";
+import { GiSpoon, GiKnifeFork } from "react-icons/gi";
 
 export default class RecipeSmall extends Component {
   render() {
@@ -11,7 +13,37 @@ export default class RecipeSmall extends Component {
           ></img>
         </div>
         <div className="recipe-small-column-2">
-          <p>hi</p>
+          <div className="recipe-small-row-1">
+            <p className="recipe-small-heading">Apfel-Pfannkuchen</p>
+          </div>
+
+          <div className="recipe-small-row-2">
+            <p className="recipe-small-text">
+              Mehl und Salz mischen. Eigelb vom Eiweiß trennen (Eiweiß
+              aufheben). Eigelb mit der Milch verrühren. Diese Zutaten (außer
+              dem Eiweiß) zu einem Teig vermischen. Vanille-Aroma zugeben. Das
+              Eiweiß mit jeweils einer kleinen Prise Zucker und Salz zu steifem
+              Schnee schlagen; Eischnee vorsichtig unter den Teig heben.
+            </p>
+          </div>
+
+          <div className="recipe-small-row-3">
+            <div className="row-inner-container">
+              <BsClockHistory className="recipe-icon-small" />
+              <p className="recipe-subheading-small">Zeit: </p>
+              <p className="recipe-subheading-small">20 Min.</p>
+            </div>
+            <div className="row-inner-container">
+              <GiSpoon className="recipe-icon-small" />
+              <p className="recipe-subheading-small">Schwierigkeit: </p>
+              <p className="recipe-subheading-small">Leicht</p>
+            </div>
+            <div className="row-inner-container">
+              <GiKnifeFork className="recipe-icon-small" />
+              <p className="recipe-subheading-small">Portionen: </p>
+              <p className="recipe-subheading-small">3</p>
+            </div>
+          </div>
         </div>
       </div>
     );

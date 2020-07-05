@@ -10,21 +10,32 @@ export default class RecipeListContainer extends Component {
         super(props);
         this.state = {
             recipes: this.context,
-            category: "Brot",
+            category: "Kuchen, Süßes, Torten",
             amountOfRecipes: 17
         }
     }
     
     render() {
         const {recipes, fetched} = this.context
+        {fetched ? recipes.map(item => item.dish_category === this.state.category ? console.log(item) : null ) : console.log("Loading...")}
         return (
             <div>
                 <div className="recipe-list-container">
                     <div className="recipe-list-heading-row">
                     <p className="recipe-list-heading">{this.state.amountOfRecipes} Rezepte der Kategorie {this.state.category}:</p>
                     </div>
+                    <div className="divider-small"></div>
                     <div className="recipe-list-entry">
                     <RecipeSmall />
+                    </div>
+                    <div className="recipe-list-entry">
+                        
+                    </div>
+                    <div className="recipe-list-entry">
+                        
+                    </div>
+                    <div className="recipe-list-entry">
+                        
                     </div>
                     <div className="recipe-list-entry">
                         

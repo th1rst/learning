@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { NavDropdown, FormControl} from "react-bootstrap";
 import {BsArrowsCollapse} from "react-icons/bs"
 import {MdHome} from "react-icons/md"
+import RecipeCategoryPage from "../pages/RecipeCategoryPage"
+import {Link} from "react-router-dom"
 
 export default class Navigation extends Component {
   state = {
@@ -13,6 +15,7 @@ export default class Navigation extends Component {
   
 
   render() {
+    
     return (
       <div>
         <div className="navbar-container">
@@ -38,7 +41,7 @@ export default class Navigation extends Component {
           </div>
           <div className="navbar-item">
             <NavDropdown title="Kategorien" id="nav-dropdown-kategorien">
-              <NavDropdown.Item href="#action/3.1">
+              <NavDropdown.Item as={Link} to={"/category/:brot"}>
                 Brot
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

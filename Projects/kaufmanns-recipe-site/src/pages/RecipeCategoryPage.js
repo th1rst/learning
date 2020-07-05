@@ -9,13 +9,14 @@ export default class RecipeCategoryPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            category: undefined,
+            categoryName: "Brot", 
         }
     }
     render() {
         const recipes = this.context
         return (
             <div>
+                {console.log(this.state.categoryName)}
                 <BackgroundImage />
                 <Navigation />
                 <RecipeListContainer />

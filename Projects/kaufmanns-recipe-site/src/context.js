@@ -33,9 +33,15 @@ export default class RecipesProvider extends Component {
     return tempItems
   }
 
+  getSingleRecipe = (slug) => {
+    let tempRecipes = [...this.state]
+    const recipe = tempRecipes.find(recipe => recipe.slug === slug)
+    return recipe
+  }
+
   render() {
     return (
-      <RecipesContext.Provider value={{ ...this.state }}>
+      <RecipesContext.Provider value={{ ...this.state, getSingleRecipe: this.getSingleRecipe }}>
         {this.props.children}
       </RecipesContext.Provider>
     );

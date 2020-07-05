@@ -9,6 +9,21 @@
   height: 100%;
 }
 
+/* Globally used components */
+.divider-medium {
+  width: 20vw;
+  height: 0.2vh;
+  background-color: #b3b1ae;
+}
+
+.divider-small {
+  width: 10vw;
+  height: 0.2vh;
+  margin: 1vh 0;
+  background-color: #b3b1ae;
+}
+/* End Globally used components */
+
 /* NAVBAR */
 .navbar-container {
   margin-left: 1vw;
@@ -74,7 +89,7 @@
   font-size: 1.2em;
 }
 
-.navbar-item:not(:nth-child(2)):hover { /*every item but search bar*/
+.navbar-item:not(:nth-child(4)):hover { /*every item but search bar*/
   border-top: 2px solid white;
   border-bottom: 2px solid white;
   border-left: 1px solid white;
@@ -265,40 +280,6 @@
 
 
 
-/* RECIPE SMALL COMPONENT */
-.recipe-small-container {
-  height: 100%;
-  width: 100;
-  display: flex;
-  flex-direction: row;
-  border: 2px solid green;
-}
-
-.recipe-small-column-1 {
-  border: 1px solid blue;
-  width: 20%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.recipe-small-column-2 {
-  border: 2px solid purple;
-  width: 80%;
-  height: 100%;
-}
-
-.recipe-small-image {
-  border-radius: 50%;
-  width: 85%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* END RECIPE SMALL COMPONENT */
-
-
 
 /* RECIPE LIST CONTAINER */
 .recipe-list-container {
@@ -311,11 +292,12 @@
   background-color: white;
   height: auto;
   width: 80%;
-  border: 2px solid purple;
+  box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.5);
+  border-radius: 10px;
 }
 
 .recipe-list-heading-row {
-  border: 2px solid blue;
+  margin-top: 1vh;
   height: auto;
   width: 100%;
   display: flex;
@@ -326,18 +308,151 @@
 .recipe-list-heading {
   margin: 0 1vh;
   color: black;
-  font-family: 'Dancing Script', cursive;
-  font-size: 2em;
+  font-family: "Spectral SC", serif;
+  font-weight: bold;
+  font-size: calc(1em + 0.7vw);
 }
 
 .recipe-list-entry {
-  border: 2px solid red;
   width: 90%;
   height: 15vh;
   margin: 1vh 0;
-  box-shadow: 2px 6px 12px -1px rgba(0,0,0,0.3);
 }
 /* END RECIPE LIST CONTAINER */
+
+
+
+/* RECIPE SMALL COMPONENT */
+.recipe-small-container {
+  height: 15vh;
+  border: 2px solid red;
+  width: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 2px solid rgba(151, 151, 151, 0.5);
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px -1px rgba(0,0,0,0.3);
+}
+
+.recipe-small-container:hover {
+  box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+}
+
+.recipe-small-column-1 {
+  /* border: 2px solid blue; */
+  margin-left: 1vw;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: auto;
+  height: 90%;
+  display: flex;
+  align-self: center;
+}
+
+.recipe-small-column-2 {
+  /* border: 2px solid purple; */
+  width: 90%;
+  height: auto;
+  max-height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.recipe-small-row-1 {
+  /* border: 2px solid greenyellow; */
+  height: 25%;
+  width: 100%;
+}
+
+.recipe-small-row-2 {
+  /* border: 2px solid greenyellow; */
+  height: 50%;
+  max-height: 15vh;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .recipe-small-row-2 {
+    display: none;
+  }
+}
+
+.recipe-small-row-3 {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.row-inner-container {
+  margin-top: 10px;
+  width: auto;
+  height: auto;
+  max-height: 3vh;
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid cyan */
+}
+
+.recipe-small-image {
+  border-radius: 15px;
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.recipe-small-heading {
+  margin-bottom: 3px;
+  margin-left: 1vw;
+  color: black;
+  font-family: 'Dancing Script', cursive;
+  font-size: calc(1em + 0.7vw);
+}
+
+@media only screen and (max-width: 900px) {
+  .recipe-small-heading {
+    text-align: center;
+  }
+}
+
+.recipe-small-text {
+  margin-left: 1vw;
+  width: 95%;
+  text-align: justify;
+  font-size: 0.8em;
+  color: black
+}
+
+.recipe-icon-small {
+  margin-right: 7px;
+  color: rgb(235, 198, 96);
+  font-size: 1.2em;
+}
+
+.recipe-subheading-small {
+  margin-right: 5px;
+  color: rgb(207, 204, 204);
+  font-family: "Spectral SC", serif;
+  font-size: 1em;
+}
+
+/* END RECIPE SMALL COMPONENT */
+
+
+
+
 
 
 /* MISC */
