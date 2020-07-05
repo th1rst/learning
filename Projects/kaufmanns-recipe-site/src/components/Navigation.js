@@ -1,23 +1,32 @@
 import React, { Component } from "react";
-import {
-  Navbar,
-  Nav,
-  Form,
-  Button,
-  NavDropdown,
-  FormControl,
-} from "react-bootstrap";
+import { NavDropdown, FormControl} from "react-bootstrap";
+import {BsArrowsCollapse} from "react-icons/bs"
+import {MdHome} from "react-icons/md"
 
 export default class Navigation extends Component {
+  state = {
+    mouseOverLogo: false,
+  }
+  toggleNavIcons = () => {
+    this.setState({mouseOverLogo: !this.state.mouseOverLogo})
+  }
+  
+
   render() {
     return (
       <div>
         <div className="navbar-container">
+          
           <img
             src={require("../images/logo_small2.png")}
             className="navbar-logo"
             alt="kaufmann-logo"
+            onMouseEnter={this.toggleNavIcons}
+            onMouseLeave={this.toggleNavIcons}
           />
+          <MdHome className={this.state.mouseOverLogo ? "home-icon show" : "home-icon"}/>
+          <BsArrowsCollapse className={this.state.mouseOverLogo ? "collapse-icon show" : "collapse-icon"}/>
+          
           <div className="navbar-item navbar-first">
        
               <FormControl
@@ -93,7 +102,17 @@ export default class Navigation extends Component {
           </div>
 
           <div className="navbar-item">
-            Über
+          <NavDropdown title="Über" id="nav-dropdown-artikel">
+              <NavDropdown.Item href="#action/3.1">
+                Über den Autor
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Über die Webseite
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Kostenloses Ebook
+              </NavDropdown.Item>
+            </NavDropdown>
           </div>
           <div className="navbar-item">
             Forum

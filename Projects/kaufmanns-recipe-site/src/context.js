@@ -36,7 +36,6 @@ export default class RecipesProvider extends Component {
   render() {
     return (
       <RecipesContext.Provider value={{ ...this.state }}>
-        {/*console.log(this.state.recipes)*/}
         {this.props.children}
       </RecipesContext.Provider>
     );

@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Spectral+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
+.background-image {
+  filter: brightness(100%) sepia(10%);
+  position: fixed;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
 
 /* NAVBAR */
 .navbar-container {
   margin-left: 1vw;
   position: fixed;
-  opacity: 0.8;
-  width: 100%;
-  margin-top: 4vh;
+  z-index: 10;
+  opacity: 0.9;
+  width: 95%;
+  margin-top: 5vh;
   height: 5vh;
   display: flex;
   align-items: center;
@@ -23,15 +32,39 @@
   box-shadow: 0px 0px 33px -8px rgba(0,0,0,0.35);
 }
 
+.home-icon {
+  display: none;
+  z-index: 999;
+  position: absolute;
+  left: 3vw;
+  color: white;
+  font-size: 2.5em;
+}
+
+.collapse-icon {
+  display: none;
+  z-index: 999;
+  position: absolute;
+  left: 7vw;
+  color: white;
+  rotate: 90deg;
+  font-size: 2.5em;
+}
+
+.show {
+  display: block;
+}
+
 .navbar-item {
   background-image: linear-gradient(to bottom, #838080, #787677, #6d6c6d, #636363, #595959, #595959, #595959, #595959, #636363, #6d6c6d, #787677, #838080);
-  border-top: 2px double black;
+  border: 2px double black;
   border-bottom: 2px double black;
   border-left: 1px solid black;
   border-right: 1px solid black;
   width: 13%;
   max-width: 300px;
   height: 100%;
+  min-height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,10 +74,9 @@
   font-size: 1.2em;
 }
 
-.navbar-item:hover {
-
-  border-top: 3px double white;
-  border-bottom: 3px double white;
+.navbar-item:not(:nth-child(2)):hover { /*every item but search bar*/
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
   border-left: 1px solid white;
   border-right: 1px solid white;
   transition: 0.05s;
@@ -62,10 +94,25 @@
   color: black;
 }
 
+.dropdown-menu.show {
+  background-image: linear-gradient(to bottom, #838080, #787677, #6d6c6d, #636363, #595959, #595959, #595959, #595959, #636363, #6d6c6d, #787677, #838080);
+}
+
+.dropdown-item {
+  color: white !important /* override Bootstrap CSS*/
+}
+
+.dropdown-item:hover {
+  color: black !important /* override Bootstrap CSS*/
+}
+
+.dropdown-item:focus {
+  background-color: white !important /* override Bootstrap CSS*/
+}
+
 .search-form {
   margin-left: 2vw;
   margin-right: 2vw;
-  width: 100vw
 }
 
 /* override Bootstrap CSS */
@@ -97,12 +144,200 @@
   }
 }
 
-
-
 /* END NAVBAR */
 
 
 
+
+/* RECIPE MEDIUM-SIZE COMPONENT */
+.recipe-medium-outer {
+  background:
+  radial-gradient(black 15%, transparent 16%) 0 0,
+  radial-gradient(black 15%, transparent 16%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+  box-shadow: 2px 6px 12px -1px rgba(0,0,0,0.75);
+  border-radius: 15px;
+  position: absolute;
+  top: 30vh;
+  left: 5%;
+  width: 50%;
+  max-width: 800px;
+  height: auto;
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-inner-column-1 {
+  display: flex;
+  flex-direction: row;
+  height: 70%;
+  width: 100%;
+  border: 2px solid purple;
+}
+
+.recipe-inner-row-1 {
+  width: 40%;
+  height: 100%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  border: 2px solid blue;
+}
+
+.recipe-inner-row-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  border: 2px solid pink;
+  height: auto;
+  width: 60%;
+}
+
+.recipe-heading {
+  margin: 0 2%;
+  color: white;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3em;
+}
+
+.recipe-subheading {
+  color: rgb(207, 204, 204);
+  font-family: "Spectral SC", serif;
+  font-size: 1.2em;
+}
+
+.recipe-text {
+  margin: 0 5%;
+  color: rgb(247, 240, 233);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 0.8em;
+  text-align: justify;
+}
+
+.recipe-link {
+  color: white;
+  text-decoration: none;
+}
+
+.recipe-inner-column-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  border: 2px solid green;
+}
+
+.recipe-inner-row-container {
+  border: 2px solid cyan;
+  height: auto;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.recipe-medium-image {
+  border-radius: 10%;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+}
+
+.recipe-medium-background {
+  filter: brightness(80%);
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recipe-icon {
+  color: rgb(235, 198, 96);
+  font-size: 1.5em;
+}
+/* END RECIPE MEDIUM-SIZE COMPONENT */
+
+
+
+/* RECIPE SMALL COMPONENT */
+.recipe-small-container {
+  height: 100%;
+  width: 100;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid green;
+}
+
+.recipe-small-column-1 {
+  border: 1px solid blue;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipe-small-column-2 {
+  border: 2px solid purple;
+  width: 80%;
+  height: 100%;
+}
+
+.recipe-small-image {
+  border-radius: 50%;
+  width: 85%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* END RECIPE SMALL COMPONENT */
+
+
+
+/* RECIPE LIST CONTAINER */
+.recipe-list-container {
+  position: relative;
+  top: 17vh;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  height: auto;
+  width: 80%;
+  border: 2px solid purple;
+}
+
+.recipe-list-heading-row {
+  border: 2px solid blue;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipe-list-heading {
+  margin: 0 1vh;
+  color: black;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2em;
+}
+
+.recipe-list-entry {
+  border: 2px solid red;
+  width: 90%;
+  height: 15vh;
+  margin: 1vh 0;
+  box-shadow: 2px 6px 12px -1px rgba(0,0,0,0.3);
+}
+/* END RECIPE LIST CONTAINER */
 
 
 /* MISC */

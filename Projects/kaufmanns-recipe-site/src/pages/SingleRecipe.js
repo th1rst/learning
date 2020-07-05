@@ -8,7 +8,7 @@ export default class Recipe extends Component {
       
         return (
             <div>
-                hello {console.log(recipes, fetched)} from recipe.js!
+                hello from single recipe.js!
             </div>
         )
     }
