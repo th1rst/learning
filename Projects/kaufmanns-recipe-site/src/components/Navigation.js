@@ -1,25 +1,21 @@
 import React, { Component } from "react";
-import { NavDropdown, FormControl} from "react-bootstrap";
-import {BsArrowsCollapse} from "react-icons/bs"
-import {MdHome} from "react-icons/md"
-import RecipeCategoryPage from "../pages/RecipeCategoryPage"
-import {Link} from "react-router-dom"
+import { NavDropdown, FormControl } from "react-bootstrap";
+import { BsArrowsCollapse } from "react-icons/bs";
+import { MdHome } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default class Navigation extends Component {
   state = {
     mouseOverLogo: false,
-  }
+  };
   toggleNavIcons = () => {
-    this.setState({mouseOverLogo: !this.state.mouseOverLogo})
-  }
-  
+    this.setState({ mouseOverLogo: !this.state.mouseOverLogo });
+  };
 
   render() {
-    
     return (
       <div>
         <div className="navbar-container">
-          
           <img
             src={require("../images/logo_small2.png")}
             className="navbar-logo"
@@ -27,17 +23,23 @@ export default class Navigation extends Component {
             onMouseEnter={this.toggleNavIcons}
             onMouseLeave={this.toggleNavIcons}
           />
-          <MdHome className={this.state.mouseOverLogo ? "home-icon show" : "home-icon"}/>
-          <BsArrowsCollapse className={this.state.mouseOverLogo ? "collapse-icon show" : "collapse-icon"}/>
-          
-          <div className="navbar-item navbar-first">
-       
-              <FormControl
-                type="text"
-                placeholder="Suchen..."
-                className="sm-2 search-form"
-              />
+          <MdHome
+            className={
+              this.state.mouseOverLogo ? "home-icon show" : "home-icon"
+            }
+          />
+          <BsArrowsCollapse
+            className={
+              this.state.mouseOverLogo ? "collapse-icon show" : "collapse-icon"
+            }
+          />
 
+          <div className="navbar-item navbar-first">
+            <FormControl
+              type="text"
+              placeholder="Suchen..."
+              className="sm-2 search-form"
+            />
           </div>
           <div className="navbar-item">
             <NavDropdown title="Kategorien" id="nav-dropdown-kategorien">
@@ -47,9 +49,7 @@ export default class Navigation extends Component {
               <NavDropdown.Item href="#action/3.2">
                 Besonderes und Beilagen
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Eintöpfe
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Eintöpfe</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">
                 Fleisch, Fisch, Geflügel
               </NavDropdown.Item>
@@ -62,30 +62,24 @@ export default class Navigation extends Component {
               <NavDropdown.Item href="#action/3.3">
                 Liköre, Spezialitäten
               </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Salate</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">
-                Salate
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-               Saucen, Dips
+                Saucen, Dips
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">
                 Slow Cooking
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Suppen
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Suppen</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
+              <NavDropdown.Item as={Link} to={"/category/alle-rezepte"}>
                 Alle Rezepte
               </NavDropdown.Item>
             </NavDropdown>
           </div>
-          <div className="navbar-item">
-            Zufallsrezept
-          </div>
+          <div className="navbar-item">Zufallsrezept</div>
 
           <div className="navbar-item">
-          <NavDropdown title="Artikel" id="nav-dropdown-artikel">
+            <NavDropdown title="Artikel" id="nav-dropdown-artikel">
               <NavDropdown.Item href="#action/3.1">
                 Bayerisch für Nichtbayern
               </NavDropdown.Item>
@@ -95,9 +89,7 @@ export default class Navigation extends Component {
               <NavDropdown.Item href="#action/3.2">
                 Der Chili-Wettbewerb
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Gewürze
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Gewürze</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">
                 Tomatensauce
               </NavDropdown.Item>
@@ -105,7 +97,7 @@ export default class Navigation extends Component {
           </div>
 
           <div className="navbar-item">
-          <NavDropdown title="Über" id="nav-dropdown-artikel">
+            <NavDropdown title="Über" id="nav-dropdown-artikel">
               <NavDropdown.Item href="#action/3.1">
                 Über den Autor
               </NavDropdown.Item>
@@ -117,9 +109,7 @@ export default class Navigation extends Component {
               </NavDropdown.Item>
             </NavDropdown>
           </div>
-          <div className="navbar-item">
-            Forum
-          </div>
+          <div className="navbar-item">Forum</div>
         </div>
       </div>
     );
