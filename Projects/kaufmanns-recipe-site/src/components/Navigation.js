@@ -1,15 +1,25 @@
 import React, { Component } from "react";
+import { RecipesContext } from "../context";
 import { NavDropdown, FormControl } from "react-bootstrap";
 import { BsArrowsCollapse } from "react-icons/bs";
 import { MdHome } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default class Navigation extends Component {
+  static contextType = RecipesContext;
   state = {
     mouseOverLogo: false,
+    randomSlug: "",
   };
+  
   toggleNavIcons = () => {
     this.setState({ mouseOverLogo: !this.state.mouseOverLogo });
+  };
+
+  getRandomRecipe = () => {
+    const { recipes } = this.context;
+    let random = recipes[Math.floor(Math.random() * recipes.length)].slug;
+    this.setState({ randomSlug: random });
   };
 
   render() {
@@ -46,22 +56,34 @@ export default class Navigation extends Component {
               <NavDropdown.Item as={Link} to={"/category/brot"}>
                 Brot
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/besonderes-und-beilagen"}>
+              <NavDropdown.Item
+                as={Link}
+                to={"/category/besonderes-und-beilagen"}
+              >
                 Besonderes und Beilagen
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to={"/category/eintoepfe"}>
                 Eintöpfe
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/fleisch-fisch-gefluegel"}>
+              <NavDropdown.Item
+                as={Link}
+                to={"/category/fleisch-fisch-gefluegel"}
+              >
                 Fleisch, Fisch, Geflügel
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to={"/category/grillen-und-bbq"}>
                 Grillen & BBQ
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/kuchen-suesses-torten"}>
+              <NavDropdown.Item
+                as={Link}
+                to={"/category/kuchen-suesses-torten"}
+              >
                 Kuchen, Süßes, Torten
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/likoere-spezialitaeten"}>
+              <NavDropdown.Item
+                as={Link}
+                to={"/category/likoere-spezialitaeten"}
+              >
                 Liköre, Spezialitäten
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to={"/category/salate"}>
@@ -75,14 +97,22 @@ export default class Navigation extends Component {
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to={"/category/suppen"}>
                 Suppen
-                </NavDropdown.Item>
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to={"/category/alle-rezepte"}>
                 Alle Rezepte
               </NavDropdown.Item>
             </NavDropdown>
           </div>
-          <div className="navbar-item">Zufallsrezept</div>
+
+          <div className="navbar-item" onMouseDown={this.getRandomRecipe}>
+            <Link
+              to={`/recipes/${this.state.randomSlug}`}
+              style={{ textDecoration: "none" }}
+            >
+              Zufallsrezept
+            </Link>
+          </div>
 
           <div className="navbar-item">
             <NavDropdown title="Artikel" id="nav-dropdown-artikel">
@@ -125,7 +155,7 @@ export default class Navigation extends Component {
 /* 
 
 
-               
+            
 
 
 

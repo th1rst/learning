@@ -16,7 +16,7 @@ export default class KuchenSuessesTorten extends Component {
         <div className="recipe-list-container">
           <div className="recipe-list-heading-row">
             <p className="recipe-list-heading">
-              Alle Rezepte der Kategorie "Kuche, Süßes und Torten":
+              Alle Rezepte der Kategorie "Kuchen, Süßes und Torten":
             </p>
           </div>
           <div className="divider-small"></div>

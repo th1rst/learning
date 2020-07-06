@@ -14,7 +14,6 @@ export default class Home extends Component {
           <BackgroundImage />
           <Navigation />
         
-        {console.log(recipes[1])}
           <RecipeMedium />
        
           
