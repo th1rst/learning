@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { RecipesContext } from "../context";
 import Navigation from "../components/Navigation";
 import BackgroundImage from "../components/BackgroundImage";
-import { GiSpoon, GiKnifeFork } from "react-icons/gi";
+import { GiSpoon, GiKnifeFork, GiCookingPot } from "react-icons/gi";
 import { BsClockHistory, BsInfoCircle } from "react-icons/bs";
 
 export default class SingleRecipe extends Component {
@@ -103,10 +103,14 @@ export default class SingleRecipe extends Component {
                       <div className="properties-inner-container">
                         <p className="properties-text">Zeit:</p>
                         <BsClockHistory className="single-recipe-icon" />
-                        <p className="properties-text">{this.getDuration(recipe.timeNeeded)}</p>
-                          {recipe.cookingTime ? <p className="properties-text-small">+ {this.getDuration(recipe.cookingTime)} extra</p>
-                      : null}
-                        
+                        <p className="properties-text">
+                          {this.getDuration(recipe.timeNeeded)}
+                        </p>
+                        {recipe.cookingTime ? (
+                          <p className="properties-text-small">
+                            + {this.getDuration(recipe.cookingTime)} extra
+                          </p>
+                        ) : null}
                       </div>
                       <div className="properties-inner-container">
                         <p className="properties-text">Schwierigkeit:</p>
@@ -127,53 +131,68 @@ export default class SingleRecipe extends Component {
                     <div className="about-dish-container">
                       <BsInfoCircle className="info-icon" />
                       <div className="about-dish-container-inner">
-                        <p>{recipe.aboutDishInfo}</p>
+                        {/* render \n line breaks correctly */}
+                        {recipe.aboutDishInfo.split("\n").map((i, key) => {
+                          return <p key={key}>{i}</p>;
+                        })}
                       </div>
                     </div>
                   ) : null}
 
-                  <p>ingredients1:</p>
-                  <ul>
-                    {recipe.ingredients1.map((item) => {
-                      return <li key={Math.random() * 10000}>{item}</li>;
+                  <div className="ingredients-main-container">
+                    <div className="ingredients-inner-container">
+                      <p className="ingredients-heading">
+                        {recipe.ingredients1[0]}:
+                      </p>
+                      <ul>
+                        {/* first item is always the heading, so skip it */}
+                        {recipe.ingredients1.slice(1).map((item) => {
+                          return <li key={Math.random() * 10000}>{item}</li>;
+                        })}
+                      </ul>
+                    </div>
+
+                    {/* ingredients 2 and 3 are not "required" so they can be empty*/}
+                    {recipe.ingredients2 ? (
+                      <div className="ingredients-inner-container">
+                        <p className="ingredients-heading">
+                          {recipe.ingredients2[0]}:
+                        </p>
+                        <ul>
+                          {recipe.ingredients2.slice(1).map((item) => {
+                            return <li key={Math.random() * 10000}>{item}</li>;
+                          })}
+                        </ul>
+                      </div>
+                    ) : null}
+
+                    {recipe.ingredients3 ? (
+                      <div className="ingredients-inner-container">
+                        <p className="ingredients-heading">
+                          {recipe.ingredients3[0]}:
+                        </p>
+                        <ul>
+                          {recipe.ingredients3.slice(1).map((item) => {
+                            return <li key={Math.random() * 10000}>{item}</li>;
+                          })}
+                        </ul>
+                      </div>
+                    ) : null}
+                  </div>
+
+                  <div className="preparation-container">
+                    <div className="preparation-heading-container">
+                      <div className="preparation-icon-circle-behind">
+                        <GiCookingPot className="preparation-icon" />
+                      </div>
+                      <p className="single-recipe-heading"> Zubereitung</p>
+                    </div>
+                    {recipe.preparation.split("\n").map((i, key) => {
+                      return <p key={key}>{i}</p>;
                     })}
-                  </ul>
+                  </div>
 
-                  {/* ingredients 2 and 3 are not "required" so they can be empty*/}
-                  <p>ingredients2:</p>
-                  {recipe.ingredients2 ? (
-                    <ul>
-                      {recipe.ingredients2.map((item) => {
-                        return <li key={Math.random() * 10000}>{item}</li>;
-                      })}
-                    </ul>
-                  ) : (
-                    "no ingredients2 available"
-                  )}
-
-                  <p>ingredients3:</p>
-                  {recipe.ingredients3 ? (
-                    <ul>
-                      {recipe.ingredients3.map((item) => {
-                        return <li key={Math.random() * 10000}>{item}</li>;
-                      })}
-                    </ul>
-                  ) : (
-                    "no ingredients3 available"
-                  )}
-
-                  <p>text: {recipe.preparation}</p>
-                  <p>time: {recipe.timeNeeded}</p>
-
-                  <p>slug: {recipe.slug}</p>
-                  <p>id: {recipe.id}</p>
                   <p>image url's: {recipe.images[0]}</p>
-                  <p>
-                    extra time:{" "}
-                    {recipe.cookingTime
-                      ? `${recipe.cookingTime}`
-                      : "No Extra Cooking Time"}
-                  </p>
                 </div>
               );
             }
