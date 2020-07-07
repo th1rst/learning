@@ -10,6 +10,13 @@
 }
 
 /* Globally used components */
+.divider-large {
+  margin: 1vh;
+  width: 85%;
+  height: 0.2vh;
+  background-color: #b3b1ae;
+}
+
 .divider-medium {
   width: 20vw;
   height: 0.2vh;
@@ -452,6 +459,136 @@
 
 
 
+/* SINGLE RECIPE PAGE */
+.single-recipe-container {
+  position: relative;
+  top: 17vh;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  height: auto;
+  width: 90%;
+  box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.5);
+  border-radius: 10px;
+}
+
+.single-recipe-heading-row {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-recipe-heading {
+  margin: 1vh;
+  color: black;
+  font-family: 'Dancing Script', cursive;
+  font-size: calc(2.5em + 0.7vw);
+  margin-bottom: 0;
+}
+
+.single-recipe-subheading {
+  color: black;
+  font-family: "Spectral SC", serif;
+  font-size: calc(0.7em + 0.7vw);
+  margin-bottom: 1vh;
+}
+
+.single-recipe-properties-container {
+  width: 80%;
+  height: auto;
+  margin: 0.5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.properties-inner-container {
+  margin: 1vh 1vw;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 25px;
+  background-color: rgba(143, 141, 140, 0.05);
+  box-shadow: 2px 6px 12px -1px rgba(0,0,0,0.15);
+  height: 90%;
+  width: 23%;
+  min-width: 150px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.properties-text {
+  margin-top: 1vh;
+  color: black;
+  font-family: "Spectral SC", serif;
+  font-size: calc(0.7em + 0.6vw);
+}
+
+.properties-text-small {
+  color: black;
+  font-family: "Spectral SC", serif;
+  font-size: calc(0.5em + 0.5vw);
+}
+
+.single-recipe-icon {
+  color: rgb(235, 198, 96);
+  font-size: calc(1.5em + 0.7vw);
+}
+
+.info-icon {
+  margin-top: 1.5vh;
+  color: rgb(235, 198, 96);
+  font-size: 2.5em;
+}
+
+.single-recipe-difficulty-container {
+  width: 90%;
+  height: auto;
+  border: 1px solid rgb(235, 198, 96);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.single-recipe-icon-greyed-out {
+  color: rgb(136, 136, 136);
+  opacity: 15%;
+  font-size: calc(1.5em + 0.7vw);
+}
+
+.about-dish-container {
+  margin: 2vh 5%;
+  width: 90%;
+  height: auto;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-dish-container-inner {
+  margin: 2vh 1vw 1vh 1vw;
+  width: 90%;
+  height: auto;
+  border-radius: 5px;
+  text-align: justify;
+  font-family: "Spectral SC", serif;
+  font-size: calc(0.6em + 0.5vw);
+}
+
+
+    
+
+/* END SINGLE RECIPE PAGE */
 
 
 

@@ -11,7 +11,7 @@ export default class Navigation extends Component {
     mouseOverLogo: false,
     randomSlug: "",
   };
-  
+
   toggleNavIcons = () => {
     this.setState({ mouseOverLogo: !this.state.mouseOverLogo });
   };
@@ -104,16 +104,12 @@ export default class Navigation extends Component {
               </NavDropdown.Item>
             </NavDropdown>
           </div>
-
-          <div className="navbar-item" onMouseDown={this.getRandomRecipe}>
-            <Link
-              to={`/recipes/${this.state.randomSlug}`}
-              style={{ textDecoration: "none" }}
-            >
-              Zufallsrezept
-            </Link>
-          </div>
-
+          <Link
+            className="navbar-item"
+            to={`/recipes/${this.state.randomSlug}`}
+          >
+            <div onMouseDown={this.getRandomRecipe}>Zufallsrezept</div>
+          </Link>
           <div className="navbar-item">
             <NavDropdown title="Artikel" id="nav-dropdown-artikel">
               <NavDropdown.Item href="#action/3.1">
