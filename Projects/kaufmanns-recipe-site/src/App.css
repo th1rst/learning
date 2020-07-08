@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Spectral+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Spectral+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arizonia&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Scheherazade&display=swap");
 
 .background-image {
   filter: brightness(100%) sepia(10%);
@@ -43,7 +44,7 @@
   height: 5vh;
   display: flex;
   align-items: center;
-  }
+}
 
 .navbar-logo {
   margin-left: 1vw;
@@ -51,8 +52,8 @@
   width: 150px;
   height: auto;
   border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.35);
-  box-shadow: 0px 0px 33px -8px rgba(0,0,0,0.35);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 0px 33px -8px rgba(0, 0, 0, 0.35);
 }
 
 .home-icon {
@@ -79,7 +80,21 @@
 }
 
 .navbar-item {
-  background-image: linear-gradient(to bottom, #838080, #787677, #6d6c6d, #636363, #595959, #595959, #595959, #595959, #636363, #6d6c6d, #787677, #838080);
+  background-image: linear-gradient(
+    to bottom,
+    #838080,
+    #787677,
+    #6d6c6d,
+    #636363,
+    #595959,
+    #595959,
+    #595959,
+    #595959,
+    #636363,
+    #6d6c6d,
+    #787677,
+    #838080
+  );
   border: 2px double black;
   border-bottom: 2px double black;
   border-left: 1px solid black;
@@ -97,7 +112,8 @@
   font-size: 1em;
 }
 
-.navbar-item:not(:nth-child(4)):hover { /*every item but search bar*/
+.navbar-item:not(:nth-child(4)):hover {
+  /*every item but search bar*/
   border-top: 2px solid white;
   border-bottom: 2px solid white;
   border-left: 1px solid white;
@@ -106,31 +122,47 @@
   color: black;
 }
 
-#nav-dropdown-kategorien, #nav-dropdown-artikel {
+#nav-dropdown-kategorien,
+#nav-dropdown-artikel {
   width: 15%;
   max-width: 300px;
   color: white;
   text-decoration: none;
 }
 
-#nav-dropdown-kategorien:hover, #nav-dropdown-artikel:hover {
+#nav-dropdown-kategorien:hover,
+#nav-dropdown-artikel:hover {
   color: black;
 }
 
 .dropdown-menu.show {
-  background-image: linear-gradient(to bottom, #838080, #787677, #6d6c6d, #636363, #595959, #595959, #595959, #595959, #636363, #6d6c6d, #787677, #838080);
+  background-image: linear-gradient(
+    to bottom,
+    #838080,
+    #787677,
+    #6d6c6d,
+    #636363,
+    #595959,
+    #595959,
+    #595959,
+    #595959,
+    #636363,
+    #6d6c6d,
+    #787677,
+    #838080
+  );
 }
 
 .dropdown-item {
-  color: white !important /* override Bootstrap CSS*/
+  color: white !important; /* override Bootstrap CSS*/
 }
 
 .dropdown-item:hover {
-  color: black !important /* override Bootstrap CSS*/
+  color: black !important; /* override Bootstrap CSS*/
 }
 
 .dropdown-item:focus {
-  background-color: white !important /* override Bootstrap CSS*/
+  background-color: white !important; /* override Bootstrap CSS*/
 }
 
 .search-form {
@@ -150,28 +182,26 @@
   cursor: inherit;
 }
 
-
 @media only screen and (max-width: 900px) {
-  .navbar-logo, .navbar-container, .navbar-item, .search-form {
-    display: none
+  .navbar-logo,
+  .navbar-container,
+  .navbar-item,
+  .search-form {
+    display: none;
   }
 }
 
 /* END NAVBAR */
 
-
-
-
 /* RECIPE MEDIUM-SIZE COMPONENT */
 .recipe-medium-outer {
-  background:
-  radial-gradient(black 15%, transparent 16%) 0 0,
-  radial-gradient(black 15%, transparent 16%) 8px 8px,
-  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-  background-color:#282828;
-  background-size:16px 16px;
-  box-shadow: 2px 6px 12px -1px rgba(0,0,0,0.75);
+  background: radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+  background-color: #282828;
+  background-size: 16px 16px;
+  box-shadow: 2px 6px 12px -1px rgba(0, 0, 0, 0.75);
   border-radius: 15px;
   position: absolute;
   top: 30vh;
@@ -214,7 +244,7 @@
 .recipe-heading {
   margin: 0 2%;
   color: white;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   font-size: 3em;
 }
 
@@ -227,7 +257,8 @@
 .recipe-text {
   margin: 0 5%;
   color: rgb(247, 240, 233);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 0.8em;
   text-align: justify;
 }
@@ -276,9 +307,6 @@
 }
 /* END RECIPE MEDIUM-SIZE COMPONENT */
 
-
-
-
 /* RECIPE LIST CONTAINER */
 .recipe-list-container {
   position: relative;
@@ -290,7 +318,7 @@
   background-color: white;
   height: auto;
   width: 80%;
-  box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.5);
+  box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
 
@@ -318,8 +346,6 @@
 }
 /* END RECIPE LIST CONTAINER */
 
-
-
 /* RECIPE SMALL COMPONENT */
 .recipe-small-container {
   height: 15vh;
@@ -330,11 +356,11 @@
   justify-content: space-around;
   border: 2px solid rgba(151, 151, 151, 0.5);
   border-radius: 15px;
-  box-shadow: 2px 2px 12px -1px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.3);
 }
 
 .recipe-small-container:hover {
-  box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.75);
   cursor: pointer;
 }
 
@@ -415,7 +441,7 @@
   margin-bottom: 3px;
   margin-left: 1vw;
   color: black;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   font-size: calc(1em + 0.7vw);
 }
 
@@ -430,7 +456,7 @@
   width: 95%;
   text-align: justify;
   font-size: 0.8em;
-  color: black
+  color: black;
 }
 
 .recipe-icon-small {
@@ -448,8 +474,6 @@
 
 /* END RECIPE SMALL COMPONENT */
 
-
-
 /* SINGLE RECIPE PAGE */
 .single-recipe-container {
   position: relative;
@@ -461,7 +485,7 @@
   background-color: white;
   height: auto;
   width: 90%;
-  box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.5);
+  box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
 
@@ -475,9 +499,22 @@
   align-items: center;
 }
 
+.carousel-container {
+  width: auto;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+}
+
+.carousel-image {
+  height: 50vh !important;
+  border-radius: 20px !important;
+  object-fit: cover !important;
+}
+
 .single-recipe-heading {
   color: black;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   font-size: calc(2.5em + 0.5vw);
   text-align: center;
   margin-bottom: 0;
@@ -503,10 +540,10 @@
 
 .properties-inner-container {
   margin: 1vh 1vw;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 25px;
   background-color: rgba(143, 141, 140, 0.05);
-  box-shadow: 2px 6px 12px -1px rgba(0,0,0,0.15);
+  box-shadow: 2px 6px 12px -1px rgba(0, 0, 0, 0.15);
   height: 90%;
   width: 21%;
   min-width: 150px;
@@ -562,7 +599,7 @@
   margin: 2vh 5%;
   width: 90%;
   height: auto;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -594,10 +631,10 @@
   padding: 2%;
   padding-right: 4%;
   margin: 1vh 1vw;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 25px;
   background-color: rgba(143, 141, 140, 0.05);
-  box-shadow: 2px 6px 12px -1px rgba(0,0,0,0.15);
+  box-shadow: 2px 6px 12px -1px rgba(0, 0, 0, 0.15);
   width: auto;
   height: auto;
   display: flex;
@@ -610,7 +647,7 @@
 
 .ingredients-heading {
   text-align: center;
-  font-family: 'Arizonia', cursive;
+  font-family: "Arizonia", cursive;
   font-size: calc(1.6em + 0.5vw);
   font-weight: bold;
   margin-bottom: 0;
@@ -622,6 +659,9 @@
   margin-top: 3vh;
   height: auto;
   text-align: justify;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 15px;
+  padding: 50px;
 }
 
 .preparation-heading-container {
@@ -634,6 +674,11 @@
   margin-bottom: 1.5vh;
 }
 
+.preparation-main-text {
+  font-family: "Scheherazade", serif;
+  font-size: calc(1em + 0.5vw);
+}
+
 .preparation-icon-circle-behind {
   display: flex;
   justify-content: center;
@@ -642,7 +687,7 @@
   background-color: rgb(235, 198, 96);
   width: 100px;
   height: 100px;
-  box-shadow: 2px 6px 12px -1px rgba(0,0,0,0.15);
+  box-shadow: 2px 6px 12px -1px rgba(0, 0, 0, 0.15);
   margin-right: 1.5vw;
 }
 
@@ -652,8 +697,6 @@
 }
 
 /* END SINGLE RECIPE PAGE */
-
-
 
 /* MISC */
 
@@ -666,4 +709,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
- }
+}
+
+.social-share-container-outer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+.social-share-container-inner {
+  margin-left: 2vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 40vw;
+  height: 5vh;
+}
+
+.share-icon {
+  color: rgb(104, 99, 84);
+  font-size: 2em;
+}

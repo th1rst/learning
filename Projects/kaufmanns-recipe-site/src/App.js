@@ -22,19 +22,19 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/category/alle-rezepte" component={AlleRezepte} />
-      <Route exact path="/category/besonderes-und-beilagen" component={BesonderesUndBeilagen} />
-      <Route exact path="/category/brot" component={Brot} />
-      <Route exact path="/category/eintoepfe" component={Eintoepfe} />
-      <Route exact path="/category/fleisch-fisch-gefluegel" component={FleischFischGefluegel} />
-      <Route exact path="/category/grillen-und-bbq" component={GrillenUndBBQ} />
-      <Route exact path="/category/kuchen-suesses-torten" component={KuchenSuessesTorten} />
-      <Route exact path="/category/likoere-spezialitaeten" component={LikoereSpezialitaeten} />
-      <Route exact path="/category/salate" component={Salate} />
-      <Route exact path="/category/slow-cooking" component={SlowCooking} />
-      <Route exact path="/category/saucen-und-dips" component={SaucenDips} />
-      <Route exact path="/category/suppen" component={Suppen} />
-      <Route exact path="/recipes/:slug" component={SingleRecipe} />
+      <Route exact path="/kategorie/alle-rezepte" component={AlleRezepte} />
+      <Route exact path="/kategorie/besonderes-und-beilagen" component={BesonderesUndBeilagen} />
+      <Route exact path="/kategorie/brot" component={Brot} />
+      <Route exact path="/kategorie/eintoepfe" component={Eintoepfe} />
+      <Route exact path="/kategorie/fleisch-fisch-gefluegel" component={FleischFischGefluegel} />
+      <Route exact path="/kategorie/grillen-und-bbq" component={GrillenUndBBQ} />
+      <Route exact path="/kategorie/kuchen-suesses-torten" component={KuchenSuessesTorten} />
+      <Route exact path="/kategorie/likoere-spezialitaeten" component={LikoereSpezialitaeten} />
+      <Route exact path="/kategorie/salate" component={Salate} />
+      <Route exact path="/kategorie/slow-cooking" component={SlowCooking} />
+      <Route exact path="/kategorie/saucen-und-dips" component={SaucenDips} />
+      <Route exact path="/kategorie/suppen" component={Suppen} />
+      <Route exact path="/rezepte/:slug" component={SingleRecipe} />
       <Route component={Error404} />
     </Switch>
   );

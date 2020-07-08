@@ -53,53 +53,53 @@ export default class Navigation extends Component {
           </div>
           <div className="navbar-item">
             <NavDropdown title="Kategorien" id="nav-dropdown-kategorien">
-              <NavDropdown.Item as={Link} to={"/category/brot"}>
+              <NavDropdown.Item as={Link} to={"/kategorie/brot"}>
                 Brot
               </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
-                to={"/category/besonderes-und-beilagen"}
+                to={"/kategorie/besonderes-und-beilagen"}
               >
                 Besonderes und Beilagen
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/eintoepfe"}>
-                Eintöpfe
+              <NavDropdown.Item as={Link} to={"/kategorie/eintoepfe"}>
+              Eintöpfe
               </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
-                to={"/category/fleisch-fisch-gefluegel"}
+                to={"/kategorie/fleisch-fisch-gefluegel"}
               >
                 Fleisch, Fisch, Geflügel
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/grillen-und-bbq"}>
+              <NavDropdown.Item as={Link} to={"/kategorie/grillen-und-bbq"}>
                 Grillen & BBQ
               </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
-                to={"/category/kuchen-suesses-torten"}
+                to={"/kategorie/kuchen-suesses-torten"}
               >
                 Kuchen, Süßes, Torten
               </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
-                to={"/category/likoere-spezialitaeten"}
+                to={"/kategorie/likoere-spezialitaeten"}
               >
                 Liköre, Spezialitäten
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/salate"}>
+              <NavDropdown.Item as={Link} to={"/kategorie/salate"}>
                 Salate
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/saucen-und-dips"}>
+              <NavDropdown.Item as={Link} to={"/kategorie/saucen-und-dips"}>
                 Saucen, Dips
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/slow-cooking"}>
+              <NavDropdown.Item as={Link} to={"/kategorie/slow-cooking"}>
                 Slow Cooking
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/category/suppen"}>
+              <NavDropdown.Item as={Link} to={"/kategorie/suppen"}>
                 Suppen
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to={"/category/alle-rezepte"}>
+              <NavDropdown.Item as={Link} to={"/kategorie/alle-rezepte"}>
                 Alle Rezepte
               </NavDropdown.Item>
             </NavDropdown>

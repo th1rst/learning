@@ -28,6 +28,7 @@ export default class Brot extends Component {
                         timeNeeded={recipe.timeNeeded}
                         difficulty={recipe.difficulty}
                         servings={recipe.servings}
+                        cookingTime={recipe.cookingTime}
                         slug={recipe.slug}
                         key={recipe.slug}
                       />

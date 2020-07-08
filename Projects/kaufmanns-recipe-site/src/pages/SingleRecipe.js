@@ -4,6 +4,8 @@ import Navigation from "../components/Navigation";
 import BackgroundImage from "../components/BackgroundImage";
 import { GiSpoon, GiKnifeFork, GiCookingPot } from "react-icons/gi";
 import { BsClockHistory, BsInfoCircle } from "react-icons/bs";
+import "bootstrap/dist/css/bootstrap.min.css";
+import SocialShare from "../components/SocialShare";
 
 export default class SingleRecipe extends Component {
   static contextType = RecipesContext;
@@ -125,13 +127,14 @@ export default class SingleRecipe extends Component {
                     </div>
 
                     <div className="divider-large"></div>
+                    <SocialShare />
                   </div>
 
                   {recipe.aboutDishInfo ? (
                     <div className="about-dish-container">
                       <BsInfoCircle className="info-icon" />
                       <div className="about-dish-container-inner">
-                        {/* render \n line breaks correctly */}
+                        {/* render \n line breaks from API correctly */}
                         {recipe.aboutDishInfo.split("\n").map((i, key) => {
                           return <p key={key}>{i}</p>;
                         })}
@@ -188,11 +191,13 @@ export default class SingleRecipe extends Component {
                       <p className="single-recipe-heading"> Zubereitung</p>
                     </div>
                     {recipe.preparation.split("\n").map((i, key) => {
-                      return <p key={key}>{i}</p>;
+                      return (
+                        <p className="preparation-main-text" key={key}>
+                          {i}
+                        </p>
+                      );
                     })}
                   </div>
-
-                  <p>image url's: {recipe.images[0]}</p>
                 </div>
               );
             }
@@ -202,3 +207,24 @@ export default class SingleRecipe extends Component {
     );
   }
 }
+
+/* 
+
+                 
+           <div className="carousel-container">
+                    <Carousel>
+                      {recipe.images.map((image) => {
+                        return (
+                          <Carousel.Item>
+                            <img
+                              className="d-block w-100 carousel-image"
+                              src={image}
+                              alt={image}
+                            />
+                          </Carousel.Item>
+                        );
+                      })}
+                    </Carousel>
+                  </div>
+
+*/
