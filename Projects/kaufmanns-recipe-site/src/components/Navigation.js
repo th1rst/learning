@@ -8,12 +8,25 @@ import { Link } from "react-router-dom";
 export default class Navigation extends Component {
   static contextType = RecipesContext;
   state = {
-    mouseOverLogo: false,
     randomSlug: "",
+    slide: 0,
+    lastScrollY: 0,
   };
 
-  toggleNavIcons = () => {
-    this.setState({ mouseOverLogo: !this.state.mouseOverLogo });
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const { lastScrollY } = this.state;
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY) {
+      this.setState({ slide: "-200px" });
+    } else {
+      this.setState({ slide: "0px" });
+    }
+    this.setState({ lastScrollY: currentScrollY });
   };
 
   getRandomRecipe = () => {
@@ -25,7 +38,14 @@ export default class Navigation extends Component {
   render() {
     return (
       <div>
-        <div className="navbar-container">
+        <div
+          className="navbar-container"
+          style={{
+            transform: `translate(0, ${this.state.slide})`,
+            transition: "transform 150ms linear",
+          }}
+        >
+          <Link to={"/"} style={{zIndex: "5"}}>
           <img
             src={require("../images/logo_small2.png")}
             className="navbar-logo"
@@ -33,17 +53,7 @@ export default class Navigation extends Component {
             onMouseEnter={this.toggleNavIcons}
             onMouseLeave={this.toggleNavIcons}
           />
-          <MdHome
-            className={
-              this.state.mouseOverLogo ? "home-icon show" : "home-icon"
-            }
-          />
-          <BsArrowsCollapse
-            className={
-              this.state.mouseOverLogo ? "collapse-icon show" : "collapse-icon"
-            }
-          />
-
+          </Link>
           <div className="navbar-item navbar-first">
             <FormControl
               type="text"
@@ -63,7 +73,7 @@ export default class Navigation extends Component {
                 Besonderes und Beilagen
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to={"/kategorie/eintoepfe"}>
-              Eintöpfe
+                Eintöpfe
               </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
@@ -106,7 +116,7 @@ export default class Navigation extends Component {
           </div>
           <Link
             className="navbar-item"
-            to={`/recipes/${this.state.randomSlug}`}
+            to={`/rezepte/${this.state.randomSlug}`}
           >
             <div onMouseDown={this.getRandomRecipe}>Zufallsrezept</div>
           </Link>

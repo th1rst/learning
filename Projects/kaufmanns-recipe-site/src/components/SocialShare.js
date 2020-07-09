@@ -42,7 +42,7 @@ export default class SocialShare extends Component {
           <EmailIcon
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
-            size={45}
+            size={40}
             round={true}
           />
         </EmailShareButton>
@@ -50,7 +50,7 @@ export default class SocialShare extends Component {
           <FacebookIcon
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
-            size={45}
+            size={40}
             round={true}
           />
         </FacebookShareButton>
@@ -58,7 +58,7 @@ export default class SocialShare extends Component {
           <LinkedinIcon
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
-            size={45}
+            size={40}
             round={true}
           />
         </LinkedinShareButton>
@@ -66,7 +66,7 @@ export default class SocialShare extends Component {
           <PinterestIcon
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
-            size={45}
+            size={40}
             round={true}
           />
         </PinterestShareButton>
@@ -74,7 +74,7 @@ export default class SocialShare extends Component {
           <RedditIcon
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
-            size={45}
+            size={40}
             round={true}
           />
         </RedditShareButton>
@@ -82,7 +82,7 @@ export default class SocialShare extends Component {
           <TelegramIcon
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
-            size={45}
+            size={40}
             round={true}
           />
         </TelegramShareButton>
@@ -90,7 +90,7 @@ export default class SocialShare extends Component {
           <TwitterIcon
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
-            size={45}
+            size={40}
             round={true}
           />
         </TwitterShareButton>
@@ -98,7 +98,7 @@ export default class SocialShare extends Component {
           <WhatsappIcon
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
-            size={45}
+            size={40}
             round={true}
           />
         </WhatsappShareButton>

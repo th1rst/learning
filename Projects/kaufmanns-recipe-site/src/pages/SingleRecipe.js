@@ -6,6 +6,7 @@ import { GiSpoon, GiKnifeFork, GiCookingPot } from "react-icons/gi";
 import { BsClockHistory, BsInfoCircle } from "react-icons/bs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SocialShare from "../components/SocialShare";
+import { Carousel } from "react-bootstrap";
 
 export default class SingleRecipe extends Component {
   static contextType = RecipesContext;
@@ -127,6 +128,31 @@ export default class SingleRecipe extends Component {
                     </div>
 
                     <div className="divider-large"></div>
+
+                    <div className="carousel-container">
+                      {/* check if theres more than 1 image. if yes: Carousel. If no: single image. */}
+                      {recipe.images.length > 1 ? (
+                        <Carousel>
+                          {recipe.images.map((image) => {
+                            return (
+                              <Carousel.Item>
+                                <img
+                                  className="d-block w-100 carousel-image"
+                                  src={image}
+                                  alt={image}
+                                />
+                              </Carousel.Item>
+                            );
+                          })}
+                        </Carousel>
+                      ) : (
+                        <img
+                          className="d-block w-100 carousel-image"
+                          src={recipe.images[0]}
+                          alt={recipe.images[0]}
+                        />
+                      )}
+                    </div>
                     <SocialShare />
                   </div>
 
@@ -207,24 +233,3 @@ export default class SingleRecipe extends Component {
     );
   }
 }
-
-/* 
-
-                 
-           <div className="carousel-container">
-                    <Carousel>
-                      {recipe.images.map((image) => {
-                        return (
-                          <Carousel.Item>
-                            <img
-                              className="d-block w-100 carousel-image"
-                              src={image}
-                              alt={image}
-                            />
-                          </Carousel.Item>
-                        );
-                      })}
-                    </Carousel>
-                  </div>
-
-*/
