@@ -243,7 +243,9 @@ export default class SingleRecipe extends Component {
                           //check current category, display only same category ones "similar recipes",
                           recipe.dish_category === currentCategory &&
                           //check current dish name, exclude it from recommendations
-                          recipe.name != currentName
+                          recipe.name !== currentName &&
+                          //randomize the selection of recipes a bit
+                          (Math.random() * 10) > 6
                         ) {
                           similarRecipeCount++;
                           if (similarRecipeCount < 10) { // set max no. of similar recipes to be displayed

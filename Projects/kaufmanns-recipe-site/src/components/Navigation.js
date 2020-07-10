@@ -12,7 +12,7 @@ export default class Navigation extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll());
   }
 
   handleScroll = () => {
