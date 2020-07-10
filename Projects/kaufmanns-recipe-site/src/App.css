@@ -40,7 +40,7 @@
   z-index: 10;
   opacity: 0.9;
   width: 95%;
-  margin-top: 5vh;
+  margin-top: 65px;
   height: 5vh;
   display: flex;
   flex-direction: row;
@@ -89,7 +89,7 @@
   font-size: 1em;
 }
 
-.navbar-item:not(:nth-child(4)):hover {
+.navbar-item:not(:nth-child(2)):hover {
   /*every item but search bar*/
   border-top: 2px solid white;
   border-bottom: 2px solid white;
@@ -448,8 +448,59 @@
   font-family: "Spectral SC", serif;
   font-size: 1em;
 }
-
 /* END RECIPE SMALL COMPONENT */
+
+
+
+/* RECIPE TINY COMPONENT */
+.recipe-tiny-container {
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(151, 151, 151, 0.5);
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-tiny-container:hover {
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.recipe-tiny-heading {
+  color: black;
+  font-family: "Dancing Script", cursive;
+  font-size: calc(0.9em + 0.5vw);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.recipe-tiny-row-1 {
+  margin-top: 10px;
+  width: 90%;
+  height: 70%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.recipe-tiny-row-2 {
+  margin-top: 2px;
+  overflow: hidden;
+}
+
+.recipe-tiny-image {
+  border-radius: 15px;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  max-height: 100%;
+  object-fit: cover;
+}
+/* END RECIPe TINY COMPONENT */
+
+
 
 /* SINGLE RECIPE PAGE */
 .single-recipe-container {
@@ -593,10 +644,25 @@
   font-size: calc(0.5em + 0.5vw);
 }
 
+.preparation-ingredients-similiar-recipes {
+  width: 100%;
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ingredients-preparation-container {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .ingredients-main-container {
   width: 90%;
   height: auto;
-  margin-left: 5%;
   margin-bottom: 2vh;
   display: flex;
   flex-direction: row;
@@ -632,14 +698,12 @@
 }
 
 .preparation-container {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 3vh;
   height: auto;
   text-align: justify;
+  line-height: calc(1em + 0.5vh);
   border: 1px solid rgba(128, 128, 128, 0.2);
   border-radius: 15px;
-  padding: 50px;
+  padding: 40px;
 }
 
 .preparation-heading-container {
@@ -674,6 +738,19 @@
   font-size: 3.5em;
 }
 
+.similar-recipes-container {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.similar-recipes-heading {
+  font-family: "Spectral SC";
+  font-size: calc(0.8em + 0.5vw);
+  margin-bottom: 0;
+  text-align: center;
+}
 /* END SINGLE RECIPE PAGE */
 
 /* MISC */

@@ -2,17 +2,15 @@ import React, { Component } from "react";
 import { RecipesContext } from "../context";
 import Navigation from "../components/Navigation";
 import BackgroundImage from "../components/BackgroundImage";
+import RecipeTiny from "../components/Recipes/RecipeTiny";
 import { GiSpoon, GiKnifeFork, GiCookingPot } from "react-icons/gi";
 import { BsClockHistory, BsInfoCircle } from "react-icons/bs";
-import "bootstrap/dist/css/bootstrap.min.css";
 import SocialShare from "../components/SocialShare";
 import { Carousel } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class SingleRecipe extends Component {
   static contextType = RecipesContext;
-  constructor(props) {
-    super(props);
-  }
 
   getDuration(minutes) {
     if (minutes < 60) {
@@ -35,7 +33,6 @@ export default class SingleRecipe extends Component {
             <GiSpoon className="single-recipe-icon-greyed-out" />
           </div>
         );
-        break;
       case "2":
         return (
           <div>
@@ -45,7 +42,6 @@ export default class SingleRecipe extends Component {
             <GiSpoon className="single-recipe-icon-greyed-out" />
           </div>
         );
-        break;
       case "3":
         return (
           <div>
@@ -55,7 +51,6 @@ export default class SingleRecipe extends Component {
             <GiSpoon className="single-recipe-icon-greyed-out" />
           </div>
         );
-        break;
       case "4":
         return (
           <div>
@@ -65,7 +60,6 @@ export default class SingleRecipe extends Component {
             <GiSpoon className="single-recipe-icon" />
           </div>
         );
-        break;
     }
   }
 
@@ -78,6 +72,10 @@ export default class SingleRecipe extends Component {
         <div className="single-recipe-container">
           {recipes.map((recipe) => {
             if (recipe.slug === this.props.match.params.slug) {
+              const currentCategory = recipe.dish_category; //relevant for "similar recipes"
+              const currentName = recipe.name; //relevant for "similar recipes", exclude current one from display
+              let similarRecipeCount = 0; // initial counter for "similar recipes", limit can be set in function
+
               return (
                 <div key={Math.random() * 10000}>
                   <div className="single-recipe-heading-row">
@@ -154,6 +152,7 @@ export default class SingleRecipe extends Component {
                       )}
                     </div>
                     <SocialShare />
+                    <div className="divider-large"></div>
                   </div>
 
                   {recipe.aboutDishInfo ? (
@@ -167,62 +166,102 @@ export default class SingleRecipe extends Component {
                       </div>
                     </div>
                   ) : null}
+                  <div className="preparation-ingredients-similiar-recipes">
+                    <div className="ingredients-preparation-container">
+                      <div className="ingredients-main-container">
+                        <div className="ingredients-inner-container">
+                            <p className="ingredients-heading">
+                              {recipe.ingredients1[0]}:
+                            </p>
+                          <ul>
+                            {/* first item is always the heading, so skip it */}
+                            {recipe.ingredients1.slice(1).map((item) => {
+                              return (
+                                <li key={Math.random() * 10000}>{item}</li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                        {/* ingredients 2 and 3 are not "required" so they can be empty*/}
+                        {recipe.ingredients2 ? (
+                          <div className="ingredients-inner-container">
+                            <p className="ingredients-heading">
+                              {recipe.ingredients2[0]}:
+                            </p>
+                            <ul>
+                              {recipe.ingredients2.slice(1).map((item) => {
+                                return (
+                                  <li key={Math.random() * 10000}>{item}</li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ) : null}
 
-                  <div className="ingredients-main-container">
-                    <div className="ingredients-inner-container">
-                      <p className="ingredients-heading">
-                        {recipe.ingredients1[0]}:
-                      </p>
-                      <ul>
-                        {/* first item is always the heading, so skip it */}
-                        {recipe.ingredients1.slice(1).map((item) => {
-                          return <li key={Math.random() * 10000}>{item}</li>;
+                        {recipe.ingredients3 ? (
+                          <div className="ingredients-inner-container">
+                            <p className="ingredients-heading">
+                              {recipe.ingredients3[0]}:
+                            </p>
+                            <ul>
+                              {recipe.ingredients3.slice(1).map((item) => {
+                                return (
+                                  <li key={Math.random() * 10000}>{item}</li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ) : null}
+                      </div>
+
+                      <div className="preparation-container">
+                        <div className="preparation-heading-container">
+                          <div className="preparation-icon-circle-behind">
+                            <GiCookingPot className="preparation-icon" />
+                          </div>
+                          <p className="single-recipe-heading"> Zubereitung</p>
+                        </div>
+                        {recipe.preparation.split("\n").map((i, key) => {
+                          return (
+                            <p className="preparation-main-text" key={key}>
+                              {i}
+                            </p>
+                          );
                         })}
-                      </ul>
+                      </div>
                     </div>
+                    
+                    <div className="similar-recipes-container">
+                      <p className="similar-recipes-heading">
+                        Andere Rezepte der Kategorie <br /> 
+                        {`"${currentCategory}"`}
+                      </p>
+                      <div className="divider-small"></div>
 
-                    {/* ingredients 2 and 3 are not "required" so they can be empty*/}
-                    {recipe.ingredients2 ? (
-                      <div className="ingredients-inner-container">
-                        <p className="ingredients-heading">
-                          {recipe.ingredients2[0]}:
-                        </p>
-                        <ul>
-                          {recipe.ingredients2.slice(1).map((item) => {
-                            return <li key={Math.random() * 10000}>{item}</li>;
-                          })}
-                        </ul>
-                      </div>
-                    ) : null}
-
-                    {recipe.ingredients3 ? (
-                      <div className="ingredients-inner-container">
-                        <p className="ingredients-heading">
-                          {recipe.ingredients3[0]}:
-                        </p>
-                        <ul>
-                          {recipe.ingredients3.slice(1).map((item) => {
-                            return <li key={Math.random() * 10000}>{item}</li>;
-                          })}
-                        </ul>
-                      </div>
-                    ) : null}
-                  </div>
-
-                  <div className="preparation-container">
-                    <div className="preparation-heading-container">
-                      <div className="preparation-icon-circle-behind">
-                        <GiCookingPot className="preparation-icon" />
-                      </div>
-                      <p className="single-recipe-heading"> Zubereitung</p>
+                      {recipes.map((recipe) => {
+                        if (
+                          //check current category, display only same category ones "similar recipes",
+                          recipe.dish_category === currentCategory &&
+                          //check current dish name, exclude it from recommendations
+                          recipe.name != currentName
+                        ) {
+                          similarRecipeCount++;
+                          if (similarRecipeCount < 10) { // set max no. of similar recipes to be displayed
+                            return (
+                              <div className="recipe-list-entry">
+                                <RecipeTiny
+                                  name={recipe.name}
+                                  images={recipe.images.map((image) => image)}
+                                  dish_category={recipe.dish_category}
+                                  slug={recipe.slug}
+                                  key={recipe.slug}
+                                />
+                              </div>
+                            );
+                          }
+                        }
+                      })}
                     </div>
-                    {recipe.preparation.split("\n").map((i, key) => {
-                      return (
-                        <p className="preparation-main-text" key={key}>
-                          {i}
-                        </p>
-                      );
-                    })}
                   </div>
                 </div>
               );

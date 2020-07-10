@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { RecipesContext } from "../context";
 import { NavDropdown, FormControl } from "react-bootstrap";
-import { BsArrowsCollapse } from "react-icons/bs";
-import { MdHome } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default class Navigation extends Component {

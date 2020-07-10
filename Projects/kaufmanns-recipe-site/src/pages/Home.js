@@ -8,16 +8,12 @@ import BackgroundImage from "../components/BackgroundImage";
 export default class Home extends Component {
  static contextType = RecipesContext; 
   render() {
-    const {recipes, fetched} = this.context
+    const {recipes} = this.context
     return (
       <div>
           <BackgroundImage />
           <Navigation />
-        
           <RecipeMedium />
-       
-          
-     
       </div>
     );
   }
