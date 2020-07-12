@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import { RecipesContext } from "../context";
-import { NavDropdown, FormControl } from "react-bootstrap";
+import { NavDropdown, FormControl, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 export default class Navigation extends Component {
+  constructor() {
+    super();
+    this.state = {
+      randomSlug: "",
+      searchInput: "",
+      slide: 0,
+      lastScrollY: 0,
+    };
+    this.textInput = React.createRef();
+  }
   static contextType = RecipesContext;
-  state = {
-    randomSlug: "",
-    slide: 0,
-    lastScrollY: 0,
-  };
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll());
+    window.addEventListener("scroll", this.handleScroll);
   }
 
   handleScroll = () => {
@@ -27,6 +33,19 @@ export default class Navigation extends Component {
     this.setState({ lastScrollY: currentScrollY });
   };
 
+  handleTextChange = async function () {
+    let userInput = this.textInput.current.value;
+    await this.setState({ searchInput: userInput });
+  };
+
+ 
+
+  handleKeydown(e) {
+    if (e.key === "Enter") {
+      console.log("enter key pressed")
+    }
+  }
+
   getRandomRecipe = () => {
     const { recipes } = this.context;
     let random = recipes[Math.floor(Math.random() * recipes.length)].slug;
@@ -40,24 +59,33 @@ export default class Navigation extends Component {
           className="navbar-container"
           style={{
             transform: `translate(0, ${this.state.slide})`,
-            transition: "transform 150ms linear",
+            transition: "transform 120ms linear",
           }}
         >
-          <Link to={"/"} style={{zIndex: "5"}}>
-          <img
-            src={require("../images/logo_small2.png")}
-            className="navbar-logo"
-            alt="kaufmann-logo"
-            onMouseEnter={this.toggleNavIcons}
-            onMouseLeave={this.toggleNavIcons}
-          />
+          <Link to={"/"} style={{ zIndex: "5" }}>
+            <img
+              src={require("../images/logo_small2.png")}
+              className="navbar-logo"
+              alt="kaufmann-logo"
+              onMouseEnter={this.toggleNavIcons}
+              onMouseLeave={this.toggleNavIcons}
+            />
           </Link>
           <div className="navbar-item navbar-first">
             <FormControl
               type="text"
               placeholder="Suchen..."
               className="sm-2 search-form"
+              ref={this.textInput}
+              onKeyDown={this.handleKeydown}
+              onChange={() => this.handleTextChange()}
             />
+            <Link to={`/suche/${this.state.searchInput}`} >
+            <FaSearch
+              inputRef={(node) => (this.inputNode = node)}
+              className="search-icon"
+              style={{width: "30px", height: "45%", margin: "1vw"}}
+            /></Link>
           </div>
           <div className="navbar-item">
             <NavDropdown title="Kategorien" id="nav-dropdown-kategorien">

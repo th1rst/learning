@@ -35,7 +35,7 @@
 
 /* NAVBAR */
 .navbar-container {
-  margin-left: 1vw;
+  margin-left: 0.5vw;
   position: fixed;
   z-index: 10;
   opacity: 0.9;
@@ -77,7 +77,7 @@
   border-left: 1px solid black;
   border-right: 1px solid black;
   width: 13%;
-  max-width: 300px;
+  
   height: 100%;
   min-height: 40px;
   display: flex;
@@ -144,7 +144,7 @@
 
 .search-form {
   margin-left: 2vw;
-  margin-right: 2vw;
+  
 }
 
 /* override Bootstrap CSS */
@@ -153,9 +153,17 @@
   border: 2px solid rgba(250, 76, 76, 0.6) !important;
 }
 
+.search-icon {
+  color: white;
+}
+
+.search-icon:hover {
+  color: black;
+}
+
 .navbar-first {
   margin-left: -0.5vw; /* hide behind logo image*/
-  width: 25%;
+  width: auto;
   cursor: inherit;
 }
 

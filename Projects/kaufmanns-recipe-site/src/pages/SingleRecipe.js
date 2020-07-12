@@ -65,6 +65,7 @@ export default class SingleRecipe extends Component {
 
   render() {
     const { recipes } = this.context;
+    console.log(recipes)
     return (
       <div>
         <BackgroundImage />
