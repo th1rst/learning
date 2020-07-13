@@ -9,7 +9,7 @@ export default class Navigation extends Component {
     super();
     this.state = {
       randomSlug: "",
-      searchInput: "",
+      searchInput: " ",
       slide: 0,
       lastScrollY: 0,
     };
@@ -19,8 +19,6 @@ export default class Navigation extends Component {
 
   static contextType = RecipesContext;
 
-
-  
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
   }
@@ -80,6 +78,7 @@ export default class Navigation extends Component {
               placeholder="Suchen..."
               className="sm-2 search-form"
               ref={this.textInput}
+              //autoFocus={true}
               onKeyDown={this.handleEnterKey}
               onChange={() => this.handleTextChange()}
             />

@@ -251,7 +251,6 @@ export default class SingleRecipe extends Component {
                           similarRecipeCount++;
                           if (similarRecipeCount < 10) { // set max no. of similar recipes to be displayed
                             return (
-                              <div className="recipe-list-entry">
                                 <RecipeTiny
                                   name={recipe.name}
                                   images={recipe.images.map((image) => image)}
@@ -259,7 +258,6 @@ export default class SingleRecipe extends Component {
                                   slug={recipe.slug}
                                   key={recipe.slug}
                                 />
-                              </div>
                             );
                           }
                         }
