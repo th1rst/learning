@@ -14,9 +14,13 @@ export default class Navigation extends Component {
       lastScrollY: 0,
     };
     this.textInput = React.createRef();
+    this.handleEnterKey = this.handleEnterKey.bind(this);
   }
+
   static contextType = RecipesContext;
 
+
+  
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
   }
@@ -38,11 +42,10 @@ export default class Navigation extends Component {
     await this.setState({ searchInput: userInput });
   };
 
- 
-
-  handleKeydown(e) {
+  handleEnterKey(e) {
     if (e.key === "Enter") {
-      console.log("enter key pressed")
+      console.log(this.state.searchInput);
+      window.location.href = `/suche/${this.state.searchInput}`;
     }
   }
 
@@ -77,15 +80,16 @@ export default class Navigation extends Component {
               placeholder="Suchen..."
               className="sm-2 search-form"
               ref={this.textInput}
-              onKeyDown={this.handleKeydown}
+              onKeyDown={this.handleEnterKey}
               onChange={() => this.handleTextChange()}
             />
-            <Link to={`/suche/${this.state.searchInput}`} >
-            <FaSearch
-              inputRef={(node) => (this.inputNode = node)}
-              className="search-icon"
-              style={{width: "30px", height: "45%", margin: "1vw"}}
-            /></Link>
+            <Link to={`/suche/${this.state.searchInput}`}>
+              <FaSearch
+                inputRef={(node) => (this.inputNode = node)}
+                className="search-icon"
+                style={{ width: "30px", height: "45%", margin: "1vw" }}
+              />
+            </Link>
           </div>
           <div className="navbar-item">
             <NavDropdown title="Kategorien" id="nav-dropdown-kategorien">
@@ -183,43 +187,3 @@ export default class Navigation extends Component {
     );
   }
 }
-
-/* 
-
-
-            
-
-
-
-<Navbar bg="dark" variant="dark" expand="md">
-          <Navbar.Brand href="#home"><img src={require("../images/logo_small2.png")} class="navbar-logo" alt="kaufmann-logo"/></Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Form inline>
-              <FormControl
-                type="text"
-                placeholder="Search"
-                className="mr-sm-2"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-          </Navbar.Collapse>
-        </Navbar>
-*/
