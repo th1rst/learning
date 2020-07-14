@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation";
 import BackgroundImage from "../components/BackgroundImage";
 import { RecipesContext } from "../context";
 import RecipeSmall from "../components/Recipes/RecipeSmall";
+import Footer from "../components/Footer"
 
 export default class SearchResults extends Component {
   static contextType = RecipesContext;

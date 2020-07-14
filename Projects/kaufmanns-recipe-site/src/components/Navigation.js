@@ -54,6 +54,7 @@ export default class Navigation extends Component {
   };
 
   render() {
+    const { recipes } = this.context;
     return (
       <div>
         <div
@@ -68,8 +69,6 @@ export default class Navigation extends Component {
               src={require("../images/logo_small2.png")}
               className="navbar-logo"
               alt="kaufmann-logo"
-              onMouseEnter={this.toggleNavIcons}
-              onMouseLeave={this.toggleNavIcons}
             />
           </Link>
           <div className="navbar-item navbar-first">
@@ -151,19 +150,15 @@ export default class Navigation extends Component {
           </Link>
           <div className="navbar-item">
             <NavDropdown title="Artikel" id="nav-dropdown-artikel">
-              <NavDropdown.Item href="#action/3.1">
-                Bayerisch für Nichtbayern
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Cholesterin
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Der Chili-Wettbewerb
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Gewürze</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Tomatensauce
-              </NavDropdown.Item>
+              {recipes.map((recipe) => {
+                if (recipe.article) {
+                  return (
+                    <NavDropdown.Item href="#action/3.1">
+                      {recipe.name}
+                    </NavDropdown.Item>
+                  );
+                }
+              })}
             </NavDropdown>
           </div>
 
