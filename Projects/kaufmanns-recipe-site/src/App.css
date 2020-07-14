@@ -3,6 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Arizonia&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Scheherazade&display=swap");
 
+
+/* Globally used components */
 .background-image {
   filter: brightness(100%) sepia(10%);
   position: fixed;
@@ -11,7 +13,6 @@
   height: 100%;
 }
 
-/* Globally used components */
 .divider-large {
   margin: 1vh;
   width: 85%;
@@ -40,7 +41,7 @@
   z-index: 10;
   opacity: 0.9;
   width: 95%;
-  margin-top: 65px;
+  margin-top: 60px;
   height: 5vh;
   display: flex;
   flex-direction: row;
@@ -223,6 +224,18 @@
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.4);
 }
 
+.home-column-big {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30%;
+  width: 96%;
+  margin: 3vh 0 2vh 4%;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.4);
+}
+
 .home-column-row {
   display: flex;
   flex-direction: row;
@@ -244,6 +257,98 @@
   font-weight: bold;
 }
 
+.carousel-container-home {
+  height: 40%;
+  width: 90%;
+  margin: 1vh 3vw 3vh 3vw;
+  box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.carousel-image-home {
+  height: 40vh !important;
+  width: 70vw !important;
+  object-fit: cover;
+}
+
+.carousel-text {
+  font-family: "Dancing Script", cursive;
+  font-size: calc(2.2em + 0.7vw);
+  color: rgb(236, 236, 236);
+  background-color: rgba(235, 198, 96, 0.6);
+  box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-subtext {
+  font-family: "Spectral SC", serif;
+  font-size: calc(0.8em + 0.5vw);
+  color: rgb(236, 236, 236);
+  background-color: rgba(235, 198, 96, 0.6);
+  box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+
+.carousel-properties-heading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.carousel-icon {
+  padding: 5px;
+  color: rgb(255, 250, 236);
+  font-size: calc(1.5em + 0.7vw);
+}
+
+.carousel-properties-text {
+  margin-top: 3vh;
+  padding: 5px;
+  font-family: "Spectral SC", serif;
+  font-size: calc(0.8em + 0.5vw);
+  color: rgb(236, 236, 236);
+  background-color: rgba(235, 198, 96, 0.4);
+  box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+
+.card-container {
+  padding: 20px;
+  width: 90%;
+}
+
+.card-image {
+  width: auto;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-heading {
+  height: 8vh;
+  overflow: hidden;
+  font-family: "Spectral SC", serif;
+  font-size: calc(0.8em + 0.4vw);
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.card-body {
+  overflow: hidden;
+  max-height: 25vh;
+}
+
+.card-text {
+  font-family: "Spectral SC", serif;
+  font-size: calc(0.6em + 0.3vw);
+  color: black;
+}
 
 .featured-recipes-container {
   position: absolute;
@@ -268,15 +373,16 @@
 }
 
 .ebook-container {
-  display: inline-flex;
+  margin: 2vh 0;
+  height: 320px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .ebook-cover {
-  margin: 2vh 0;
   width: 250px;
-  height: 320px;
+  height: 100%;
   object-fit: cover;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -293,7 +399,8 @@
 
 .download-icon {
   position: absolute;
-  top: 20vh;
+  justify-self: center;
+  align-self: center;
   display: none;
   color: rgb(235, 198, 96);
   font-size: 3em;
@@ -301,9 +408,10 @@
 
 .download-text {
   position: absolute;
-  top: 25vh;
+  transform: translateY(50px); /* stay 50px below Download Icon*/
   display: none;
   justify-self: center;
+  align-self: center;
   font-family: "Spectral SC", serif;
   font-size: 1.2em;
   color: rgb(235, 198, 96);
@@ -589,7 +697,6 @@
   height: 40vh;
   width: 70vw;
   margin: 2vh;
-
 }
 
 .carousel-image {
