@@ -153,7 +153,7 @@ export default class Navigation extends Component {
               {recipes.map((recipe) => {
                 if (recipe.article) {
                   return (
-                    <NavDropdown.Item href="#action/3.1">
+                    <NavDropdown.Item as={Link} to={`/artikel/${recipe.slug}`}>
                       {recipe.name}
                     </NavDropdown.Item>
                   );

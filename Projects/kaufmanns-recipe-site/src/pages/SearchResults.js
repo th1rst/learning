@@ -24,7 +24,7 @@ export default class SearchResults extends Component {
           </div>
           <div className="divider-small"></div>
           {recipes.map((recipe) => {
-            if (recipe.name.toLowerCase().includes(searchQuery)) {
+            if (recipe.name.toLowerCase().includes(searchQuery) && !recipe.article) {
               return (
                 <div className="recipe-list-entry">
                   <RecipeSmall

@@ -267,12 +267,18 @@
   text-align: center;
 }
 
+.ebook-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .ebook-cover {
   margin: 2vh 0;
   width: 250px;
   height: 320px;
   object-fit: cover;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.4);
 }
@@ -281,11 +287,39 @@
   filter: brightness(40%);
 }
 
+.ebook-cover:hover ~ .download-text, .ebook-cover:hover + .download-icon {
+  display: flex;
+}
+
 .download-icon {
   position: absolute;
-  top: 15vh;
-  color: gold;
+  top: 20vh;
+  display: none;
+  color: rgb(235, 198, 96);
   font-size: 3em;
+}
+
+.download-text {
+  position: absolute;
+  top: 25vh;
+  display: none;
+  justify-self: center;
+  font-family: "Spectral SC", serif;
+  font-size: 1.2em;
+  color: rgb(235, 198, 96);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.article-container {
+  width: 80%;
+  height: auto;
+  margin-top: 2vh;
+  padding: 15px;
+  font-family: "Spectral SC", serif;
+  font-size: 1em;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 10px;
 }
 
 /* END HOME PAGE*/
@@ -304,119 +338,7 @@
 
 /* END FOOTER */
 
-/* RECIPE MEDIUM-SIZE COMPONENT */
-.recipe-medium-outer {
-  background: radial-gradient(black 15%, transparent 16%) 0 0,
-    radial-gradient(black 15%, transparent 16%) 8px 8px,
-    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px,
-    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
-  background-color: #282828;
-  background-size: 16px 16px;
-  box-shadow: 2px 6px 12px -1px rgba(0, 0, 0, 0.75);
-  border-radius: 15px;
-  position: absolute;
-  top: 30vh;
-  left: 5%;
-  width: 50%;
-  max-width: 800px;
-  height: auto;
-  border: 2px solid red;
-  display: flex;
-  flex-direction: column;
-}
 
-.recipe-inner-column-1 {
-  display: flex;
-  flex-direction: row;
-  height: 70%;
-  width: 100%;
-  border: 2px solid purple;
-}
-
-.recipe-inner-row-1 {
-  width: 40%;
-  height: 100%;
-  align-self: center;
-  display: flex;
-  justify-content: center;
-  border: 2px solid blue;
-}
-
-.recipe-inner-row-2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  border: 2px solid pink;
-  height: auto;
-  width: 60%;
-}
-
-.recipe-heading {
-  margin: 0 2%;
-  color: white;
-  font-family: "Dancing Script", cursive;
-  font-size: 3em;
-}
-
-.recipe-subheading {
-  color: rgb(207, 204, 204);
-  font-family: "Spectral SC", serif;
-  font-size: 1.2em;
-}
-
-.recipe-text {
-  margin: 0 5%;
-  color: rgb(247, 240, 233);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 0.8em;
-  text-align: justify;
-}
-
-.recipe-link {
-  color: white;
-  text-decoration: none;
-}
-
-.recipe-inner-column-2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 100%;
-  width: 100%;
-  border: 2px solid green;
-}
-
-.recipe-inner-row-container {
-  border: 2px solid cyan;
-  height: auto;
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.recipe-medium-image {
-  border-radius: 10%;
-  width: 90%;
-  height: 90%;
-  object-fit: cover;
-}
-
-.recipe-medium-background {
-  filter: brightness(80%);
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.recipe-icon {
-  color: rgb(235, 198, 96);
-  font-size: 1.5em;
-}
-/* END RECIPE MEDIUM-SIZE COMPONENT */
 
 /* RECIPE LIST CONTAINER */
 .recipe-list-container {
@@ -849,7 +771,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1.5vh;
+  margin-bottom: 2vh;
 }
 
 .preparation-main-text {

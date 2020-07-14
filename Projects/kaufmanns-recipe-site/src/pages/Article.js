@@ -1,11 +1,32 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { RecipesContext } from "../context";
+import Navigation from "../components/Navigation";
+import BackgroundImage from "../components/BackgroundImage";
 
 export default class Article extends Component {
-    render() {
-        return (
-            <div>
-                <h1>hello from Article Component!</h1>
-            </div>
-        )
-    }
+  static contextType = RecipesContext;
+
+  render() {
+    const { recipes } = this.context;
+
+    return (
+      <div>
+        <BackgroundImage />
+        <Navigation />
+        <div className="recipe-list-container">
+          {recipes.map((recipe) => {
+            if (recipe.slug === this.props.match.params.slug) {
+              return (
+                <p>
+                  {recipe.preparation.split("\n").map((i, key) => {
+                    return <p key={key}>{i}</p>;
+                  })}
+                </p>
+              );
+            }
+          })}
+        </div>
+      </div>
+    );
+  }
 }

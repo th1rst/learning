@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
 import Navigation from "../components/Navigation";
 import RecipeMedium from "../components/Recipes/RecipeMedium";
 import { RecipesContext } from "../context";
@@ -121,11 +122,13 @@ export default class Home extends Component {
           <div className="home-row-2">
           <div className="featured-recipes-container">
           <p className="featured-recipes-heading">Die PDF-Version des Buchs mit 237 Seiten zum kostenlosen Download</p>
-
+          <Link to={""}>
+          <div className="ebook-container">
           <img className="ebook-cover" src={require("../images/Buchcover.png")} />
-          
-          
-            
+          <BsDownload className="download-icon" />
+          <p className="download-text">DOWNLOAD</p>
+          </div>
+          </Link>
               <p className="featured-recipes-heading">Beliebte Rezepte</p>
               <div className="divider-small"></div>
               {recipes.map((recipe) => {
@@ -145,6 +148,15 @@ export default class Home extends Component {
               })}
               <p className="featured-recipes-heading">Beliebte Artikel</p>
               <div className="divider-small"></div>
+              <div className="article-container">
+                {recipes.map((recipe) => {
+                  if (recipe.article) {
+                    return (
+                      <Link style={{color: "black", textAlign: "left"}}to={`/artikel/${recipe.slug}`}><p>{recipe.name}</p></Link>
+                    );
+                  }
+                })}
+              </div>
             </div>
           </div>
         </div>
