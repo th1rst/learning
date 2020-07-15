@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { RecipesContext } from "../context";
-import { NavDropdown, FormControl, Button } from "react-bootstrap";
+import { NavDropdown, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
@@ -143,22 +143,21 @@ export default class Navigation extends Component {
             </NavDropdown>
           </div>
           <Link
+            onMouseDown={this.getRandomRecipe}
             className="navbar-item"
             to={`/rezepte/${this.state.randomSlug}`}
           >
-            <div onMouseDown={this.getRandomRecipe}>Zufallsrezept</div>
+            <div>Zufallsrezept</div>
           </Link>
           <div className="navbar-item">
             <NavDropdown title="Artikel" id="nav-dropdown-artikel">
-              {recipes.map((recipe) => {
-                if (recipe.article) {
-                  return (
-                    <NavDropdown.Item as={Link} to={`/artikel/${recipe.slug}`}>
-                      {recipe.name}
-                    </NavDropdown.Item>
-                  );
-                }
-              })}
+              {recipes.map((recipe) =>
+                recipe.article ? (
+                  <NavDropdown.Item as={Link} to={`/artikel/${recipe.slug}`}>
+                    {recipe.name}
+                  </NavDropdown.Item>
+                ) : null
+              )}
             </NavDropdown>
           </div>
 

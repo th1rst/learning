@@ -18,25 +18,23 @@ export default class AlleRezepte extends Component {
             <p className="recipe-list-heading">Alle Rezepte:</p>
           </div>
           <div className="divider-small"></div>
-          {recipes.map((recipe) => {
-            if (!recipe.article) {
-              return (
-                <div className="recipe-list-entry">
-                  <RecipeSmall
-                    name={recipe.name}
-                    preparation={recipe.preparation.substr(0, 400)}
-                    images={recipe.images.map((image) => image)}
-                    timeNeeded={recipe.timeNeeded}
-                    difficulty={recipe.difficulty}
-                    servings={recipe.servings}
-                    cookingTime={recipe.cookingTime}
-                    slug={recipe.slug}
-                    key={recipe.slug}
-                  />
-                </div>
-              );
-            }
-          })}
+          {recipes.map((recipe) =>
+            !recipe.article ? (
+              <div className="recipe-list-entry">
+                <RecipeSmall
+                  name={recipe.name}
+                  preparation={recipe.preparation.substr(0, 400)}
+                  images={recipe.images.map((image) => image)}
+                  timeNeeded={recipe.timeNeeded}
+                  difficulty={recipe.difficulty}
+                  servings={recipe.servings}
+                  cookingTime={recipe.cookingTime}
+                  slug={recipe.slug}
+                  key={recipe.slug}
+                />
+              </div>
+            ) : null
+          )}
         </div>
       </div>
     );

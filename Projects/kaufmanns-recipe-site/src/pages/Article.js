@@ -14,17 +14,15 @@ export default class Article extends Component {
         <BackgroundImage />
         <Navigation />
         <div className="recipe-list-container">
-          {recipes.map((recipe) => {
-            if (recipe.slug === this.props.match.params.slug) {
-              return (
-                <p>
-                  {recipe.preparation.split("\n").map((i, key) => {
-                    return <p key={key}>{i}</p>;
-                  })}
-                </p>
-              );
-            }
-          })}
+          {recipes.map((recipe) =>
+            recipe.slug === this.props.match.params.slug ? (
+              <p>
+                {recipe.preparation.split("\n").map((i, key) => {
+                  return <p key={key}>{i}</p>;
+                })}
+              </p>
+            ) : null
+          )}
         </div>
       </div>
     );

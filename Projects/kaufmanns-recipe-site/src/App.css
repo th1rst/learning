@@ -196,6 +196,13 @@
   box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+@media only screen and (max-width: 900px) {
+  .home-container {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 .home-row-1 {
   display: flex;
   flex-direction: column;
@@ -210,6 +217,15 @@
   align-items: center;
   height: 100%;
   width: 30%;
+}
+
+@media only screen and (max-width: 900px) {
+  .home-row-1 {
+    width: 100%;
+  }
+  .home-row-2 {
+    display: none;
+  }
 }
 
 .home-column {
@@ -230,10 +246,21 @@
   align-items: center;
   height: 30%;
   width: 96%;
-  margin: 3vh 0 2vh 4%;
+  margin: 2vh 0 2vh 4%;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.4);
+}
+
+@media only screen and (max-width: 900px) {
+  .home-column {
+    width: 96%;
+    margin: 2vh 2%;
+  }
+
+  .home-column-big{
+    margin: 3vh 1vw 2vh 1vw;
+  }
 }
 
 .home-column-row {
@@ -267,7 +294,7 @@
 
 .carousel-image-home {
   height: 40vh !important;
-  width: 70vw !important;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -275,7 +302,7 @@
   font-family: "Dancing Script", cursive;
   font-size: calc(2.2em + 0.7vw);
   color: rgb(236, 236, 236);
-  background-color: rgba(235, 198, 96, 0.6);
+  background-color: rgba(235, 198, 96, 0.7);
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.5);
 }
 
@@ -283,7 +310,7 @@
   font-family: "Spectral SC", serif;
   font-size: calc(0.8em + 0.5vw);
   color: rgb(236, 236, 236);
-  background-color: rgba(235, 198, 96, 0.6);
+  background-color: rgba(235, 198, 96, 0.7);
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
 }
@@ -312,7 +339,7 @@
   font-family: "Spectral SC", serif;
   font-size: calc(0.8em + 0.5vw);
   color: rgb(236, 236, 236);
-  background-color: rgba(235, 198, 96, 0.4);
+  background-color: rgba(235, 198, 96, 0.7);
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
 }
@@ -329,7 +356,7 @@
 }
 
 .card-heading {
-  height: 8vh;
+  height: 6vh;
   overflow: hidden;
   font-family: "Spectral SC", serif;
   font-size: calc(0.8em + 0.4vw);
@@ -346,15 +373,14 @@
 
 .card-text {
   font-family: "Spectral SC", serif;
-  font-size: calc(0.6em + 0.3vw);
+  font-size: calc(0.7em + 0.2vw);
   color: black;
 }
 
 .featured-recipes-container {
   position: absolute;
   right: 2vw;
-  width: 25%;
-  min-width: 200px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -932,17 +958,18 @@
 }
 
 .social-share-container-outer {
+  width: auto;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: auto;
-  height: auto;
 }
 
 .social-share-container-inner {
   margin-left: 2vw;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
   width: 40vw;

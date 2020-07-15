@@ -20,25 +20,23 @@ export default class GrillenUndBBQ extends Component {
             </p>
           </div>
           <div className="divider-small"></div>
-          {recipes.map((recipe) => {
-            if (recipe.dish_category === "BBQ") {
-              return (
-                <div className="recipe-list-entry">
-                  <RecipeSmall
-                    name={recipe.name}
-                    preparation={recipe.preparation.substr(0, 400)}
-                    images={recipe.images.map((image) => image)}
-                    timeNeeded={recipe.timeNeeded}
-                    difficulty={recipe.difficulty}
-                    servings={recipe.servings}
-                    cookingTime={recipe.cookingTime}
-                    slug={recipe.slug}
-                    key={recipe.slug}
-                  />
-                </div>
-              );
-            }
-          })}
+          {recipes.map((recipe) =>
+            recipe.dish_category === "BBQ" ? (
+              <div className="recipe-list-entry">
+                <RecipeSmall
+                  name={recipe.name}
+                  preparation={recipe.preparation.substr(0, 400)}
+                  images={recipe.images.map((image) => image)}
+                  timeNeeded={recipe.timeNeeded}
+                  difficulty={recipe.difficulty}
+                  servings={recipe.servings}
+                  cookingTime={recipe.cookingTime}
+                  slug={recipe.slug}
+                  key={recipe.slug}
+                />
+              </div>
+            ) : null
+          )}
         </div>
       </div>
     );

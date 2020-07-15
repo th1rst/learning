@@ -60,6 +60,8 @@ export default class SingleRecipe extends Component {
             <GiSpoon className="single-recipe-icon" />
           </div>
         );
+      default:
+        return null;
     }
   }
 
@@ -170,9 +172,9 @@ export default class SingleRecipe extends Component {
                     <div className="ingredients-preparation-container">
                       <div className="ingredients-main-container">
                         <div className="ingredients-inner-container">
-                            <p className="ingredients-heading">
-                              {recipe.ingredients1[0]}:
-                            </p>
+                          <p className="ingredients-heading">
+                            {recipe.ingredients1[0]}:
+                          </p>
                           <ul>
                             {/* first item is always the heading, so skip it */}
                             {recipe.ingredients1.slice(1).map((item) => {
@@ -230,10 +232,10 @@ export default class SingleRecipe extends Component {
                         })}
                       </div>
                     </div>
-                    
+
                     <div className="similar-recipes-container">
                       <p className="similar-recipes-heading">
-                        Andere Rezepte der Kategorie <br /> 
+                        Andere Rezepte der Kategorie <br />
                         {`"${currentCategory}"`}
                       </p>
                       <div className="divider-small"></div>
@@ -245,27 +247,30 @@ export default class SingleRecipe extends Component {
                           //check current dish name, exclude it from recommendations
                           recipe.name !== currentName &&
                           //randomize the selection of recipes a bit
-                          (Math.random() * 10) > 6
+                          Math.random() * 10 > 6
                         ) {
                           similarRecipeCount++;
-                          if (similarRecipeCount < 10) { // set max no. of similar recipes to be displayed
+                          if (similarRecipeCount < 10) {
+                            // set max no. of similar recipes to be displayed
                             return (
-                                <RecipeTiny
-                                  name={recipe.name}
-                                  images={recipe.images.map((image) => image)}
-                                  dish_category={recipe.dish_category}
-                                  slug={recipe.slug}
-                                  key={recipe.slug}
-                                />
+                              <RecipeTiny
+                                name={recipe.name}
+                                images={recipe.images.map((image) => image)}
+                                dish_category={recipe.dish_category}
+                                slug={recipe.slug}
+                                key={recipe.slug}
+                              />
                             );
                           }
                         }
+                        return null;
                       })}
                     </div>
                   </div>
                 </div>
               );
             }
+            return null;
           })}
         </div>
       </div>
