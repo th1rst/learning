@@ -16,11 +16,22 @@ export default class Article extends Component {
         <div className="recipe-list-container">
           {recipes.map((recipe) =>
             recipe.slug === this.props.match.params.slug ? (
-              <p>
-                {recipe.preparation.split("\n").map((i, key) => {
-                  return <p key={key}>{i}</p>;
-                })}
-              </p>
+              <div>
+                <div className="heading-container">
+                  <div className="heading-column-1">
+                    <img className="heading-image" src={recipe.images[0]} />
+                  </div>
+                  <div className="heading-column-2">
+                    <p className="article-heading">{recipe.name}</p>
+                    <p className="article-subheading">{recipe.subtext}</p>
+                  </div>
+                </div>
+                <div className="main-text-container">
+                  {recipe.preparation.split("\n").map((i, key) => {
+                    return <p key={key}>{i}</p>;
+                  })}
+                </div>
+              </div>
             ) : null
           )}
         </div>
