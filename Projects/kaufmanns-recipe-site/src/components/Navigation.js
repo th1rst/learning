@@ -3,6 +3,7 @@ import { RecipesContext } from "../context";
 import { NavDropdown, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { AiOutlineAlignLeft } from "react-icons/ai";
 
 export default class Navigation extends Component {
   constructor() {
@@ -12,9 +13,11 @@ export default class Navigation extends Component {
       searchInput: " ",
       slide: 0,
       lastScrollY: 0,
+      isOpen: false,
     };
     this.textInput = React.createRef();
     this.handleEnterKey = this.handleEnterKey.bind(this);
+    this.handleNavbarExpand = this.handleNavbarExpand.bind(this);
   }
 
   static contextType = RecipesContext;
@@ -42,9 +45,12 @@ export default class Navigation extends Component {
 
   handleEnterKey(e) {
     if (e.key === "Enter") {
-      console.log(this.state.searchInput);
       window.location.href = `/suche/${this.state.searchInput}`;
     }
+  }
+
+  handleNavbarExpand() {
+    this.setState({ isOpen: !this.state.isOpen })
   }
 
   getRandomRecipe = () => {
@@ -57,6 +63,7 @@ export default class Navigation extends Component {
     const { recipes } = this.context;
     return (
       <div>
+        /* DESKTOP NAVBAR */
         <div
           className="navbar-container"
           style={{
@@ -176,7 +183,41 @@ export default class Navigation extends Component {
           </div>
           <div className="navbar-item">Forum</div>
         </div>
+
+
+
+        /* MOBILE NAVBAR */
+        
+         
+          
+        
+        <div className="mobile-navbar-container" style={{
+            transform: `translate(0, ${this.state.slide})`,
+            transition: "transform 120ms linear",
+          }}>
+
+
+
+          <div className="mobile-navbar-heading">
+            <AiOutlineAlignLeft className="navbar-expand-icon" onClick={this.handleNavbarExpand}/>
+            <Link to={"/"} style={{width: "100%", textDecoration: "none"}}>
+            <div className="mobile-logo-container">
+              <p className="mobile-logo-heading">Kaufmanns</p>
+              <p className="mobile-logo-subheading">Spitzen-Rezeptsammlung</p>
+            </div>
+            </Link>
+          </div>
+
+
+          <div className={this.state.isOpen ? "mobile-navbar-items-container show" : "mobile-navbar-items-container"}>
+
+          </div>
+        </div>
+
+
+        
       </div>
+      
     );
   }
 }
