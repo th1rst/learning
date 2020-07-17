@@ -61,7 +61,15 @@ export default class Navigation extends Component {
 
   getRandomRecipe = () => {
     const { recipes } = this.context;
-    let random = recipes[Math.floor(Math.random() * recipes.length)].slug;
+    const allowedRecipes = [];
+    recipes.map((recipe) =>
+      recipe.dish_category !== "article" &&
+      recipe.dish_category !== "Saucen / Dips"
+        ? allowedRecipes.push(recipe)
+        : null
+    );
+    let random =
+      allowedRecipes[Math.floor(Math.random() * allowedRecipes.length)].slug;
     this.setState({ randomSlug: random });
   };
 
@@ -104,7 +112,11 @@ export default class Navigation extends Component {
             </Link>
           </div>
           <div className="navbar-item">
-            <NavDropdown title="Kategorien" id="nav-dropdown-kategorien">
+            <NavDropdown
+              title="Kategorien"
+              id="nav-dropdown-kategorien"
+              style={{ transform: "0ms !important" }}
+            >
               <NavDropdown.Item as={Link} to={"/kategorie/brot"}>
                 Brot
               </NavDropdown.Item>
@@ -241,7 +253,12 @@ export default class Navigation extends Component {
               <Accordion>
                 <Card className="mobile-dropdown-card">
                   <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{textAlign: "center"}}>
+                    <Accordion.Toggle
+                      as={Button}
+                      variant="link"
+                      eventKey="0"
+                      style={{ textAlign: "center" }}
+                    >
                       Kategorien
                     </Accordion.Toggle>
                   </Card.Header>
@@ -300,6 +317,72 @@ export default class Navigation extends Component {
                 </Card>
               </Accordion>
             </div>
+
+            <Link
+              onMouseDown={this.getRandomRecipe}
+              to={`/rezepte/${this.state.randomSlug}`}
+            >
+              <p>Zufallsrezept</p>
+            </Link>
+
+            <Accordion>
+              <Card className="mobile-dropdown-card">
+                <Card.Header>
+                  <Accordion.Toggle
+                    as={Button}
+                    variant="link"
+                    eventKey="1"
+                    style={{ textAlign: "center" }}
+                  >
+                    Artikel
+                  </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="1">
+                  <Card.Body id="nav-card-body">
+                    {recipes.map((recipe) =>
+                      recipe.article ? (
+                        <div className="card-entry">
+                          <Link to={`/artikel/${recipe.slug}`}>
+                            {recipe.name}
+                          </Link>
+                        </div>
+                      ) : null
+                    )}
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
+
+            <Accordion>
+              <Card className="mobile-dropdown-card">
+                <Card.Header>
+                  <Accordion.Toggle
+                    as={Button}
+                    variant="link"
+                    eventKey="2"
+                    style={{ textAlign: "center" }}
+                  >
+                    Über
+                  </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="2">
+                  <Card.Body id="nav-card-body">
+                    <div className="card-entry">
+                      <Link to={"/"}>Über den Autor</Link>
+                    </div>
+                    <div className="card-entry">
+                      <Link to={"/"}>Über die Webseite</Link>
+                    </div>
+                    <div className="card-entry">
+                      <Link to={"/"}>Kostenloses Ebook</Link>
+                    </div>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
+            <Link to={`/`}>
+              <p>Forum</p>
+            </Link>
           </div>
         </div>
       </div>

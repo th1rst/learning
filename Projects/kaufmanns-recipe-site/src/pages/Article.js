@@ -19,7 +19,7 @@ export default class Article extends Component {
               <div>
                 <div className="heading-container">
                   <div className="heading-column-1">
-                    <img className="heading-image" src={recipe.images[0]} />
+                    <img className="heading-image" src={recipe.images[0]} alt="article context"/>
                   </div>
                   <div className="heading-column-2">
                     <p className="article-heading">{recipe.name}</p>
