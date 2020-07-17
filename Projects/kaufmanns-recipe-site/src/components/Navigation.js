@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { RecipesContext } from "../context";
-import { NavDropdown, FormControl } from "react-bootstrap";
+import {
+  NavDropdown,
+  FormControl,
+  Button,
+  Accordion,
+  Card,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineAlignLeft } from "react-icons/ai";
@@ -50,7 +56,7 @@ export default class Navigation extends Component {
   }
 
   handleNavbarExpand() {
-    this.setState({ isOpen: !this.state.isOpen })
+    this.setState({ isOpen: !this.state.isOpen });
   }
 
   getRandomRecipe = () => {
@@ -63,7 +69,8 @@ export default class Navigation extends Component {
     const { recipes } = this.context;
     return (
       <div>
-        /* DESKTOP NAVBAR */
+        {/* DESKTOP NAVBAR */}
+
         <div
           className="navbar-container"
           style={{
@@ -184,40 +191,118 @@ export default class Navigation extends Component {
           <div className="navbar-item">Forum</div>
         </div>
 
+        {/* MOBILE NAVBAR */}
 
-
-        /* MOBILE NAVBAR */
-        
-         
-          
-        
-        <div className="mobile-navbar-container" style={{
+        <div
+          className="mobile-navbar-container"
+          style={{
             transform: `translate(0, ${this.state.slide})`,
             transition: "transform 120ms linear",
-          }}>
-
-
-
+          }}
+        >
           <div className="mobile-navbar-heading">
-            <AiOutlineAlignLeft className="navbar-expand-icon" onClick={this.handleNavbarExpand}/>
-            <Link to={"/"} style={{width: "100%", textDecoration: "none"}}>
-            <div className="mobile-logo-container">
-              <p className="mobile-logo-heading">Kaufmanns</p>
-              <p className="mobile-logo-subheading">Spitzen-Rezeptsammlung</p>
-            </div>
+            <AiOutlineAlignLeft
+              className="navbar-expand-icon"
+              onClick={this.handleNavbarExpand}
+            />
+            <Link to={"/"} style={{ width: "100%", textDecoration: "none" }}>
+              <div className="mobile-logo-container">
+                <p className="mobile-logo-heading">Kaufmanns</p>
+                <p className="mobile-logo-subheading">Spitzen-Rezeptsammlung</p>
+              </div>
             </Link>
           </div>
-
-
-          <div className={this.state.isOpen ? "mobile-navbar-items-container show" : "mobile-navbar-items-container"}>
-
+          <div
+            className={
+              this.state.isOpen
+                ? "mobile-navbar-items-container show"
+                : "mobile-navbar-items-container"
+            }
+          >
+            <div className="mobile-search-container">
+              <FormControl
+                type="text"
+                placeholder="Suchen..."
+                className="mobile-search-form"
+                ref={this.textInput}
+                onKeyDown={this.handleEnterKey}
+                onChange={() => this.handleTextChange()}
+              />
+              <Link to={`/suche/${this.state.searchInput}`}>
+                <Button
+                  className="mobile-search-button"
+                  variant="outline-success"
+                >
+                  Suchen
+                </Button>
+              </Link>
+            </div>
+            <div className="mobile-dropdown-container">
+              <Accordion>
+                <Card className="mobile-dropdown-card">
+                  <Card.Header>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{textAlign: "center"}}>
+                      Kategorien
+                    </Accordion.Toggle>
+                  </Card.Header>
+                  <Accordion.Collapse eventKey="0">
+                    <Card.Body id="nav-card-body">
+                      <div className="card-entry">
+                        <Link to={"/kategorie/brot"}>Brot</Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/besonderes-und-beilagen"}>
+                          Besonderes und Beilagen
+                        </Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/eintoepfe"}>Eintöpfe</Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/fleisch-fisch-gefluegel"}>
+                          Fleisch, Fisch, Geflügel
+                        </Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/grillen-und-bbq"}>
+                          Grillen & BBQ
+                        </Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/kuchen-suesses-torten"}>
+                          Kuchen, Süßes, Torten
+                        </Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/likoere-spezialitaeten"}>
+                          Liköre, Spezialitäten
+                        </Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/salate"}>Salate</Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/saucen-und-dips"}>
+                          Saucen, Dips
+                        </Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/slow-cooking"}>Slow Cooking</Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/suppen"}>Suppen</Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/alle-rezepte"}>Alle Rezepte</Link>
+                      </div>
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
+            </div>
           </div>
         </div>
-
-
-        
       </div>
-      
     );
   }
 }

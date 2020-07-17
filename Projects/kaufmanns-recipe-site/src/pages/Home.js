@@ -78,7 +78,7 @@ export default class Home extends Component {
                         variant="top"
                         src={recipe.images[0]}
                       />
-                      <Card.Body>
+                      <Card.Body id="article-card-body">
                         <Link to={`/artikel/${recipe.slug}`}>
                           <Card.Title className="card-heading">
                             {recipe.name}

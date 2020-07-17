@@ -189,7 +189,7 @@
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 15;
+  z-index: 999;
 }
 
 .mobile-navbar-heading {
@@ -246,7 +246,6 @@
   background-color: greenyellow;
   width: 100vw;
   height: auto;
-  min-height: 10vh;
 }
 
 .show {
@@ -254,12 +253,73 @@
   transition: 0.5s;
 }
 
+.mobile-search-container {
+  padding: 5px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
 
+.mobile-search-form {
+  margin-left: 5px;
+  width: 80% !important;
+}
 
+.mobile-search-button {
+  margin-left: 15px;
+  background-color: inherit !important;
+}
+
+/* override Bootstrap CSS */
+.mobile-search-form:focus {
+  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important;
+  border: 2px solid rgba(250, 76, 76, 0.6) !important;
+}
+
+.mobile-dropdown-container {
+  border: 2px solid blue;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mobile-dropdown-card {
+  padding: 5px;
+  width: 96vw;
+}
+
+#nav-card-body {
+  height: auto;
+  border: 2px solid green;
+}
+
+.card-entry {
+  border: 2px solid purple;
+  width: 100%;
+  height: 4vh;
+  margin: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Spectral SC", serif;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.card-entry a{
+  color: #000000;
+  text-decoration: none;
+}
 
 
 @media only screen and (min-width: 900px) {
-  .navbar-container-mobile {
+  .mobile-navbar-container {
     display: none;
   }
 }
@@ -448,7 +508,7 @@
   text-decoration: underline;
 }
 
-.card-body {
+#article-card-body {
   overflow: hidden;
   max-height: 25vh;
 }
