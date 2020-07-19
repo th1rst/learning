@@ -15,9 +15,9 @@
 
 .divider-large {
   margin: 1vh;
-  width: 85%;
-  height: 0.2vh;
-  background-color: #b3b1ae;
+  width: 90%;
+  height: 0.1vh;
+  background-color: #dfdcd9;
 }
 
 .divider-medium {
@@ -195,7 +195,21 @@
 .mobile-navbar-heading {
   height: 7vh;
   min-height: 70px;
-  background: linear-gradient(to right, #bdc3c7, #2c3e50);
+  background-image: linear-gradient(
+    to bottom,
+    #838080,
+    #787677,
+    #6d6c6d,
+    #636363,
+    #595959,
+    #595959,
+    #595959,
+    #595959,
+    #636363,
+    #6d6c6d,
+    #787677,
+    #838080
+  );
   padding: 8px;
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -243,8 +257,21 @@
 .mobile-navbar-items-container {
   display: none;
   position: relative;
-  border: 2px solid green;
-  background-color: greenyellow;
+  background-image: linear-gradient(
+    to bottom,
+    #838080,
+    #787677,
+    #6d6c6d,
+    #636363,
+    #595959,
+    #595959,
+    #595959,
+    #595959,
+    #636363,
+    #6d6c6d,
+    #787677,
+    #838080
+  );
   width: 100vw;
   height: auto;
 }
@@ -268,8 +295,16 @@
 }
 
 .mobile-search-button {
+  color: white !important;
+  border-color: white !important;
   margin-left: 15px;
   background-color: inherit !important;
+}
+
+.mobile-search-button:hover {
+  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important;
+  border: 1px solid rgba(250, 76, 76, 0.6) !important;
+  color: black !important;
 }
 
 /* override Bootstrap CSS */
@@ -280,8 +315,9 @@
 
 .mobile-dropdown-container {
   border: 2px solid blue;
-  width: 100%;
+  width: 90%;
   height: auto;
+  margin-left: 1vw;
   padding: 5px;
   display: flex;
   align-items: center;
@@ -289,14 +325,27 @@
 }
 
 .mobile-dropdown-card {
-  padding: 5px;
+  background-color: inherit !important;
+  
   width: 96vw;
+}
+
+.card-header {
+  width: 90%;
+  background-color: inherit;
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #nav-card-body {
   height: auto;
+  width: 90%;
   border: 2px solid green;
 }
+
+
 
 .card-entry {
   border: 2px solid purple;
@@ -313,8 +362,13 @@
   letter-spacing: 1px;
 }
 
-.card-entry a{
-  color: #000000;
+.card-entry a, .btn-link, .mobile-navbar-link{
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.card-entry a:hover, .btn-link:hover, .mobile-navbar-link:hover{
+  color: #000000 !important;
   text-decoration: none;
 }
 

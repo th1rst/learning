@@ -249,6 +249,7 @@ export default class Navigation extends Component {
                 </Button>
               </Link>
             </div>
+            <div className="divider-large"></div>
             <div className="mobile-dropdown-container">
               <Accordion>
                 <Card className="mobile-dropdown-card">
@@ -317,14 +318,19 @@ export default class Navigation extends Component {
                 </Card>
               </Accordion>
             </div>
-
+            <div className="divider-large"></div>
+            
+            <div className="mobile-dropdown-container">
             <Link
               onMouseDown={this.getRandomRecipe}
               to={`/rezepte/${this.state.randomSlug}`}
             >
-              <p>Zufallsrezept</p>
+              <p className="mobile-navbar-link">Zufallsrezept</p>
             </Link>
+            </div>
+            <div className="divider-large"></div>
 
+            <div className="mobile-dropdown-container">
             <Accordion>
               <Card className="mobile-dropdown-card">
                 <Card.Header>
@@ -352,7 +358,11 @@ export default class Navigation extends Component {
                 </Accordion.Collapse>
               </Card>
             </Accordion>
+            </div>
 
+            <div className="divider-large"></div>
+            
+            <div className="mobile-dropdown-container">
             <Accordion>
               <Card className="mobile-dropdown-card">
                 <Card.Header>
@@ -380,9 +390,16 @@ export default class Navigation extends Component {
                 </Accordion.Collapse>
               </Card>
             </Accordion>
+            </div>
+            <div className="divider-large"></div>
+            
+            <div className="mobile-dropdown-container">
+            <div className="card-header">
             <Link to={`/`}>
-              <p>Forum</p>
+              <p className="mobile-navbar-link">Forum</p>
             </Link>
+            </div>
+            </div>
           </div>
         </div>
       </div>
