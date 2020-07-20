@@ -87,7 +87,7 @@ export default class SingleRecipe extends Component {
                         {recipe.subtext}
                       </p>
                     ) : null}
-                    <div className="divider-large"></div>
+                    <div className="divider-medium-large"></div>
 
                     <div className="single-recipe-properties-container">
                       <div className="properties-inner-container">

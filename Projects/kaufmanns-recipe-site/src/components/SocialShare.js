@@ -40,6 +40,7 @@ export default class SocialShare extends Component {
           <div className="social-share-container-inner">
         <EmailShareButton url={window.location.href}>
           <EmailIcon
+            className="social-icon"
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
             size={40}
@@ -48,6 +49,7 @@ export default class SocialShare extends Component {
         </EmailShareButton>
         <FacebookShareButton url={window.location.href}>
           <FacebookIcon
+          className="social-icon"
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
             size={40}
@@ -56,6 +58,7 @@ export default class SocialShare extends Component {
         </FacebookShareButton>
         <LinkedinShareButton url={window.location.href}>
           <LinkedinIcon
+          className="social-icon"
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
             size={40}
@@ -64,6 +67,7 @@ export default class SocialShare extends Component {
         </LinkedinShareButton>
         <PinterestShareButton url={window.location.href}>
           <PinterestIcon
+            className="social-icon"
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
             size={40}
@@ -72,6 +76,7 @@ export default class SocialShare extends Component {
         </PinterestShareButton>
         <RedditShareButton url={window.location.href}>
           <RedditIcon
+            className="social-icon"
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
             size={40}
@@ -80,6 +85,7 @@ export default class SocialShare extends Component {
         </RedditShareButton>
         <TelegramShareButton url={window.location.href}>
           <TelegramIcon
+            className="social-icon"
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
             size={40}
@@ -88,6 +94,7 @@ export default class SocialShare extends Component {
         </TelegramShareButton>
         <TwitterShareButton url={window.location.href}>
           <TwitterIcon
+            className="social-icon"
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
             size={40}
@@ -96,6 +103,7 @@ export default class SocialShare extends Component {
         </TwitterShareButton>
         <WhatsappShareButton url={window.location.href}>
           <WhatsappIcon
+            className="social-icon"
             onMouseOver={this.MouseOver}
             onMouseOut={this.MouseOut}
             size={40}

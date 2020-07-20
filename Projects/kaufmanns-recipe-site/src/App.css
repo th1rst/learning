@@ -20,6 +20,12 @@
   background-color: #dfdcd9;
 }
 
+.divider-medium-large {
+  width: 50vw;
+  height: 0.2vh;
+  background-color: #b3b1ae;
+}
+
 .divider-medium {
   width: 20vw;
   height: 0.2vh;
@@ -106,7 +112,7 @@
 #nav-dropdown-kategorien,
 #nav-dropdown-artikel {
   width: 15%;
-  max-width: 300px;
+  max-width: 500px;
   color: white;
   text-decoration: none;
 }
@@ -178,6 +184,30 @@
   .navbar-item,
   .search-form {
     display: none;
+  }
+}
+
+@media screen and (min-width: 3840px) {
+  .navbar-logo {
+      width: 500px;
+  }
+
+  .navbar-container {
+    margin-top: 150px;
+  }
+
+  .search-form {
+    width: 10vw !important;
+    height: 2.5vh !important;
+    font-size: 1em !important;
+  }
+
+  .navbar-item {
+    font-size: 3.5em;
+  }
+
+  .dropdown-item {
+    font-size: 3.5em !important;
   }
 }
 
@@ -386,13 +416,6 @@
   box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-@media only screen and (max-width: 900px) {
-  .home-container {
-    width: 100%;
-    margin: 0;
-  }
-}
-
 .home-row-1 {
   display: flex;
   flex-direction: column;
@@ -407,15 +430,6 @@
   align-items: center;
   height: 100%;
   width: 30%;
-}
-
-@media only screen and (max-width: 900px) {
-  .home-row-1 {
-    width: 100%;
-  }
-  .home-row-2 {
-    display: none;
-  }
 }
 
 .home-column {
@@ -440,17 +454,6 @@
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.4);
-}
-
-@media only screen and (max-width: 900px) {
-  .home-column {
-    width: 96%;
-    margin: 2vh 2%;
-  }
-
-  .home-column-big{
-    margin: 3vh 1vw 2vh 1vw;
-  }
 }
 
 .home-column-row {
@@ -541,7 +544,7 @@
 
 .card-image {
   width: auto;
-  height: 160px;
+  height: 16vh;
   object-fit: cover;
 }
 
@@ -565,6 +568,10 @@
   font-family: "Spectral SC", serif;
   font-size: calc(0.7em + 0.2vw);
   color: black;
+}
+
+.card {
+  padding-bottom: 10px;
 }
 
 .featured-recipes-container {
@@ -601,7 +608,7 @@
   height: 100%;
   object-fit: cover;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 0.5em;
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.4);
 }
 
@@ -646,6 +653,78 @@
   border-radius: 10px;
 }
 
+@media only screen and (max-width: 900px) {
+  .home-column {
+    width: 96%;
+    height: auto;
+    margin: 2vh 2%;
+  }
+
+  .home-column-big{
+    margin: 10vh 1vw 2vh 1vw;
+  }
+
+  .home-row-1 {
+    width: 100%;
+  }
+  .home-row-2 {
+    display: none;
+  }
+
+  .home-container {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 3840px) {
+  .featured-recipes-container {
+    width: 1000px;
+  }
+
+  .featured-recipes-heading {
+    font-size: 3.5em;
+  }
+
+  .ebook-container {
+    margin: 2vh 0;
+    height: 920px;
+  }
+  
+  .ebook-cover {
+    width: 750px;
+    height: 100%;
+  }
+
+  .article-container {
+    font-size: 3em;
+  }
+
+  .home-column-heading {
+    font-size: 5em;    
+  }
+
+  .card-title {
+    font-size: 3.5em !important;
+  }
+
+  .card-text {
+    font-size: 2.5em;
+  }
+
+  .carousel-properties-text {
+    font-size: 4em;
+  }
+
+  .carousel-text {
+    font-size: 10em;
+  }
+
+  .carousel-subtext {
+    font-size: 4em;
+  }
+}
+
 /* END HOME PAGE*/
 
 
@@ -677,7 +756,7 @@
   height: auto;
   width: 80%;
   box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  border-radius: 1em;
 }
 
 .recipe-list-heading-row {
@@ -699,7 +778,8 @@
 
 .recipe-list-entry {
   width: auto;
-  height: 15vh;
+  height: auto;
+  padding-bottom: 15px;
   margin: 1vh 0;
 }
 /* END RECIPE LIST CONTAINER */
@@ -707,13 +787,12 @@
 /* RECIPE SMALL COMPONENT */
 .recipe-small-container {
   height: 15vh;
-  border: 2px solid red;
   width: 100;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   border: 2px solid rgba(151, 151, 151, 0.5);
-  border-radius: 15px;
+  border-radius: 1em;
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.3);
 }
 
@@ -761,12 +840,6 @@
   align-items: center;
 }
 
-@media only screen and (max-width: 900px) {
-  .recipe-small-row-2 {
-    display: none;
-  }
-}
-
 .recipe-small-row-3 {
   height: auto;
   display: flex;
@@ -803,12 +876,6 @@
   font-size: calc(1em + 0.7vw);
 }
 
-@media only screen and (max-width: 900px) {
-  .recipe-small-heading {
-    text-align: center;
-  }
-}
-
 .recipe-small-text {
   margin-left: 1vw;
   width: 95%;
@@ -829,6 +896,45 @@
   font-family: "Spectral SC", serif;
   font-size: 1em;
 }
+
+@media only screen and (max-width: 900px) {
+  .recipe-small-row-2 {
+    display: none;
+  }
+  
+  .recipe-small-heading {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 3840px) {
+  .recipe-list-heading {
+    font-size: 5em;
+  }
+
+  .recipe-small-heading {
+    font-size: 5.5em;
+  }
+
+  .recipe-small-text {
+    font-size: 3em;
+  }
+
+  .recipe-subheading-small {
+    margin-right: 1em;
+    font-size: 3.5em;
+  }
+
+  .recipe-icon-small {
+    font-size: 4.5em;
+    margin-right: 0.5em;
+  }
+
+  .recipe-small-image {
+    width: 700px;
+    max-width: 700px;
+  }
+}
 /* END RECIPE SMALL COMPONENT */
 
 
@@ -836,12 +942,12 @@
 /* RECIPE TINY COMPONENT */
 .recipe-tiny-container {
   height: 15vh;
-  width: 220px;
+  width: 15vw;
   margin: 0.5vh 0.5vw;
   display: flex;
   flex-direction: column;
   border: 2px solid rgba(151, 151, 151, 0.5);
-  border-radius: 15px;
+  border-radius: 1em;
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.3);
 }
 
@@ -923,6 +1029,7 @@
 }
 
 .single-recipe-heading {
+  width: 80%;
   color: black;
   font-family: "Dancing Script", cursive;
   font-size: calc(2.5em + 0.5vw);
@@ -931,9 +1038,11 @@
 }
 
 .single-recipe-subheading {
+  width: 80%;
   color: black;
   font-family: "Spectral SC", serif;
   font-size: calc(0.7em + 0.5vw);
+  text-align: center;
   margin-bottom: 1vh;
 }
 
@@ -1006,8 +1115,8 @@
 }
 
 .about-dish-container {
-  margin: 2vh 5%;
-  width: 90%;
+  margin: 2vh 10%;
+  width: 80%;
   height: auto;
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 15px;
@@ -1083,8 +1192,8 @@
   text-align: justify;
   line-height: calc(1em + 0.5vh);
   border: 1px solid rgba(128, 128, 128, 0.2);
-  border-radius: 15px;
-  padding: 40px;
+  border-radius: 1em;
+  padding: 2em;
 }
 
 .preparation-heading-container {
@@ -1131,6 +1240,85 @@
   font-size: calc(0.8em + 0.5vw);
   margin-bottom: 0;
   text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .similar-recipes-container {
+    display: none;
+  }
+
+  .single-recipe-container {
+    top: 9vh;
+  }
+}
+
+@media screen and (min-width: 3840px) {
+  .single-recipe-heading {
+    font-size: 10em;
+  }
+
+  .single-recipe-subheading {
+    font-size: 4em;
+  }
+
+  .properties-inner-container {
+    width: 22vw;
+    max-width: 600px;
+  }
+
+  .properties-text {
+    font-size: 3.5em;
+  }
+
+  .single-recipe-icon {
+    font-size: 7em;
+  }
+
+  .about-dish-container p {
+    font-size: 1.3em;
+  }
+
+  .ingredients-heading {
+    font-size: 7em;
+  }
+
+  .ingredients-inner-container li {
+    font-size: 3em;
+  }
+
+  .recipe-tiny-image {
+    max-width: none;
+  }
+
+  .recipe-tiny-heading {
+    font-size: 4em;
+  }
+
+  .similar-recipes-heading {
+    font-family: "Spectral SC";
+    font-size: 3.5em;
+  }
+
+  .preparation-container {
+    line-height: 5.5em;
+  }
+
+  .preparation-icon-circle-behind {
+    width: 200px;
+    height: 200px;
+  }
+
+  .preparation-icon {
+    font-size: 8em;
+  }
+
+  .preparation-main-text {
+    font-size: 5.5em;
+  }
+
+  .info-icon {
+    font-size: 5em;
+  }
 }
 /* END SINGLE RECIPE PAGE */
 
@@ -1192,7 +1380,20 @@
   text-align: justify;
 }
 
-
+@media screen and (min-width: 3840px) {
+  .article-heading {
+    font-size: 6em;
+  }
+  
+  .article-subheading {
+    font-size: 4em;
+    letter-spacing: 0.1em;
+  }
+  
+  .main-text-container {
+    font-size: 3.2em;
+  }
+}
 
 
 /* END ARTICLE PAGE */
@@ -1211,7 +1412,7 @@
 }
 
 .social-share-container-outer {
-  width: auto;
+  width: 70%;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -1225,12 +1426,27 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 40vw;
-  height: 5vh;
+  width: 50vw;
+  height: auto;
 }
 
 .share-icon {
   color: rgb(104, 99, 84);
   font-size: 1.3em;
   margin-right: 1vw;
+}
+
+.social-icon {
+  width: calc(30px + 0.5vw);
+  height: auto;
+}
+
+@media screen and (min-width: 3840px) {
+  .share-icon {
+    font-size: 5em;
+  }
+
+  .social-icon {
+    width: 150px;
+  }
 }

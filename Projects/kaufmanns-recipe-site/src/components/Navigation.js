@@ -107,7 +107,7 @@ export default class Navigation extends Component {
               <FaSearch
                 inputRef={(node) => (this.inputNode = node)}
                 className="search-icon"
-                style={{ width: "30px", height: "45%", margin: "1vw" }}
+                style={{ width: "1.5em", height: "45%", margin: "1vw" }}
               />
             </Link>
           </div>
