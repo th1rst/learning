@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 export default class Footer extends Component {
     render() {
         return (
-            <div className="footer-container">
-                <p>ASD</p>
-            </div>
+            <footer className="footer-container">
+                <div>
+                    <p>ASD</p>
+                </div>
+            </footer>
         )
     }
 }

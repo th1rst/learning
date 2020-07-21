@@ -17,12 +17,15 @@ export default class Navigation extends Component {
     this.state = {
       randomSlug: "",
       searchInput: " ",
+      searchInputMobile: " ",
       slide: 0,
       lastScrollY: 0,
       isOpen: false,
     };
     this.textInput = React.createRef();
+    this.textInputMobile = React.createRef();
     this.handleEnterKey = this.handleEnterKey.bind(this);
+    this.handleEnterKeyMobile = this.handleEnterKeyMobile.bind(this);
     this.handleNavbarExpand = this.handleNavbarExpand.bind(this);
   }
 
@@ -49,9 +52,20 @@ export default class Navigation extends Component {
     await this.setState({ searchInput: userInput });
   };
 
+  handleTextChangeMobile = async function () {
+    let userInputMobile = this.textInputMobile.current.value;
+    await this.setState({ searchInputMobile: userInputMobile });
+  };
+
   handleEnterKey(e) {
     if (e.key === "Enter") {
       window.location.href = `/suche/${this.state.searchInput}`;
+    }
+  }
+
+  handleEnterKeyMobile(e) {
+    if (e.key === "Enter") {
+      window.location.href = `/suche/${this.state.searchInputMobile}`;
     }
   }
 
@@ -236,11 +250,11 @@ export default class Navigation extends Component {
                 type="text"
                 placeholder="Suchen..."
                 className="mobile-search-form"
-                ref={this.textInput}
-                onKeyDown={this.handleEnterKey}
-                onChange={() => this.handleTextChange()}
+                ref={this.textInputMobile}
+                onKeyDown={this.handleEnterKeyMobile}
+                onChange={() => this.handleTextChangeMobile()}
               />
-              <Link to={`/suche/${this.state.searchInput}`}>
+              <Link to={`/suche/${this.state.searchInputMobile}`}>
                 <Button
                   className="mobile-search-button"
                   variant="outline-success"
@@ -330,92 +344,92 @@ export default class Navigation extends Component {
               </Accordion>
             </div>
             <div className="divider-large"></div>
-            
+
             <div className="mobile-dropdown-container">
-            <Link
-              onMouseDown={this.getRandomRecipe}
-              to={`/rezepte/${this.state.randomSlug}`}
-            >
-              <p className="mobile-navbar-link">Zufallsrezept</p>
-            </Link>
+              <Link
+                onMouseDown={this.getRandomRecipe}
+                to={`/rezepte/${this.state.randomSlug}`}
+              >
+                <p className="mobile-navbar-link">Zufallsrezept</p>
+              </Link>
             </div>
             <div className="divider-large"></div>
 
             <div className="mobile-dropdown-container">
-            <Accordion>
-              <Card className="mobile-dropdown-card">
-                <Card.Header>
-                  <Accordion.Toggle
-                    as={Button}
-                    variant="link"
-                    eventKey="1"
-                    style={{ textAlign: "center" }}
-                  >
-                    Artikel
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="1">
-                  <Card.Body id="nav-card-body">
-                    {recipes.map((recipe) =>
-                      recipe.article ? (
-                        <div>
-                        <div className="card-entry">
-                          <Link to={`/artikel/${recipe.slug}`}>
-                            {recipe.name}
-                          </Link>
-                        </div>
-                        <div className="divider-large"></div>
-                        </div>
-                      ) : null
-                    )}
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
-            </Accordion>
+              <Accordion>
+                <Card className="mobile-dropdown-card">
+                  <Card.Header>
+                    <Accordion.Toggle
+                      as={Button}
+                      variant="link"
+                      eventKey="1"
+                      style={{ textAlign: "center" }}
+                    >
+                      Artikel
+                    </Accordion.Toggle>
+                  </Card.Header>
+                  <Accordion.Collapse eventKey="1">
+                    <Card.Body id="nav-card-body">
+                      {recipes.map((recipe) =>
+                        recipe.article ? (
+                          <div>
+                            <div className="card-entry">
+                              <Link to={`/artikel/${recipe.slug}`}>
+                                {recipe.name}
+                              </Link>
+                            </div>
+                            <div className="divider-large"></div>
+                          </div>
+                        ) : null
+                      )}
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
             </div>
 
             <div className="divider-large"></div>
-            
+
             <div className="mobile-dropdown-container">
-            <Accordion>
-              <Card className="mobile-dropdown-card">
-                <Card.Header>
-                  <Accordion.Toggle
-                    as={Button}
-                    variant="link"
-                    eventKey="2"
-                    style={{ textAlign: "center" }}
-                  >
-                    Über
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="2">
-                  <Card.Body id="nav-card-body">
-                    <div className="card-entry">
-                      <Link to={"/"}>Über den Autor</Link>
-                    </div>
-                    <div className="divider-large"></div>
-                    <div className="card-entry">
-                      <Link to={"/"}>Über die Webseite</Link>
-                    </div>
-                    <div className="divider-large"></div>
-                    <div className="card-entry">
-                      <Link to={"/"}>Kostenloses Ebook</Link>
-                    </div>
-                    <div className="divider-large"></div>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
-            </Accordion>
+              <Accordion>
+                <Card className="mobile-dropdown-card">
+                  <Card.Header>
+                    <Accordion.Toggle
+                      as={Button}
+                      variant="link"
+                      eventKey="2"
+                      style={{ textAlign: "center" }}
+                    >
+                      Über
+                    </Accordion.Toggle>
+                  </Card.Header>
+                  <Accordion.Collapse eventKey="2">
+                    <Card.Body id="nav-card-body">
+                      <div className="card-entry">
+                        <Link to={"/"}>Über den Autor</Link>
+                      </div>
+                      <div className="divider-large"></div>
+                      <div className="card-entry">
+                        <Link to={"/"}>Über die Webseite</Link>
+                      </div>
+                      <div className="divider-large"></div>
+                      <div className="card-entry">
+                        <Link to={"/"}>Kostenloses Ebook</Link>
+                      </div>
+                      <div className="divider-large"></div>
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
             </div>
             <div className="divider-large"></div>
-            
+
             <div className="mobile-dropdown-container">
-            <div className="card-header">
-            <Link to={`/`}>
-              <p className="mobile-navbar-link">Forum</p>
-            </Link>
-            </div>
+              <div className="card-header">
+                <Link to={`/`}>
+                  <p className="mobile-navbar-link">Forum</p>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

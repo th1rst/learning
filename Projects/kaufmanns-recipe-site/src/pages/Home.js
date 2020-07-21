@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import { RecipesContext } from "../context";
+import Footer from "../components/Footer"
 import BackgroundImage from "../components/BackgroundImage";
 import RecipeTiny from "../components/Recipes/RecipeTiny";
 import { BsDownload } from "react-icons/bs";
@@ -238,6 +239,7 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

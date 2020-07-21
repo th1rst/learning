@@ -3,6 +3,7 @@ import { RecipesContext } from "../../context";
 import BackgroundImage from "../../components/BackgroundImage";
 import Navigation from "../../components/Navigation";
 import RecipeSmall from "../../components/Recipes/RecipeSmall";
+import Footer from "../../components/Footer"
 
 export default class FleischFischGefluegel extends Component {
   static contextType = RecipesContext;
@@ -38,6 +39,7 @@ export default class FleischFischGefluegel extends Component {
             ) : null
           )}
         </div>
+        <Footer />
       </div>
     );
   }
