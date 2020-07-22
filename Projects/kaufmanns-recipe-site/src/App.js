@@ -19,6 +19,7 @@ import Suppen from "./pages/categories/Suppen"
 import SearchResults from "./pages/SearchResults"
 import Article from "./pages/Article"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DataPrivacy from './pages/DataPrivacy';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
       <Route exact path="/rezepte/:slug" component={SingleRecipe} />
       <Route exact path="/suche/:slug" component={SearchResults} />
       <Route exact path="/artikel/:slug" component={Article} />
+      <Route exact path="/datenschutz" component={DataPrivacy} />
       <Route component={Error404} />
     </Switch>
   );

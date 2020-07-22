@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { RecipesContext } from "../context";
 import Navigation from "../components/Navigation";
 import BackgroundImage from "../components/BackgroundImage";
+import Footer from "../components/Footer"
 
 export default class Article extends Component {
   static contextType = RecipesContext;
@@ -35,6 +36,7 @@ export default class Article extends Component {
             ) : null
           )}
         </div>
+        <Footer />
       </div>
     );
   }
