@@ -45,7 +45,13 @@ export default function DataPrivacy() {
           Facebook-Plugins sind mit einem Facebook-Logo markiert oder zeigen
           einen “Like-Button” (“Gefällt mir”). Mehr Informationen über
           Facebook-Plugins finden Sie hier:
-          http://developers.facebook.com/docs/plugins/.
+          <br />
+          <a
+            href="http://developers.facebook.com/docs/plugins/"
+            target="_blank"
+          >
+            http://developers.facebook.com/docs/plugins/
+          </a>
         </p>
         <p>
           Beim Besuch unserer Webseite stellt das Plugin eine direkte Verbindung
@@ -58,7 +64,10 @@ export default function DataPrivacy() {
           mit ihrem Benutzerkonto zu speichern. Als Webseitenbetreiber haben wir
           keine Informationen darüber, welche Daten übermittelt werden und wie
           diese genutzt werden. Mehr Informationen dazu finden Sie hier:
-          <a href="http://de-de.facebook.com/policy.php"></a>
+          <br />
+          <a href="http://de-de.facebook.com/policy.php" target="_blank">
+            http://de-de.facebook.com/policy.php
+          </a>
         </p>
 
         <p>
@@ -100,7 +109,13 @@ export default function DataPrivacy() {
           die Sammlung der auf Ihre Nutzung der Website bezogenen erzeugten
           Daten und IP-Adressen durch Google verhindern können. Mehr
           Informationen dazu finden Sie hier:
-          http://tools.google.com/dlpage/gaoptout?hl=de
+          <br />
+          <a
+            href="http://tools.google.com/dlpage/gaoptout?hl=de"
+            target="_blank"
+          >
+            http://tools.google.com/dlpage/gaoptout?hl=de
+          </a>
         </p>
         <h2>Datenschutzerklärung LinkedIn</h2>
         <p>
@@ -117,8 +132,14 @@ export default function DataPrivacy() {
           übermittel und wie diese genutzt werden.
         </p>
         <p>
-          Mehr Informationen dazu finden Sie hier:{" "}
-          <a href="https://www.linkedin.com/legal/privacy-policy"></a>
+          Mehr Informationen dazu finden Sie hier:
+          <br />
+          <a
+            href="https://www.linkedin.com/legal/privacy-policy"
+            target="_blank"
+          >
+            https://www.linkedin.com/legal/privacy-policy
+          </a>
         </p>
 
         <h2>Datenschutzerklärung Pinterest</h2>
@@ -135,8 +156,14 @@ export default function DataPrivacy() {
           Verwendungsweise von Pinterest sowie Cookies beinhalten.
         </p>
         <p>
-          Mehr Informationen dazu finden Sie hier:{" "}
-          <a href="https://about.pinterest.com/de/privacy-policy"></a>
+          Mehr Informationen dazu finden Sie hier:
+          <br />
+          <a
+            href="https://about.pinterest.com/de/privacy-policy"
+            target="_blank"
+          >
+            https://about.pinterest.com/de/privacy-policy
+          </a>
         </p>
 
         <h2>Datenschutzerklärung Twitter</h2>
@@ -151,8 +178,11 @@ export default function DataPrivacy() {
           übermittelt und wie diese genutzt werden.
         </p>
         <p>
-          Mehr Informationen dazu finden Sie hier:{" "}
-          <a href="http://twitter.com/privacy"></a>
+          Mehr Informationen dazu finden Sie hier:
+          <br />
+          <a href="http://twitter.com/privacy" target="_blank">
+            http://twitter.com/privacy
+          </a>
         </p>
         <p>
           In den Konto-Einstellungen Ihres Twitter Kontos (unter
@@ -172,8 +202,11 @@ export default function DataPrivacy() {
           darüber, welche Daten übermittelt und wie diese genutzt werden.
         </p>
         <p>
-          Mehr Informationen dazu finden Sie hier:{" "}
-          <a href="https://www.whatsapp.com/privacy"></a>
+          Mehr Informationen dazu finden Sie hier:
+          <br />
+          <a href="https://www.whatsapp.com/privacy" target="_blank">
+            https://www.whatsapp.com/privacy
+          </a>
         </p>
 
         <h2>Datenschutzerklärung Telegram</h2>
@@ -188,8 +221,11 @@ export default function DataPrivacy() {
           übermittelt und wie diese genutzt werden.
         </p>
         <p>
-          Mehr Informationen dazu finden Sie hier:{" "}
-          <a href="https://telegram.org/faq/de?ln=f"></a>
+          Mehr Informationen dazu finden Sie hier:
+          <br />
+          <a href="https://telegram.org/faq/de?ln=f" target="_blank">
+            https://telegram.org/faq/de?ln=f
+          </a>
         </p>
 
         <h2>Auskunft, Löschung, Sperrung</h2>

@@ -1012,8 +1012,7 @@
 /* SINGLE RECIPE PAGE */
 .single-recipe-container {
   position: relative;
-  top: 17vh;
-  left: 5%;
+  margin: 12vh 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1213,6 +1212,7 @@
   border: 1px solid rgba(128, 128, 128, 0.2);
   border-radius: 1em;
   padding: 2em;
+  margin-bottom: 5vh;
 }
 
 .preparation-heading-container {
@@ -1491,7 +1491,7 @@
   margin: 3vh 0 1vh 0;
 }
 
-.data-privacy-container p, li {
+.data-privacy-container > p li a {
   font-family: "Scheherazade", serif;
   font-size: calc(0.9em + 0.5vw);
 }

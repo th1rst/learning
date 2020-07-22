@@ -6,6 +6,7 @@ import RecipeTiny from "../components/Recipes/RecipeTiny";
 import { GiSpoon, GiKnifeFork, GiCookingPot } from "react-icons/gi";
 import { BsClockHistory, BsInfoCircle } from "react-icons/bs";
 import SocialShare from "../components/SocialShare";
+import Footer from "../components/Footer";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -273,6 +274,7 @@ export default class SingleRecipe extends Component {
             return null;
           })}
         </div>
+        <Footer />
       </div>
     );
   }

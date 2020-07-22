@@ -17,7 +17,9 @@ export default class Footer extends Component {
                     </Link>
                 </div>
                 <div className="footer-inner">
+                <Link to={"/impressum"}>
                     <p className="footer-text">Impressum</p>
+                    </Link>
                 </div>
             </footer>
         )
