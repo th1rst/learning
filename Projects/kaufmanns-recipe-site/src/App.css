@@ -737,7 +737,7 @@
   position: relative;
   bottom: 0;
   width: 100%;
-  height: auto;
+  height: 6vh;
   border: 2px solid cyan;
   background-color: white;
   display: flex;
