@@ -49,6 +49,7 @@ export default function DataPrivacy() {
           <a
             href="http://developers.facebook.com/docs/plugins/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             http://developers.facebook.com/docs/plugins/
           </a>
@@ -65,7 +66,11 @@ export default function DataPrivacy() {
           keine Informationen darüber, welche Daten übermittelt werden und wie
           diese genutzt werden. Mehr Informationen dazu finden Sie hier:
           <br />
-          <a href="http://de-de.facebook.com/policy.php" target="_blank">
+          <a
+            href="http://de-de.facebook.com/policy.php"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             http://de-de.facebook.com/policy.php
           </a>
         </p>
@@ -113,6 +118,7 @@ export default function DataPrivacy() {
           <a
             href="http://tools.google.com/dlpage/gaoptout?hl=de"
             target="_blank"
+            rel="noopener noreferrer"
           >
             http://tools.google.com/dlpage/gaoptout?hl=de
           </a>
@@ -137,6 +143,7 @@ export default function DataPrivacy() {
           <a
             href="https://www.linkedin.com/legal/privacy-policy"
             target="_blank"
+            rel="noopener noreferrer"
           >
             https://www.linkedin.com/legal/privacy-policy
           </a>
@@ -161,6 +168,7 @@ export default function DataPrivacy() {
           <a
             href="https://about.pinterest.com/de/privacy-policy"
             target="_blank"
+            rel="noopener noreferrer"
           >
             https://about.pinterest.com/de/privacy-policy
           </a>
@@ -180,7 +188,11 @@ export default function DataPrivacy() {
         <p>
           Mehr Informationen dazu finden Sie hier:
           <br />
-          <a href="http://twitter.com/privacy" target="_blank">
+          <a
+            href="http://twitter.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             http://twitter.com/privacy
           </a>
         </p>
@@ -204,7 +216,11 @@ export default function DataPrivacy() {
         <p>
           Mehr Informationen dazu finden Sie hier:
           <br />
-          <a href="https://www.whatsapp.com/privacy" target="_blank">
+          <a
+            href="https://www.whatsapp.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             https://www.whatsapp.com/privacy
           </a>
         </p>
@@ -223,7 +239,11 @@ export default function DataPrivacy() {
         <p>
           Mehr Informationen dazu finden Sie hier:
           <br />
-          <a href="https://telegram.org/faq/de?ln=f" target="_blank">
+          <a
+            href="https://telegram.org/faq/de?ln=f"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             https://telegram.org/faq/de?ln=f
           </a>
         </p>
@@ -305,7 +325,6 @@ export default function DataPrivacy() {
           ----HIER EMAIL EINFÜGEN---- mit dem Betreff „Datenschutz“.
         </p>
       </div>
-
       <Footer />
     </div>
   );
