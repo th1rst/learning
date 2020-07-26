@@ -1496,7 +1496,33 @@
 }
 /* END DATA PRIVACY PAGE */
 
+/* CONTACT PAGE */
+.form-container {
+  width: 90%;
+  border: 1px solid rgba(179, 177, 174, 0.5);
+  border-radius: 1em;
+  margin-left: 5%;
+  margin-top: 5%;
+  padding: 1em;
+}
 
+.contact-form:focus {
+  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important;
+  border: 2px solid rgba(250, 76, 76, 0.6) !important;
+}
+
+.contact-send-button {
+  border: none !important;
+  color: black !important;
+  background-color: #b3b1ae !important;
+}
+
+.contact-send-button:hover {
+  color: white !important;
+  background-color: rgb(235, 198, 96) !important;
+}
+
+/* END CONTACT PAGE */
 
 
 /* MISC */
