@@ -382,9 +382,12 @@
   align-items: center;
   font-family: "Spectral SC", serif;
   text-decoration: none;
+  text-align: center;
   font-size: 1em;
   font-weight: bold;
   letter-spacing: 1px;
+  border-bottom: 1px solid rgba(179, 179, 179, 0.7);
+  padding-bottom: 3px;
 }
 
 .card-entry a, .btn-link, .mobile-navbar-link{
@@ -738,7 +741,7 @@
   bottom: 0;
   width: 100%;
   height: auto;
-  border: 2px solid cyan;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -748,15 +751,24 @@
 }
 
 .footer-inner {
-  width: 20%;
+  width: auto;
   min-width: 150px;
-  height: 5vh;
+  height: 3vh;
   margin: 1vh 1vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
+.footer-inner p {
+  font-family: "Spectral SC", serif;
+  font-size: 1em;
+  color: black;
+}
+
+@media screen and (min-width: 3840px) {
+  .footer-inner p {
+    font-size: 3em;
+  }
+}
 /* END FOOTER */
 
 
@@ -1404,6 +1416,23 @@
   text-align: justify;
 }
 
+@media only screen and (max-width: 900px) {
+  .article-heading {
+    margin-top: 10%;
+    margin-left: 10vw;
+    font-size: 1.2em;
+  }
+
+  .article-subheading {
+    font-size: 0.8em;
+    margin-left: 10vw;
+  }
+
+  .heading-image {
+    width: 100px;
+  }
+}
+
 @media screen and (min-width: 3840px) {
   .article-heading {
     font-size: 6em;
@@ -1504,6 +1533,13 @@
   margin-left: 5%;
   margin-top: 5%;
   padding: 1em;
+}
+
+.form-label {
+  font-family: "Spectral SC";
+  font-size: 0.9em;
+  margin-top: 2vh;
+  margin-bottom: 0;
 }
 
 .contact-form:focus {

@@ -10,15 +10,14 @@ export default class Footer extends Component {
             <p className="footer-text">Kontakt</p>
           </Link>
         </div>
-        <div className="footer-inner"></div>
-        <div className="footer-inner">
-          <Link to={"/datenschutz"}>
-            <p className="footer-text">Datenschutzerklärung</p>
-          </Link>
-        </div>
         <div className="footer-inner">
           <Link to={"/impressum"}>
             <p className="footer-text">Impressum</p>
+          </Link>
+        </div>
+        <div className="footer-inner">
+          <Link to={"/datenschutz"}>
+            <p className="footer-text">Datenschutzerklärung</p>
           </Link>
         </div>
       </footer>

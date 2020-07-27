@@ -282,59 +282,48 @@ export default class Navigation extends Component {
                       <div className="card-entry">
                         <Link to={"/kategorie/brot"}>Brot</Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/besonderes-und-beilagen"}>
                           Besonderes und Beilagen
                         </Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/eintoepfe"}>Eintöpfe</Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/fleisch-fisch-gefluegel"}>
                           Fleisch, Fisch, Geflügel
                         </Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/grillen-und-bbq"}>
                           Grillen & BBQ
                         </Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/kuchen-suesses-torten"}>
                           Kuchen, Süßes, Torten
                         </Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/likoere-spezialitaeten"}>
                           Liköre, Spezialitäten
                         </Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/salate"}>Salate</Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/saucen-und-dips"}>
                           Saucen, Dips
                         </Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/slow-cooking"}>Slow Cooking</Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/suppen"}>Suppen</Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/kategorie/alle-rezepte"}>Alle Rezepte</Link>
                       </div>
@@ -378,7 +367,6 @@ export default class Navigation extends Component {
                                 {recipe.name}
                               </Link>
                             </div>
-                            <div className="divider-large"></div>
                           </div>
                         ) : null
                       )}
@@ -403,20 +391,18 @@ export default class Navigation extends Component {
                       Über
                     </Accordion.Toggle>
                   </Card.Header>
+                  <div className="divider-large"></div>
                   <Accordion.Collapse eventKey="2">
                     <Card.Body id="nav-card-body">
                       <div className="card-entry">
-                        <Link to={"/"}>Über den Autor</Link>
+                        <Link to={"/ueber_den_autor"}>Über den Autor</Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/"}>Über die Webseite</Link>
                       </div>
-                      <div className="divider-large"></div>
                       <div className="card-entry">
                         <Link to={"/"}>Kostenloses Ebook</Link>
                       </div>
-                      <div className="divider-large"></div>
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
