@@ -206,7 +206,7 @@ export default class Navigation extends Component {
               <NavDropdown.Item as={Link} to={`/ueber_den_autor`}>
                 Über den Autor
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item as={Link} to={`/ueber_die_webseite`}>
                 Über die Webseite
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -398,7 +398,7 @@ export default class Navigation extends Component {
                         <Link to={"/ueber_den_autor"}>Über den Autor</Link>
                       </div>
                       <div className="card-entry">
-                        <Link to={"/"}>Über die Webseite</Link>
+                        <Link to={"/ueber_die_webseite"}>Über die Webseite</Link>
                       </div>
                       <div className="card-entry">
                         <Link to={"/"}>Kostenloses Ebook</Link>

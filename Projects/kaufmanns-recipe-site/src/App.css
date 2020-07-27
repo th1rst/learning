@@ -1560,6 +1560,91 @@
 
 /* END CONTACT PAGE */
 
+/* ABOUT WEBSITE PAGE */
+.logo-website-page {
+  width: 30%;
+  height: auto;
+  border-radius: 50%;
+  border: 2px double rgba(128, 128, 128, 0.3);
+  object-fit: cover;
+}
+
+.about-website-heading-container {
+  width: 90%;
+  margin: 0 5%; 
+  height: auto;
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.about-website-heading {
+  margin: 1vh 10%;
+  font-family: "Spectral SC";
+  font-size: calc(1.5em + 0.6vw);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  align-self: center;
+}
+
+.about-website-text-container {
+  padding: 1em;
+  width: 90%;
+  margin: 2vh 5%;
+  font-family: "Spectral SC";
+  font-size: calc(0.6em + 0.5vw);
+  text-align: justify;
+}
+
+.made-with-react-container {
+  margin-top: 8vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.react-container-inner-row {
+  height: 5vh;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart-icon {
+  color: red;
+  font-size: 1.5em;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+}
+
+.react-icon {
+  color: rgb(0, 183, 255);
+  font-size: 1.7em;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+}
+
+.github-icon {
+  color: grey;
+  font-size: 2em;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+}
+
+@media only screen and (max-width: 900px) {
+  .about-website-heading {
+    font-size: 1em;
+  }
+
+  .logo-website-page {
+    width: 70px;
+    height: 70px;
+  }
+}
+/* END ABOUT WEBSITE PAGE */
 
 /* MISC */
 

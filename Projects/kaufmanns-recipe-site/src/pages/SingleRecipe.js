@@ -131,7 +131,7 @@ export default class SingleRecipe extends Component {
                     <div className="divider-large"></div>
 
                     <div className="carousel-container">
-                      {/* check if theres more than 1 image. if yes: Carousel. If no: single image. */}
+                      {/* check if there's more than 1 image. if yes: Carousel. If no: single image. */}
                       {recipe.images.length > 1 ? (
                         <Carousel>
                           {recipe.images.map((image) => {
@@ -243,11 +243,11 @@ export default class SingleRecipe extends Component {
 
                       {recipes.map((recipe) => {
                         if (
-                          //check current category, display only same category ones "similar recipes",
+                          //check current category, display only same category ones as "similar recipes",
                           recipe.dish_category === currentCategory &&
                           //check current dish name, exclude it from recommendations
                           recipe.name !== currentName &&
-                          //randomize the selection of recipes a bit
+                          //randomize and shrink the selection of recipes a bit (dont display ALL recipes of X category here)
                           Math.random() * 10 > 6
                         ) {
                           similarRecipeCount++;

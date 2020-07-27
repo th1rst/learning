@@ -23,6 +23,7 @@ import DataPrivacy from './pages/DataPrivacy';
 import Imprint from './pages/Imprint';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Website from './pages/Website';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
       <Route exact path="/impressum" component={Imprint} />
       <Route exact path="/kontakt" component={Contact} />
       <Route exact path="/ueber_den_autor" component={About} />
+      <Route exact path="/ueber_die_webseite" component={Website} />
       <Route component={Error404} />
     </Switch>
   );
