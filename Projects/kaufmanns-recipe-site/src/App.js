@@ -22,6 +22,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DataPrivacy from './pages/DataPrivacy';
 import Imprint from './pages/Imprint';
 import Contact from './pages/Contact';
+import About from './pages/About';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
       <Route exact path="/datenschutz" component={DataPrivacy} />
       <Route exact path="/impressum" component={Imprint} />
       <Route exact path="/kontakt" component={Contact} />
+      <Route exact path="/ueber_den_autor" component={About} />
       <Route component={Error404} />
     </Switch>
   );

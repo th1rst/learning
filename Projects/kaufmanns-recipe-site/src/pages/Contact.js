@@ -74,7 +74,7 @@ export default function Contact() {
               <Modal.Title>Das hat geklappt!</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              Vielen Dank für Ihre Nachricht.
+              Vielen Dank für Ihre Nachricht.<br />
               Wir werden uns schnellstmöglich bei Ihnen melden.
             </Modal.Body>
             <Modal.Footer>

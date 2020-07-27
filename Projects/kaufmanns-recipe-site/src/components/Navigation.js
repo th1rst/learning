@@ -203,7 +203,7 @@ export default class Navigation extends Component {
 
           <div className="navbar-item">
             <NavDropdown title="Über" id="nav-dropdown-artikel">
-              <NavDropdown.Item href="#action/3.1">
+              <NavDropdown.Item as={Link} to={`/ueber_den_autor`}>
                 Über den Autor
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
