@@ -1,8 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Spectral+SC&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Arizonia&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Scheherazade&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Arizonia&family=Dancing+Script&family=Scheherazade&family=Spectral+SC&display=swap");
 
 /* Globally used components */
 .background-image {
@@ -11,7 +7,7 @@
   top: 0;
   z-index: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
 }
 
 .divider-large {
@@ -160,8 +156,8 @@
 
 /* override Bootstrap CSS */
 .search-form:focus {
-  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important;
-  border: 2px solid rgba(250, 76, 76, 0.6) !important;
+  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important; /* override Bootstrap CSS*/
+  border: 2px solid rgba(250, 76, 76, 0.6) !important; /* override Bootstrap CSS*/
 }
 
 .search-icon {
@@ -191,7 +187,7 @@
 
 @media screen and (min-width: 3840px) {
   .navbar-logo {
-      width: 500px;
+    width: 500px;
   }
 
   .navbar-container {
@@ -214,7 +210,6 @@
 }
 
 /* END DESKTOP NAVBAR */
-
 
 /* MOBILE NAVBAR */
 .mobile-navbar-container {
@@ -322,26 +317,26 @@
 
 .mobile-search-form {
   margin-left: 5px;
-  width: 80% !important;
+  width: 80% !important; /* override Bootstrap CSS*/
 }
 
 .mobile-search-button {
-  color: white !important;
-  border-color: white !important;
+  color: white !important; /* override Bootstrap CSS*/
+  border-color: white !important; /* override Bootstrap CSS*/
   margin-left: 15px;
-  background-color: inherit !important;
+  background-color: inherit !important; /* override Bootstrap CSS*/
 }
 
 .mobile-search-button:hover {
-  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important;
-  border: 1px solid rgba(250, 76, 76, 0.6) !important;
-  color: black !important;
+  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important; /* override Bootstrap CSS*/
+  border: 1px solid rgba(250, 76, 76, 0.6) !important; /* override Bootstrap CSS*/
+  color: black !important; /* override Bootstrap CSS*/
 }
 
 /* override Bootstrap CSS */
 .mobile-search-form:focus {
-  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important;
-  border: 2px solid rgba(250, 76, 76, 0.6) !important;
+  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important; /* override Bootstrap CSS*/
+  border: 2px solid rgba(250, 76, 76, 0.6) !important; /* override Bootstrap CSS*/
 }
 
 .mobile-dropdown-container {
@@ -355,7 +350,7 @@
 }
 
 .mobile-dropdown-card {
-  background-color: inherit !important;
+  background-color: inherit !important; /* override Bootstrap CSS*/
   width: 96vw;
 }
 
@@ -390,16 +385,19 @@
   padding-bottom: 3px;
 }
 
-.card-entry a, .btn-link, .mobile-navbar-link{
-  color: #ffffff !important;
+.card-entry a,
+.btn-link,
+.mobile-navbar-link {
+  color: #ffffff !important; /* override Bootstrap CSS*/
   text-decoration: none;
 }
 
-.card-entry a:hover, .btn-link:hover, .mobile-navbar-link:hover{
-  color: #000000 !important;
+.card-entry a:hover,
+.btn-link:hover,
+.mobile-navbar-link:hover {
+  color: #000000 !important; /* override Bootstrap CSS*/
   text-decoration: none;
 }
-
 
 @media only screen and (min-width: 900px) {
   .mobile-navbar-container {
@@ -493,7 +491,7 @@
 }
 
 .carousel-image-home {
-  height: 40vh !important;
+  height: 40vh !important; /* override Bootstrap CSS*/
   width: 100%;
   object-fit: cover;
 }
@@ -545,7 +543,7 @@
 }
 
 .card-container {
-  padding: 20px;
+  padding: 5px 20px 20px 20px;
   width: 90%;
 }
 
@@ -556,13 +554,22 @@
 }
 
 .card-heading {
-  height: 6vh;
-  overflow: hidden;
+  width: auto;
+  min-width: 100px;
+  height: auto;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.card-title {
+  font-size: calc(0.3em + 0.7vw) !important; /* override Bootstrap CSS*/
+  font-weight: bold !important;
   font-family: "Spectral SC", serif;
-  font-size: calc(0.8em + 0.4vw);
   color: black;
   text-align: center;
-  font-weight: bold;
   text-decoration: underline;
 }
 
@@ -619,11 +626,12 @@
   box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.4);
 }
 
-.ebook-cover:hover{
+.ebook-cover:hover {
   filter: brightness(40%);
 }
 
-.ebook-cover:hover ~ .download-text, .ebook-cover:hover + .download-icon {
+.ebook-cover:hover ~ .download-text,
+.ebook-cover:hover + .download-icon {
   display: flex;
 }
 
@@ -667,7 +675,11 @@
     margin: 2vh 2%;
   }
 
-  .home-column-big{
+  .home-column-heading {
+    height: auto;
+  }
+
+  .home-column-big {
     margin: 10vh 1vw 2vh 1vw;
   }
 
@@ -681,6 +693,10 @@
   .home-container {
     width: 100%;
     margin: 0;
+  }
+
+  .card-title {
+    font-size: 1em !important; /* override Bootstrap CSS*/
   }
 }
 
@@ -697,7 +713,7 @@
     margin: 2vh 0;
     height: 920px;
   }
-  
+
   .ebook-cover {
     width: 750px;
     height: 100%;
@@ -708,11 +724,11 @@
   }
 
   .home-column-heading {
-    font-size: 5em;    
+    font-size: 5em;
   }
 
   .card-title {
-    font-size: 3.5em !important;
+    font-size: 3.5em !important; /* override Bootstrap CSS*/
   }
 
   .card-text {
@@ -733,7 +749,6 @@
 }
 
 /* END HOME PAGE*/
-
 
 /* FOOTER */
 .footer-container {
@@ -770,8 +785,6 @@
   }
 }
 /* END FOOTER */
-
-
 
 /* RECIPE LIST CONTAINER */
 .recipe-list-container {
@@ -832,7 +845,6 @@
 }
 
 .recipe-small-column-1 {
-  /* border: 2px solid blue; */
   margin-left: 1vw;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -843,8 +855,8 @@
 }
 
 .recipe-small-column-2 {
-  /* border: 2px solid purple; */
   width: 90%;
+  margin-left: 5px;
   height: auto;
   max-height: 15vh;
   display: flex;
@@ -855,19 +867,14 @@
 }
 
 .recipe-small-row-1 {
-  /* border: 2px solid greenyellow; */
   height: 25%;
   width: 100%;
 }
 
 .recipe-small-row-2 {
-  /* border: 2px solid greenyellow; */
-  height: 50%;
-  max-height: 15vh;
+  height: 55px;
   width: 100%;
-  display: flex;
   overflow: hidden;
-  align-items: center;
 }
 
 .recipe-small-row-3 {
@@ -886,7 +893,6 @@
   max-height: 3vh;
   display: flex;
   flex-direction: row;
-  /* border: 2px solid cyan */
 }
 
 .recipe-small-image {
@@ -907,8 +913,10 @@
 }
 
 .recipe-small-text {
-  margin-left: 1vw;
   width: 95%;
+  height: 55px;
+  margin-left: 1vw;
+  overflow: hidden;
   text-align: justify;
   font-size: 0.8em;
   color: black;
@@ -931,9 +939,34 @@
   .recipe-small-row-2 {
     display: none;
   }
-  
+
+  .recipe-small-image {
+    width: 150px;
+    margin-right: 5px;
+  }
+
   .recipe-small-heading {
     text-align: center;
+    font-size: 1em;
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
+
+  .recipe-small-container {
+    width: 50vw;
+    min-width: 300px;
+    justify-self: center;
+  }
+
+  .row-inner-container {
+    width: 100px;
+    font-size: 0.5em;
+    display: flex;
+    justify-content: center;
+  }
+
+  .row-inner-container:nth-child(2) {
+    display: none;
   }
 }
 
@@ -967,11 +1000,10 @@
 }
 /* END RECIPE SMALL COMPONENT */
 
-
-
 /* RECIPE TINY COMPONENT */
 .recipe-tiny-container {
   height: 15vh;
+  min-height: 150px;
   width: 200px;
   margin: 0.5vh 0.5vw;
   display: flex;
@@ -1013,12 +1045,11 @@
   width: 100%;
   max-width: 250px;
   height: auto;
+  min-height: 100px;
   max-height: 100%;
   object-fit: cover;
 }
 /* END RECIPe TINY COMPONENT */
-
-
 
 /* SINGLE RECIPE PAGE */
 .single-recipe-container {
@@ -1051,10 +1082,10 @@
 }
 
 .carousel-image {
-  height: 40vh !important;
-  width: 70vw !important;
+  height: 40vh !important; /* override Bootstrap CSS*/
+  width: 70vw !important; /* override Bootstrap CSS*/
   object-fit: cover;
-  border-radius: 20px !important;
+  border-radius: 20px !important; /* override Bootstrap CSS*/
 }
 
 .single-recipe-heading {
@@ -1361,7 +1392,7 @@
 /* ARTICLE PAGE */
 .heading-container {
   width: 90%;
-  margin: 0 5%; 
+  margin: 0 5%;
   height: 20vh;
   margin-top: 2vh;
   display: flex;
@@ -1437,18 +1468,17 @@
   .article-heading {
     font-size: 6em;
   }
-  
+
   .article-subheading {
     font-size: 4em;
     letter-spacing: 0.1em;
   }
-  
+
   .main-text-container {
     font-size: 3.2em;
   }
 }
 /* END ARTICLE PAGE */
-
 
 /* ERROR PAGE */
 .error-container {
@@ -1490,7 +1520,6 @@
 }
 
 /* END ERROR PAGE */
-
 
 /* DATA PRIVACY PAGE */
 .data-privacy-container {
@@ -1543,19 +1572,19 @@
 }
 
 .contact-form:focus {
-  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important;
-  border: 2px solid rgba(250, 76, 76, 0.6) !important;
+  box-shadow: 0 0 5px rgba(250, 76, 76, 0.6) !important; /* override Bootstrap CSS*/
+  border: 2px solid rgba(250, 76, 76, 0.6) !important; /* override Bootstrap CSS*/
 }
 
 .contact-send-button {
-  border: none !important;
-  color: black !important;
-  background-color: #b3b1ae !important;
+  border: none !important; /* override Bootstrap CSS*/
+  color: black !important; /* override Bootstrap CSS*/
+  background-color: #b3b1ae !important; /* override Bootstrap CSS*/
 }
 
 .contact-send-button:hover {
   color: white !important;
-  background-color: rgb(235, 198, 96) !important;
+  background-color: rgb(235, 198, 96) !important; /* override Bootstrap CSS*/
 }
 
 /* END CONTACT PAGE */
@@ -1571,7 +1600,7 @@
 
 .about-website-heading-container {
   width: 90%;
-  margin: 0 5%; 
+  margin: 0 5%;
   height: auto;
   margin-top: 2vh;
   display: flex;

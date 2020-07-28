@@ -22,21 +22,23 @@ export default function Website() {
           Am Anfang war die Zettelwirtschaft.
           <br />
           <br />
-          Ich erinnere mich noch genau, als ich im Sommer 2009 den Ordner mit
+          Ich erinnere mich noch genau, als ich im Sommer 2008 den Ordner mit
           Rezepten meines Opas sah, der immer penibelst gepflegt wurde und aus
-          dessen Rezepten unsere Familie schon seit Jahrzehnten kochte.<br /><br />
+          dessen Rezepten unsere Familie schon seit Jahrzehnten kochte.
+          <br />
+          <br />
           Da den Männern in unserer Familie nicht nur der Hang zum kulinarischen
           Perfektionismus "in die Wiege gelegt" scheint, sondern gleichermaßen
-          der Hang zur IT-Affinität, entstand aus der Zettelwirtschaft eine
-          Word-Datei, dann daraus ein eBook, dann eine "richtige" Printversion,
-          die es sogar mal auf Amazon zu kaufen gab und die sie hier (als PDF)
-          kostenlos herunterladen können, und schlussendlich dann eine Webseite
-          mit "State of the art" Technologie.
+          der Hang zur IT-Affinität, entstand aus der ehemaligen
+          Zettelwirtschaft eine Word-Datei, dann daraus ein eBook, dann eine
+          "richtige" Printversion, die es sogar mal auf Amazon zu kaufen gab und
+          die sie hier (als PDF) kostenlos herunterladen können, und
+          schlussendlich dann eine Webseite mit den aktuellsten Technologien.
           <br />
           <br />
           Allen nicht IT-affinen Besuchern erspare ich an dieser Stelle das
-          technische - alle Interessierten können jedoch, bei Klick auf den Link unten, den
-          Code auf Github einsehen.
+          technische - alle Interessierten können jedoch, bei Klick auf den Link
+          unten, den Code auf Github einsehen.
           <br />
           <br />
           Viel Spaß beim Kochen!
@@ -44,7 +46,7 @@ export default function Website() {
             <div className="react-container-inner-row">
               Made with <FaHeart className="heart-icon" /> with
               <a href="https://reactjs.org/">
-              <FaReact className="react-icon" />
+                <FaReact className="react-icon" />
               </a>
             </div>
             <div className="react-container-inner-row">
