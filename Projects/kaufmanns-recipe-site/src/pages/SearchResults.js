@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import { RecipesContext } from "../context";
 import Navigation from "../components/Navigation";
 import BackgroundImage from "../components/BackgroundImage";
-import { RecipesContext } from "../context";
 import RecipeSmall from "../components/Recipes/RecipeSmall";
 
 export default class SearchResults extends Component {

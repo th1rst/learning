@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Rezeptsammlung",
+  "name": "Kaufmanns Spitzen-Rezeptsammlung",
   "icons": [
     {
       "src": "favicon.ico",

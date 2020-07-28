@@ -1,6 +1,11 @@
+//react
 import React from 'react';
-import './App.css';
 import { Switch, Route } from 'react-router-dom';
+
+//css
+import './App.css';
+
+//pages
 import SingleRecipe from "./pages/SingleRecipe"
 import Home from "./pages/Home"
 import Error404 from "./pages/Error404"

@@ -1,14 +1,22 @@
+//react
 import React, { Component } from "react";
+
+//components
 import { RecipesContext } from "../context";
 import Navigation from "../components/Navigation";
 import BackgroundImage from "../components/BackgroundImage";
 import RecipeTiny from "../components/Recipes/RecipeTiny";
-import { GiSpoon, GiKnifeFork, GiCookingPot } from "react-icons/gi";
-import { BsClockHistory, BsInfoCircle } from "react-icons/bs";
 import SocialShare from "../components/SocialShare";
 import Footer from "../components/Footer";
+
+//react-icons
+import { GiSpoon, GiKnifeFork, GiCookingPot } from "react-icons/gi";
+import { BsClockHistory, BsInfoCircle } from "react-icons/bs";
+
+//react-bootstrap
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 
 export default class SingleRecipe extends Component {
   static contextType = RecipesContext;

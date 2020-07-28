@@ -390,8 +390,7 @@ export default class Navigation extends Component {
                     >
                       Über
                     </Accordion.Toggle>
-                  </Card.Header>
-                  <div className="divider-large"></div>
+                  </Card.Header>  
                   <Accordion.Collapse eventKey="2">
                     <Card.Body id="nav-card-body">
                       <div className="card-entry">

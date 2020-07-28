@@ -1,10 +1,15 @@
+//react
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
+//components
 import Navigation from "../components/Navigation";
 import { RecipesContext } from "../context";
 import Footer from "../components/Footer"
 import BackgroundImage from "../components/BackgroundImage";
 import RecipeTiny from "../components/Recipes/RecipeTiny";
+
+//react-icons
 import { BsDownload } from "react-icons/bs";
 import { GiKnifeFork } from "react-icons/gi";
 import { BsClockHistory } from "react-icons/bs";
@@ -193,7 +198,6 @@ export default class Home extends Component {
                 Download
               </p>
               <Link to={""}>
-                {" "}
                 {/* INSERT EBOOK PDF PATH HERE */}
                 <div className="ebook-container">
                   <img
