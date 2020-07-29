@@ -258,15 +258,18 @@
 }
 
 .mobile-logo-container {
+  margin-top: 5px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
 .mobile-logo-heading {
   font-family: "Dancing Script", cursive;
-  font-size: 1.7em;
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 5px;
   margin-bottom: 0;
   color: rgb(184, 56, 56);
   font-weight: bold;
@@ -276,6 +279,8 @@
 .mobile-logo-subheading {
   font-family: "Spectral SC", serif;
   font-size: 1em;
+  text-align: center;
+  margin-top: 0;
   color: black;
   font-weight: bold;
   letter-spacing: 1px;
@@ -825,6 +830,7 @@
   font-family: "Spectral SC", serif;
   font-weight: bold;
   font-size: calc(1em + 0.7vw);
+  text-align: center;
 }
 
 .recipe-list-entry {

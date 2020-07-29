@@ -131,14 +131,14 @@ export default class Navigation extends Component {
               id="nav-dropdown-kategorien"
               style={{ transform: "0ms !important" }}
             >
-              <NavDropdown.Item as={Link} to={"/kategorie/brot"}>
-                Brot
-              </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
                 to={"/kategorie/besonderes-und-beilagen"}
               >
                 Besonderes und Beilagen
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={"/kategorie/brot"}>
+                Brot
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to={"/kategorie/eintoepfe"}>
                 Eintöpfe
