@@ -280,12 +280,12 @@ export default class Navigation extends Component {
                   <Accordion.Collapse eventKey="0">
                     <Card.Body id="nav-card-body">
                       <div className="card-entry">
-                        <Link to={"/kategorie/brot"}>Brot</Link>
-                      </div>
-                      <div className="card-entry">
                         <Link to={"/kategorie/besonderes-und-beilagen"}>
                           Besonderes und Beilagen
                         </Link>
+                      </div>
+                      <div className="card-entry">
+                        <Link to={"/kategorie/brot"}>Brot</Link>
                       </div>
                       <div className="card-entry">
                         <Link to={"/kategorie/eintoepfe"}>Eintöpfe</Link>
