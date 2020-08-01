@@ -349,6 +349,7 @@
 .mobile-dropdown-container {
   width: 90%;
   height: auto;
+  min-height: 80px;
   margin-left: 1vw;
   padding: 5px;
   display: flex;
@@ -777,7 +778,8 @@
 .footer-inner {
   width: auto;
   min-width: 150px;
-  height: 3vh;
+  min-height: 30px;
+  height: 2vh;
   margin: 1vh 1vw;
   text-align: center;
 }
@@ -790,7 +792,7 @@
 
 @media only screen and (max-width: 900px) {
   .footer-inner {
-    min-height: 35px;
+    min-height: 30px;
   }
 }
 
@@ -1784,7 +1786,7 @@
 }
 
 .social-share-container-outer {
-  width: 70%;
+  width: 90%;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -1798,7 +1800,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 50vw;
+  width: 70vw;
   height: auto;
 }
 
