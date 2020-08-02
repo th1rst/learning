@@ -9,7 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 ReactDOM.render(
   <React.StrictMode>
     <RecipesProvider>
-      <Router basename="/portfolio/kaufmanns-rezeptsammlung/">
+      <Router>
         <ScrollToTop>
           <App />
         </ScrollToTop>

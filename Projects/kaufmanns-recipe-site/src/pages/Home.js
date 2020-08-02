@@ -197,8 +197,7 @@ export default class Home extends Component {
                 Die PDF-Version des Buchs mit 237 Seiten zum kostenlosen
                 Download
               </p>
-              <Link to={""}>
-                {/* INSERT EBOOK PDF PATH HERE */}
+              <Link to={"/KaufmannsSpitzenRezeptsammlung.pdf"}>
                 <div className="ebook-container">
                   <img
                     className="ebook-cover"
