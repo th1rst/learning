@@ -209,7 +209,7 @@ export default class Navigation extends Component {
               <NavDropdown.Item as={Link} to={`/ueber_die_webseite`}>
                 Über die Webseite
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"https://kaufmanns-rezeptsammlung.de/KaufmannsSpitzenRezeptsammlung.pdf"}>
+              <NavDropdown.Item as={Link} to={"/KaufmannsSpitzenRezeptsammlung.pdf"}>
                 Kostenloses Ebook
               </NavDropdown.Item>
             </NavDropdown>
@@ -400,7 +400,7 @@ export default class Navigation extends Component {
                         <Link to={"/ueber_die_webseite"}>Über die Webseite</Link>
                       </div>
                       <div className="card-entry">
-                        <Link to={"https://kaufmanns-rezeptsammlung.de/KaufmannsSpitzenRezeptsammlung.pdf"}>Kostenloses Ebook</Link>
+                        <Link to={"/KaufmannsSpitzenRezeptsammlung.pdf"}>Kostenloses Ebook</Link>
                       </div>
                     </Card.Body>
                   </Accordion.Collapse>
