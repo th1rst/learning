@@ -59,13 +59,13 @@ export default class Navigation extends Component {
 
   handleEnterKey(e) {
     if (e.key === "Enter") {
-      window.location.href = `/suche/${this.state.searchInput}`;
+      window.location.href = `/portfolio/kaufmanns-rezeptsammlung/suche/${this.state.searchInput}`;
     }
   }
 
   handleEnterKeyMobile(e) {
     if (e.key === "Enter") {
-      window.location.href = `/suche/${this.state.searchInputMobile}`;
+      window.location.href = `/portfolio/kaufmanns-rezeptsammlung/suche/${this.state.searchInputMobile}`;
     }
   }
 
