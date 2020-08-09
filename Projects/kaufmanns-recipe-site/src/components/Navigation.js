@@ -209,12 +209,8 @@ export default class Navigation extends Component {
               <NavDropdown.Item as={Link} to={`/ueber_die_webseite`}>
                 Über die Webseite
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/KaufmannsSpitzenRezeptsammlung.pdf"}>
-                Kostenloses Ebook
-              </NavDropdown.Item>
             </NavDropdown>
           </div>
-          <div className="navbar-item">Forum</div>
         </div>
 
         {/* MOBILE NAVBAR */}
@@ -390,17 +386,16 @@ export default class Navigation extends Component {
                     >
                       Über
                     </Accordion.Toggle>
-                  </Card.Header>  
+                  </Card.Header>
                   <Accordion.Collapse eventKey="2">
                     <Card.Body id="nav-card-body">
                       <div className="card-entry">
                         <Link to={"/ueber_den_autor"}>Über den Autor</Link>
                       </div>
                       <div className="card-entry">
-                        <Link to={"/ueber_die_webseite"}>Über die Webseite</Link>
-                      </div>
-                      <div className="card-entry">
-                        <Link to={"/KaufmannsSpitzenRezeptsammlung.pdf"}>Kostenloses Ebook</Link>
+                        <Link to={"/ueber_die_webseite"}>
+                          Über die Webseite
+                        </Link>
                       </div>
                     </Card.Body>
                   </Accordion.Collapse>
@@ -408,14 +403,6 @@ export default class Navigation extends Component {
               </Accordion>
             </div>
             <div className="divider-large"></div>
-
-            <div className="mobile-dropdown-container">
-              <div className="card-header">
-                <Link to={`/`}>
-                  <p className="mobile-navbar-link">Forum</p>
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </div>

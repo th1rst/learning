@@ -197,7 +197,7 @@ export default class Home extends Component {
                 Die PDF-Version des Buchs mit 237 Seiten zum kostenlosen
                 Download
               </p>
-              <Link to={"/KaufmannsSpitzenRezeptsammlung.pdf"}>
+              <a href="https://kochannek.com/portfolio/kaufmanns-rezeptsammlung/KaufmannsSpitzenRezeptsammlung.pdf" download>
                 <div className="ebook-container">
                   <img
                     className="ebook-cover"
@@ -207,7 +207,7 @@ export default class Home extends Component {
                   <BsDownload className="download-icon" />
                   <p className="download-text">DOWNLOAD</p>
                 </div>
-              </Link>
+              </a>
 
               <p className="featured-recipes-heading">Beliebte Artikel</p>
               <div className="divider-small"></div>

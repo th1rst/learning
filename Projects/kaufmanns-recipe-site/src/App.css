@@ -40,7 +40,7 @@
 
 /* DESKTOP NAVBAR */
 .navbar-container {
-  margin-left: 0.5vw;
+  margin-left: 1vw;
   position: fixed;
   top: 0;
   z-index: 10;
