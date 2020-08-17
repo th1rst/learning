@@ -1,5 +1,3 @@
-THIS IS A WORK IN PROGRESS
-
 Since I don't like the privacy-invading nature of Google and other big tech companies alike, I liked the idea of making a privacy Startpage which provides access to great open source alternatives
 without the need to look for them. Just add them to the Startpage and the user is good to go.
 Stumbling accross Gridstack.js, I thought it would be cool if you could drag around the individual elements.
