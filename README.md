@@ -30,5 +30,5 @@ Quickly, I jumped from Vanilla HTML, CSS and JS to React, since I like the reusa
 **Current Project**
 Current Project: "Make Me Awesome" - a personal time tracker / self-improvement Webapp I'm developing for a friend.
 Frontend: React + React Router, Tailwind CSS
-Backend: Directual Database (for users and their corresponding activities) + Auth + API
+Backend: Firebase + Auth, Firestore
 
