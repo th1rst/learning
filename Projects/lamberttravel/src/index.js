@@ -8,7 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/portfolio/lamberttravel/">
       <ScrollToTop>
         <App />
       </ScrollToTop>
