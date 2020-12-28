@@ -1,25 +1,21 @@
-import React from 'react';
-import './App.css';
-import Home from './pages/Home'
-import Rooms from './pages/Rooms'
-import SingleRoom from './pages/SingleRoom'
-import Error404 from './pages/Error404'
-import { Switch, Route } from 'react-router-dom';
-import "typeface-roboto"
-import { withOneTabEnforcer } from "react-one-tab-enforcer"
-
+import React from "react";
+import "./App.css";
+import Home from "./pages/Home";
+import Rooms from "./pages/Rooms";
+import SingleRoom from "./pages/SingleRoom";
+import Error404 from "./pages/Error404";
+import { Switch, Route } from "react-router-dom";
+import "typeface-roboto";
+import { withOneTabEnforcer } from "react-one-tab-enforcer";
 
 function App() {
   return (
-    
-      <Switch>
+    <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/rooms/" component={Rooms} />
       <Route exact path="/rooms/:slug" component={SingleRoom} />
       <Route component={Error404} />
-
-      </Switch>
-
+    </Switch>
   );
 }
 

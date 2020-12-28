@@ -31,13 +31,26 @@ export default class SingleRoom extends Component {
 
   render() {
     const EMAIL = process.env.REACT_APP_MAIL_ADDRESS;
+    const {
+      name,
+      price,
+      size,
+      titleImage,
+      allImages,
+      capacity,
+      breakfast,
+      pets,
+      extras,
+      description,
+    } = this.props.location.state;
+
     return (
       <div>
         <Navbar />
         <HeroSmall
-          title={this.props.location.state.name}
-          subtitle={`Only $${this.props.location.state.price} a night for ${this.props.location.state.size} square feet`}
-          image={this.props.location.state.titleImage}
+          title={name}
+          subtitle={`Only $${price} a night for ${size} square feet`}
+          image={titleImage}
         />
 
         <div className="section-heading">
@@ -46,7 +59,7 @@ export default class SingleRoom extends Component {
         </div>
 
         <div className="gallery-container">
-          {this.props.location.state.allImages.map((image) => (
+          {allImages.map((image) => (
             <div className="gallery-item">
               <a href={`https:${image}`}>
                 <img className="gallery-picture" src={image} alt="room"></img>
@@ -65,7 +78,7 @@ export default class SingleRoom extends Component {
               <h2>
                 PRICE:
                 <br />
-                <br /> {this.props.location.state.price} per night
+                <br /> {price} per night
               </h2>
             </div>
             <div className="info-subsection-box">
@@ -73,7 +86,7 @@ export default class SingleRoom extends Component {
               <h2>
                 SIZE:
                 <br />
-                <br /> {this.props.location.state.size} sqft.
+                <br /> {size} sqft.
               </h2>
             </div>
             <div className="info-subsection-box">
@@ -82,9 +95,7 @@ export default class SingleRoom extends Component {
                 CAPACITY:
                 <br />
                 <br />
-                {this.props.location.state.capacity > 1
-                  ? `${this.props.location.state.capacity} PEOPLE`
-                  : `${this.props.location.state.capacity} PERSON`}
+                {capacity > 1 ? `${capacity} PEOPLE` : `${capacity} PERSON`}
               </h2>
             </div>
             <div className="info-subsection-box">
@@ -93,7 +104,7 @@ export default class SingleRoom extends Component {
                 BREAKFAST:
                 <br />
                 <br />
-                {this.props.location.state.breakfast === true ? "YES" : "NO"}
+                {breakfast ? "YES" : "NO"}
               </h2>
             </div>
             <div className="info-subsection-box">
@@ -101,7 +112,7 @@ export default class SingleRoom extends Component {
               <h2>
                 PETS ALLOWED:
                 <br />
-                <br /> {this.props.location.state.pets === true ? "YES" : "NO"}
+                <br /> {pets ? "YES" : "NO"}
               </h2>
             </div>
             <div className="info-extras-box">
@@ -110,7 +121,7 @@ export default class SingleRoom extends Component {
                 <br />
               </div>
               <div className="extras-list-row-2">
-                {this.props.location.state.extras.map((item) => (
+                {extras.map((item) => (
                   <div className="extras-list-item">
                     <IoMdCheckmarkCircleOutline className="extras-checkmark" />
                     {item}
@@ -126,7 +137,7 @@ export default class SingleRoom extends Component {
           <div className="description-box">
             <FaQuoteRight className="quotation-symbol" />
             <div className="quotation-box">
-              <p>{this.props.location.state.description}</p>
+              <p>{description}</p>
             </div>
           </div>
           <div className="book-now-box">

@@ -1,12 +1,11 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import {Link} from 'react-router-dom'
+import React from "react";
+import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 export default function Error404() {
-    return (
-        <div>
+  return (
+    <div>
       <Navbar />
-
       <div className="home-background home-background-fullscreen">
         <div className="floating-box">
           <div className="floating-box-inner-row-1">
@@ -22,5 +21,5 @@ export default function Error404() {
         </div>
       </div>
     </div>
-    )
+  );
 }
