@@ -12,6 +12,7 @@ import SuccessModal from "./SuccessModal";
 import { Text } from "./Multilanguage/Text";
 import { ThemeContext } from "../components/DarkMode/ThemeProvider";
 import { Link } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 
 const formID = process.env.REACT_APP_FORM_ID;
 
@@ -244,6 +245,24 @@ class ContactForm extends React.Component {
                 />
               </div>
             </form>
+            <div className="flex flex-row justify-center mt-24">
+              <a
+                href="https://github.com/th1rst"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <div className="flex flex-col justify-around items-center">
+                  <h1 className="text-white text-xl uppercase font-semibold">
+                    Or find me on Github
+                  </h1>
+
+                  <FaGithub
+                    className="w-16 h-16 my-4"
+                    style={{ color: "#ffffff" }}
+                  />
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </>
